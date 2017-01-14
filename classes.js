@@ -1,7 +1,7 @@
 var gwent = gwent || {};
 
 
-class card {
+class Card {
 	constructor(name){
 		this.name = name;
 	},
@@ -11,7 +11,7 @@ class card {
 	}
 }
 
-class combatCard extends card {
+class CombatCard extends Card {
 	constructor(name, position, score, ability){
 		super(name);
 		this.position = position;
@@ -32,7 +32,7 @@ class combatCard extends card {
 	}
 }
 
-class leaderCard extends card {
+class LeaderCard extends Card {
 	constructor(name, ability){
 		super(name);
 		this.ability = ability; 
@@ -43,7 +43,7 @@ class leaderCard extends card {
 	}	
 }
 
-class weatherCard extends card {
+class WeatherCard extends Card {
 	constructor(name, affectedPosition, penalty){
 		super(name);
 		this.affectedPosition = affectedPosition;
@@ -59,7 +59,7 @@ class weatherCard extends card {
 	}
 }
 
-class specialCard extends card {
+class SpecialCard extends Card {
 	constructor(name, ability){
 		super(name);
 		this.ability = ability;
@@ -70,3 +70,70 @@ class specialCard extends card {
 	}
 }
 
+class Deck {
+	constructor(type, cards){
+		this.type = type;
+		this.cards = cards; 
+	},
+
+	get type(){
+		return type;
+	},
+
+	get cards(){
+		return cards; 
+	},
+
+	get drawHand(){
+		return;
+	}
+
+	function drawCard(var i){
+		let cardArray = [];
+		while(i > 0){
+			cardArray.push(cards.pop);
+		}
+		return cardArray;
+	}
+}
+
+class MonsterDeck extends Deck{
+	constructor(type, cards){
+		super("Monster", cards);
+	}
+}
+
+class NorthernDeck extends Deck{
+    constructor(type, cards){
+		super("Northern", cards);
+	}	
+}
+
+class NilfgaardianDeck extends Deck{
+	constructor(type, cards){
+		super("Nilfgaardian", cards);
+	}
+}
+
+class ScoiataelDeck extends Deck{
+	constructor(type, cards){
+		super("Scoiatael", cards);
+	}
+}
+
+class SkelligeDeck extends Deck{
+	constructor(type, cards){
+		super("Skellige", cards);
+	}
+}
+
+class playerBoard {
+	constructor(deck){
+		this.score = 0;
+		this.leader = '';
+		this.seige = new Array(10);
+		this.ranged = new Array(10);
+		this.closeCombat = new Array(10);
+		this.discardPile = new Array();
+	}
+}
