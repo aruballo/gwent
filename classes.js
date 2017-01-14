@@ -127,13 +127,13 @@ class SkelligeDeck extends Deck{
 	}
 }
 
-class playerBoard {
+class PlayerBoard {
 	constructor(deck){
 		this.score = 0;
 		this.leader = '';
 		this.seige = new Array(10);
 		this.ranged = new Array(10);
-		this.closeCombat = new Array(10);
+		this.melee = new Array(10);
 		this.discardPile = new Array();
 	}
 }
