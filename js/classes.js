@@ -4,10 +4,6 @@ var gwent = gwent || {};
 class Card {
 	constructor(name){
 		this.name = name;
-	},
-
-	get name(){
-		return this.name;
 	}
 }
 
@@ -17,18 +13,6 @@ class CombatCard extends Card {
 		this.position = position;
 		this.score = score;
 		this.ability = ability; 
-	},
-
-	get position(){
-		return this.position;
-	},
-
-	get score(){
-		return this.score();
-	},
-
-	get ability(){
-		return this.ability;
 	}
 }
 
@@ -36,11 +20,7 @@ class LeaderCard extends Card {
 	constructor(name, ability){
 		super(name);
 		this.ability = ability; 
-	},
-
-	get ability(){
-		return this.ability;
-	}	
+	}
 }
 
 class WeatherCard extends Card {
@@ -48,14 +28,6 @@ class WeatherCard extends Card {
 		super(name);
 		this.affectedPosition = affectedPosition;
 		this.penalty = penalty;
-	},
-
-	get affectedPosition(){
-		return this.affectedPosition;
-	},
-
-	get penalty(){
-		return this.penalty;
 	}
 }
 
@@ -63,10 +35,6 @@ class SpecialCard extends Card {
 	constructor(name, ability){
 		super(name);
 		this.ability = ability;
-	},
-
-	get ability(){
-		return this.ability;
 	}
 }
 
@@ -74,22 +42,10 @@ class Deck {
 	constructor(type, cards){
 		this.type = type;
 		this.cards = cards; 
-	},
-
-	get type(){
-		return type;
-	},
-
-	get cards(){
-		return cards; 
-	},
-
-	get drawHand(){
-		return;
 	}
 
-	function drawCard(var i){
-		let cardArray = [];
+	drawCard(i){
+		var cardArray = [];
 		while(i > 0){
 			cardArray.push(cards.pop);
 		}
@@ -98,31 +54,31 @@ class Deck {
 }
 
 class MonsterDeck extends Deck{
-	constructor(type, cards){
+	constructor(cards){
 		super("Monster", cards);
 	}
 }
 
 class NorthernDeck extends Deck{
-    constructor(type, cards){
+    constructor(cards){
 		super("Northern", cards);
 	}	
 }
 
 class NilfgaardianDeck extends Deck{
-	constructor(type, cards){
+	constructor(cards){
 		super("Nilfgaardian", cards);
 	}
 }
 
 class ScoiataelDeck extends Deck{
-	constructor(type, cards){
+	constructor(cards){
 		super("Scoiatael", cards);
 	}
 }
 
 class SkelligeDeck extends Deck{
-	constructor(type, cards){
+	constructor(cards){
 		super("Skellige", cards);
 	}
 }
