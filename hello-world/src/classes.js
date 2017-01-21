@@ -47,7 +47,7 @@ class Deck {
 	drawCard(i){
 		var cardArray = [];
 		while(i > 0){
-			cardArray.push(cards.pop);
+			cardArray.push(this.cards.pop);
 		}
 		return cardArray;
 	}

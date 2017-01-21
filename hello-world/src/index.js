@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import SelectionPage from './SelectionPage';
 import './index.css';
+import './classes.js';
+import './deckCards.js';
 
 ReactDOM.render(
-  <App />,
+  <SelectionPage />,
   document.getElementById('root')
 );
