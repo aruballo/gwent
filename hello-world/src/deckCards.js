@@ -1,6 +1,6 @@
-var gwent = gwent || {};
+var gwentCards = {};
 
-gwent.northernCards = [
+gwentCards.northernCards = [
 	{
 		name: "Foltest, King of Temeria",
 		type: "LeaderCard",
@@ -193,7 +193,7 @@ gwent.northernCards = [
 	}
 ];
 
-gwent.nilfgaardCards = [
+gwentCards.nilfgaardCards = [
 	{
 		name: "The Relentless",
 		type: "LeaderCard",
@@ -419,7 +419,7 @@ gwent.nilfgaardCards = [
 	}
 ];
 
-gwent.scoiataelCards = [
+gwentCards.scoiataelCards = [
 	{
 		name: "Queen of Dol Blathanna",
 		type: "LeaderCard",
@@ -595,3 +595,8 @@ gwent.scoiataelCards = [
 		ability: "Muster"
 	}
 ];
+
+gwentCards.monsterCards = [
+];
+
+export default gwentCards;

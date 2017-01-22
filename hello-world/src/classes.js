@@ -1,13 +1,12 @@
-var gwent = gwent || {};
+var gwentClasses = {};
 
-
-class Card {
+gwentClasses.Card = class {
 	constructor(name){
 		this.name = name;
 	}
 }
 
-class CombatCard extends Card {
+gwentClasses.CombatCard = class extends gwentClasses.Card {
 	constructor(name, position, score, ability){
 		super(name);
 		this.position = position;
@@ -16,14 +15,14 @@ class CombatCard extends Card {
 	}
 }
 
-class LeaderCard extends Card {
+gwentClasses.LeaderCard = class extends gwentClasses.Card {
 	constructor(name, ability){
 		super(name);
 		this.ability = ability; 
 	}
 }
 
-class WeatherCard extends Card {
+gwentClasses.WeatherCard = class extends gwentClasses.Card {
 	constructor(name, affectedPosition, penalty){
 		super(name);
 		this.affectedPosition = affectedPosition;
@@ -31,14 +30,14 @@ class WeatherCard extends Card {
 	}
 }
 
-class SpecialCard extends Card {
+gwentClasses.SpecialCard = class extends gwentClasses.Card {
 	constructor(name, ability){
 		super(name);
 		this.ability = ability;
 	}
 }
 
-class Deck {
+gwentClasses.Deck = class {
 	constructor(type, cards){
 		this.type = type;
 		this.cards = cards; 
@@ -53,37 +52,37 @@ class Deck {
 	}
 }
 
-class MonsterDeck extends Deck{
+gwentClasses.MonsterDeck = class extends gwentClasses.Deck{
 	constructor(cards){
 		super("Monster", cards);
 	}
 }
 
-class NorthernDeck extends Deck{
+gwentClasses.NorthernDeck = class extends gwentClasses.Deck{
     constructor(cards){
 		super("Northern", cards);
 	}	
 }
 
-class NilfgaardianDeck extends Deck{
+gwentClasses.NilfGaardDeck = class extends gwentClasses.Deck{
 	constructor(cards){
 		super("Nilfgaardian", cards);
 	}
 }
 
-class ScoiataelDeck extends Deck{
+gwentClasses.ScoiataelDeck = class extends gwentClasses.Deck{
 	constructor(cards){
 		super("Scoiatael", cards);
 	}
 }
 
-class SkelligeDeck extends Deck{
+gwentClasses.SkelligeDeck = class extends gwentClasses.Deck{
 	constructor(cards){
 		super("Skellige", cards);
 	}
 }
 
-class PlayerBoard {
+gwentClasses.Playerboard = class {
 	constructor(deck){
 		this.score = 0;
 		this.leader = '';
@@ -93,3 +92,5 @@ class PlayerBoard {
 		this.discardPile = new Array();
 	}
 }
+
+export default gwentClasses;
