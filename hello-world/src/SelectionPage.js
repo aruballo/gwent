@@ -5,8 +5,6 @@ import './index.css';
 import  gwentClasses from './classes.js';
 import  gwentCards from './deckCards.js';
 
-console.log(gwentCards);
-
 class SelectionPage extends Component {
   constructor(props){
     super(props);
@@ -50,8 +48,6 @@ class SelectionPage extends Component {
         </div>
         <SelectionOptions onChange={this.handleBasicDeckSelection} value={this.state.basicDeckSelected}/>
         <BaseDeckChoicesAndStats basicDeckName={this.state.basicDeckName} basicDeckSelected={this.state.basicDeckSelected}/>
-        <div className="NeutralDeckChoices">
-        </div>
       </div>
     );
   }
@@ -78,47 +74,91 @@ class SelectionOptions extends Component {
 
 class BaseDeckChoicesAndStats extends Component{
   render(){
-    let currentRows = [];
+    let currentCards = [];
+    let currentLeaders = [];
+    let currentNeutralCards = [];
+
 
     if(this.props.basicDeckSelected === "northern"){
+      gwentCards.northernLeaders.map((object, index)=>{
+        currentLeaders.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
+      });
       gwentCards.northernCards.map((object, index)=>{
-        currentRows.push(<BasicDeckTablerow key={index} name={object.name} type={object.type} score={object.score}/>);
-      })
+        currentCards.push(<BasicDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position}/>);
+      });
     }
 
     else if(this.props.basicDeckSelected === "nilfgaard"){
+      gwentCards.nilfgaardLeaders.map((object, index)=>{
+        currentLeaders.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
+      });
       gwentCards.nilfgaardCards.map((object, index)=>{
-        currentRows.push(<BasicDeckTablerow key={index} name={object.name} type={object.type} score={object.score}/>);
-      })
+        currentCards.push(<BasicDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position}/>);
+      });
     }
     else if(this.props.basicDeckSelected === "monsters"){
       gwentCards.monsterCards.map((object, index)=>{
-        currentRows.push(<BasicDeckTablerow key={index} name={object.name} type={object.type} score={object.score}/>);
-      })
+        currentCards.push(<BasicDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position}/>);
+      });
     }
     else if(this.props.basicDeckSelected === "scoiatael"){
+      gwentCards.scoiataelLeaders.map((object, index)=>{
+        currentLeaders.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
+      });
       gwentCards.scoiataelCards.map((object, index)=>{
-        currentRows.push(<BasicDeckTablerow key={index} name={object.name} type={object.type} score={object.score}/>);
-      })
+        currentCards.push(<BasicDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position}/>);
+      });
     }
-    else{
 
-    }
-  
+    gwentCards.neutralCards.map((object, index)=>{
+      currentNeutralCards.push(<NeutralDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position}/>);
+    });
+    
     return(
       <div className="BaseDeckChoicesAndStats">
         <div>
           <h2>{this.props.basicDeckName}</h2>
-          <table>
+          <table className="pure-table pure-table-bordered">
             <thead>
               <tr>
+                <th> </th>
+                <th> Leader Name </th>
+                <th> Ability </th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentLeaders}
+            </tbody>
+          </table>
+          <table className="pure-table pure-table-bordered">
+            <thead>
+              <tr>
+                <th> </th>
                 <th> Card Name </th>
                 <th> Card Type </th>
+                <th> Card Position </th>
                 <th> Card Score </th>
               </tr>
             </thead>
             <tbody>
-              {currentRows}
+              {currentCards}
+            </tbody>
+          </table>
+        </div>
+        <div className="DeckStats">
+        </div>
+        <div className="NeutralDeckChoices">
+          <h2> Neutral Deck Choices </h2>
+          <table className="pure-table pure-table-bordered">
+            <thead>
+              <tr>
+                <th> </th>
+                <th> Leader Name </th>
+                <th> Ability </th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentNeutralCards}
             </tbody>
           </table>
         </div>
@@ -127,13 +167,42 @@ class BaseDeckChoicesAndStats extends Component{
   }
 }
 
-class BasicDeckTablerow extends Component {
+class LeaderTableRow extends Component {
   render(){
     return(
       <tr>
+        <td> <input type="radio" name="Leader" value={this.props.name}/></td>
+        <td> {this.props.name} </td>
+        <td> {this.props.ability} </td>
+      </tr>
+    )
+  }
+}
+
+class BasicDeckTableRow extends Component {
+  render(){
+    return(
+      <tr>
+        <td> <input type="checkbox"/></td>
         <td> {this.props.name} </td>
         <td> {this.props.type} </td>
+        <td> {this.props.position} </td>
         <td> {this.props.score} </td>
+      </tr>
+    )
+  }
+}
+
+class NeutralDeckTableRow extends Component {
+  render(){
+    return(
+      <tr>
+        <td> <input type="checkbox"/></td>
+        <td> {this.props.name} </td>
+        <td> {this.props.type} </td>
+        <td> {this.props.position} </td>
+        <td> {this.props.score} </td>
+        <td> {this.props.ability} </td>
       </tr>
     )
   }

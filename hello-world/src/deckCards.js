@@ -1,6 +1,6 @@
 var gwentCards = {};
 
-gwentCards.northernCards = [
+gwentCards.northernLeaders = [
 	{
 		name: "Foltest, King of Temeria",
 		type: "LeaderCard",
@@ -15,7 +15,10 @@ gwentCards.northernCards = [
 		name: "Foltest, the Steel Forged",
 		type: "LeaderCard",
 		ability: "Siege Scorch"
-	},
+	}
+];
+
+gwentCards.northernCards = [
 	{
 		name: "Vernon Roche",
 		type: "CombatCard",
@@ -193,7 +196,7 @@ gwentCards.northernCards = [
 	}
 ];
 
-gwentCards.nilfgaardCards = [
+gwentCards.nilfgaardLeaders = [
 	{
 		name: "The Relentless",
 		type: "LeaderCard",
@@ -213,7 +216,10 @@ gwentCards.nilfgaardCards = [
 		name: "The Emperor of Nilfgaard",
 		type: "LeaderCard",
 		ability: "Look at 3 cards"
-	},	
+	}
+];
+
+gwentCards.nilfgaardCards = [
 	{
 		name: "Letho of Gulet",
 		type: "CombatCard",
@@ -419,7 +425,7 @@ gwentCards.nilfgaardCards = [
 	}
 ];
 
-gwentCards.scoiataelCards = [
+gwentCards.scoiataelLeaders = [
 	{
 		name: "Queen of Dol Blathanna",
 		type: "LeaderCard",
@@ -439,7 +445,10 @@ gwentCards.scoiataelCards = [
 		name: "Pureblood Elf",
 		type: "LeaderCard",
 		ability: "Frost"
-	},	
+	}
+];
+
+gwentCards.scoiataelCards = [	
 	{
 		name: "Eithne",
 		type: "CombatCard",
