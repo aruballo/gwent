@@ -1,4 +1,4 @@
-.Header, .SelectionOptions, .BaseDeckChoicesAndStats, .NeutralDeckChoices {
+.Header, .SelectionOptions, .DeckChoicesAndStats {
   display: flex;
   justify-content: center;
 }

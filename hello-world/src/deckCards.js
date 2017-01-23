@@ -608,4 +608,14 @@ gwentCards.scoiataelCards = [
 gwentCards.monsterCards = [
 ];
 
+gwentCards.neutralCards = [
+	{
+		name: "Geralt of Rivia",
+		type: "CombatCard",
+		position: "Melee",
+		score: 10,
+		ability: "Hero"
+	}
+];
+
 export default gwentCards;

@@ -9,13 +9,16 @@ class SelectionPage extends Component {
   constructor(props){
     super(props);
     this.state = {
-      basicDeckSelected: "",
-      basicDeckName: ""
+      baseDeckSelected: "",
+      baseDeckName: "",
+      baseDeckCards: [],
+      neutralDeckCards: [],
+      leaderCard: []
     };
-    this.handleBasicDeckSelection = this.handleBasicDeckSelection.bind(this);
+    this.handleBaseDeckSelection = this.handleBaseDeckSelection.bind(this);
   }
 
-  handleBasicDeckSelection(val){
+  handleBaseDeckSelection(val){
     this.setState((prevState, props) => {
 
       let deckName = "";
@@ -34,8 +37,10 @@ class SelectionPage extends Component {
       }
 
       return {
-        basicDeckSelected: val,
-        basicDeckName: deckName
+        baseDeckSelected: val,
+        baseDeckName: deckName,
+        baseDeckCards: [],
+        leaderCard: []
       }
     });
   }
@@ -46,8 +51,12 @@ class SelectionPage extends Component {
         <div className="Header">
           <h1> Gwent Card Game </h1>
         </div>
-        <SelectionOptions onChange={this.handleBasicDeckSelection} value={this.state.basicDeckSelected}/>
-        <BaseDeckChoicesAndStats basicDeckName={this.state.basicDeckName} basicDeckSelected={this.state.basicDeckSelected}/>
+        <SelectionOptions onChange={this.handleBaseDeckSelection} value={this.state.baseDeckSelected}/>
+        <div className="DeckChoicesAndStats">
+          <BaseDeckChoices baseDeckName={this.state.baseDeckName} baseDeckSelected={this.state.baseDeckSelected} baseDeckCards={this.state.baseDeckCards} leaderCard={this.state.leaderCard}/>
+          <DeckStats/>
+          <NeutralDeckChoices neutralDeckCards={this.state.neutralDeckCards}/>
+        </div>
       </div>
     );
   }
@@ -72,96 +81,111 @@ class SelectionOptions extends Component {
   }
 }
 
-class BaseDeckChoicesAndStats extends Component{
+class BaseDeckChoices extends Component{
   render(){
-    let currentCards = [];
-    let currentLeaders = [];
-    let currentNeutralCards = [];
-
-
-    if(this.props.basicDeckSelected === "northern"){
+    if(this.props.baseDeckSelected === "northern"){
       gwentCards.northernLeaders.map((object, index)=>{
-        currentLeaders.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
+        this.props.leaderCard.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
       });
       gwentCards.northernCards.map((object, index)=>{
-        currentCards.push(<BasicDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position}/>);
+        this.props.baseDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
       });
     }
 
-    else if(this.props.basicDeckSelected === "nilfgaard"){
+    else if(this.props.baseDeckSelected === "nilfgaard"){
       gwentCards.nilfgaardLeaders.map((object, index)=>{
-        currentLeaders.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
+        this.props.leaderCard.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
       });
       gwentCards.nilfgaardCards.map((object, index)=>{
-        currentCards.push(<BasicDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position}/>);
+        this.props.baseDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
       });
     }
-    else if(this.props.basicDeckSelected === "monsters"){
+    else if(this.props.baseDeckSelected === "monsters"){
       gwentCards.monsterCards.map((object, index)=>{
-        currentCards.push(<BasicDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position}/>);
+        this.props.baseDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
       });
     }
-    else if(this.props.basicDeckSelected === "scoiatael"){
+    else if(this.props.baseDeckSelected === "scoiatael"){
       gwentCards.scoiataelLeaders.map((object, index)=>{
-        currentLeaders.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
+        this.props.leaderCard.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
       });
       gwentCards.scoiataelCards.map((object, index)=>{
-        currentCards.push(<BasicDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position}/>);
+        this.props.baseDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
+      });
+    }
+    
+    return(
+      <div>
+        <h2>{this.props.baseDeckName}</h2>
+        <table className="pure-table pure-table-bordered">
+          <thead>
+            <tr>
+              <th> </th>
+              <th> Leader Name </th>
+              <th> Ability </th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.leaderCard}
+          </tbody>
+        </table>
+        <table className="pure-table pure-table-bordered">
+          <thead>
+            <tr>
+              <th> </th>
+              <th> Card Name </th>
+              <th> Card Type </th>
+              <th> Card Position </th>
+              <th> Card Score </th>
+              <th> Card Ability </th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.baseDeckCards}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+}
+
+class DeckStats extends Component {
+  render(){
+    return(
+      <div>
+        <h2> Deck Stats </h2>
+      </div>
+    )
+  }
+}
+
+class NeutralDeckChoices extends Component {
+  render(){
+    if(this.props.neutralDeckCards.length === 0){
+      gwentCards.neutralCards.map((object, index)=>{
+        console.log(object);
+        this.props.neutralDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
       });
     }
 
-    gwentCards.neutralCards.map((object, index)=>{
-      currentNeutralCards.push(<NeutralDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position}/>);
-    });
-    
-    return(
-      <div className="BaseDeckChoicesAndStats">
-        <div>
-          <h2>{this.props.basicDeckName}</h2>
-          <table className="pure-table pure-table-bordered">
-            <thead>
-              <tr>
-                <th> </th>
-                <th> Leader Name </th>
-                <th> Ability </th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentLeaders}
-            </tbody>
-          </table>
-          <table className="pure-table pure-table-bordered">
-            <thead>
-              <tr>
-                <th> </th>
-                <th> Card Name </th>
-                <th> Card Type </th>
-                <th> Card Position </th>
-                <th> Card Score </th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentCards}
-            </tbody>
-          </table>
-        </div>
-        <div className="DeckStats">
-        </div>
-        <div className="NeutralDeckChoices">
-          <h2> Neutral Deck Choices </h2>
-          <table className="pure-table pure-table-bordered">
-            <thead>
-              <tr>
-                <th> </th>
-                <th> Leader Name </th>
-                <th> Ability </th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentNeutralCards}
-            </tbody>
-          </table>
-        </div>
+    return (
+      <div className="NeutralDeckChoices">
+        <h2> Neutral Deck Choices </h2>
+        <table className="pure-table pure-table-bordered">
+          <thead>
+            <tr>
+              <th> </th>
+              <th> Card Name </th>
+              <th> Card Type </th>
+              <th> Card Position </th>
+              <th> Card Score </th>
+              <th> Card Ability </th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.neutralDeckCards}
+          </tbody>
+        </table>
       </div>
     )
   }
@@ -179,7 +203,7 @@ class LeaderTableRow extends Component {
   }
 }
 
-class BasicDeckTableRow extends Component {
+class BaseDeckTableRow extends Component {
   render(){
     return(
       <tr>
@@ -188,6 +212,7 @@ class BasicDeckTableRow extends Component {
         <td> {this.props.type} </td>
         <td> {this.props.position} </td>
         <td> {this.props.score} </td>
+        <td> {this.props.ability} </td>
       </tr>
     )
   }
