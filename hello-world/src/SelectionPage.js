@@ -22,25 +22,54 @@ class SelectionPage extends Component {
     this.setState((prevState, props) => {
 
       let deckName = "";
+      let leaderCards = [];
+      let baseCards = [];
+      let neutralCards = [];
 
       if(val === "northern"){
         deckName = "Northern Realms";
+        gwentCards.northernLeaders.map((object, index)=>{
+          leaderCards.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
+        });
+        gwentCards.northernCards.map((object, index)=>{
+          baseCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
+        });
       }
       else if(val === "nilfgaard"){
         deckName = "Nilfgaardian Empire";
+        gwentCards.nilfgaardLeaders.map((object, index)=>{
+          leaderCards.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
+        });
+        gwentCards.nilfgaardCards.map((object, index)=>{
+          baseCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
+        });
       }
       else if(val === "monsters"){
         deckName = "Monsters";
+        gwentCards.monsterCards.map((object, index)=>{
+          baseCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
+        });
       }
       else if(val === "scoiatael"){
         deckName = "Scoia'tel";
+        gwentCards.scoiataelLeaders.map((object, index)=>{
+          leaderCards.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
+        });
+        gwentCards.scoiataelCards.map((object, index)=>{
+          baseCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
+        });
       }
+
+      gwentCards.neutralCards.map((object, index)=>{
+        neutralCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
+      });
 
       return {
         baseDeckSelected: val,
         baseDeckName: deckName,
-        baseDeckCards: [],
-        leaderCard: []
+        baseDeckCards: baseCards,
+        leaderCards: leaderCards,
+        neutralDeckCards: neutralCards
       }
     });
   }
@@ -53,7 +82,7 @@ class SelectionPage extends Component {
         </div>
         <SelectionOptions onChange={this.handleBaseDeckSelection} value={this.state.baseDeckSelected}/>
         <div className={this.state.baseDeckName === "" ? "DeckChoicesAndStats Hidden":"DeckChoicesAndStats"}>
-          <BaseDeckChoices baseDeckName={this.state.baseDeckName} baseDeckSelected={this.state.baseDeckSelected} baseDeckCards={this.state.baseDeckCards} leaderCard={this.state.leaderCard}/>
+          <BaseDeckChoices baseDeckName={this.state.baseDeckName} baseDeckSelected={this.state.baseDeckSelected} baseDeckCards={this.state.baseDeckCards} leaderCards={this.state.leaderCards}/>
           <DeckStats/>
           <NeutralDeckChoices neutralDeckCards={this.state.neutralDeckCards}/>
         </div>
@@ -83,36 +112,6 @@ class SelectionOptions extends Component {
 
 class BaseDeckChoices extends Component{
   render(){
-    if(this.props.baseDeckSelected === "northern"){
-      gwentCards.northernLeaders.map((object, index)=>{
-        this.props.leaderCard.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
-      });
-      gwentCards.northernCards.map((object, index)=>{
-        this.props.baseDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
-      });
-    }
-
-    else if(this.props.baseDeckSelected === "nilfgaard"){
-      gwentCards.nilfgaardLeaders.map((object, index)=>{
-        this.props.leaderCard.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
-      });
-      gwentCards.nilfgaardCards.map((object, index)=>{
-        this.props.baseDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
-      });
-    }
-    else if(this.props.baseDeckSelected === "monsters"){
-      gwentCards.monsterCards.map((object, index)=>{
-        this.props.baseDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
-      });
-    }
-    else if(this.props.baseDeckSelected === "scoiatael"){
-      gwentCards.scoiataelLeaders.map((object, index)=>{
-        this.props.leaderCard.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
-      });
-      gwentCards.scoiataelCards.map((object, index)=>{
-        this.props.baseDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
-      });
-    }
     
     return(
       <div className="BaseDeckTableDiv">
@@ -126,7 +125,7 @@ class BaseDeckChoices extends Component{
             </tr>
           </thead>
           <tbody>
-            {this.props.leaderCard}
+            {this.props.leaderCards}
           </tbody>
         </table>
         <table className="pure-table pure-table-bordered">
@@ -161,12 +160,6 @@ class DeckStats extends Component {
 
 class NeutralDeckChoices extends Component {
   render(){
-    if(this.props.neutralDeckCards.length === 0){
-      gwentCards.neutralCards.map((object, index)=>{
-        this.props.neutralDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
-      });
-    }
-
     return (
       <div className="NeutralDeckTableDiv">
         <h2> Neutral Deck Choices </h2>
@@ -203,21 +196,6 @@ class LeaderTableRow extends Component {
 }
 
 class BaseDeckTableRow extends Component {
-  render(){
-    return(
-      <tr>
-        <td> <input type="checkbox"/></td>
-        <td> {this.props.name} </td>
-        <td> {this.props.type} </td>
-        <td> {this.props.position} </td>
-        <td> {this.props.score} </td>
-        <td> {this.props.ability} </td>
-      </tr>
-    )
-  }
-}
-
-class NeutralDeckTableRow extends Component {
   render(){
     return(
       <tr>
