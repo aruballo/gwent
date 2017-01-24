@@ -52,7 +52,7 @@ class SelectionPage extends Component {
           <h1> Gwent Card Game </h1>
         </div>
         <SelectionOptions onChange={this.handleBaseDeckSelection} value={this.state.baseDeckSelected}/>
-        <div className="DeckChoicesAndStats">
+        <div className={this.state.baseDeckName === "" ? "DeckChoicesAndStats Hidden":"DeckChoicesAndStats"}>
           <BaseDeckChoices baseDeckName={this.state.baseDeckName} baseDeckSelected={this.state.baseDeckSelected} baseDeckCards={this.state.baseDeckCards} leaderCard={this.state.leaderCard}/>
           <DeckStats/>
           <NeutralDeckChoices neutralDeckCards={this.state.neutralDeckCards}/>
@@ -115,7 +115,7 @@ class BaseDeckChoices extends Component{
     }
     
     return(
-      <div>
+      <div className="BaseDeckTableDiv">
         <h2>{this.props.baseDeckName}</h2>
         <table className="pure-table pure-table-bordered">
           <thead>
@@ -152,7 +152,7 @@ class BaseDeckChoices extends Component{
 class DeckStats extends Component {
   render(){
     return(
-      <div>
+      <div className="DeckStats">
         <h2> Deck Stats </h2>
       </div>
     )
@@ -163,13 +163,12 @@ class NeutralDeckChoices extends Component {
   render(){
     if(this.props.neutralDeckCards.length === 0){
       gwentCards.neutralCards.map((object, index)=>{
-        console.log(object);
         this.props.neutralDeckCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
       });
     }
 
     return (
-      <div className="NeutralDeckChoices">
+      <div className="NeutralDeckTableDiv">
         <h2> Neutral Deck Choices </h2>
         <table className="pure-table pure-table-bordered">
           <thead>

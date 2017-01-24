@@ -2,3 +2,11 @@
   display: flex;
   justify-content: center;
 }
+
+.Hidden {
+	display: none;
+}
+
+.BaseDeckTableDiv, .NeutralDeckTableDiv, .DeckStats {
+	padding: 15px;
+}
