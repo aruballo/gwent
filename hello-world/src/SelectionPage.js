@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './index.css';
 import  gwentClasses from './classes.js';
@@ -15,7 +14,43 @@ class SelectionPage extends Component {
       neutralDeckCards: [],
       leaderCard: []
     };
+
     this.handleBaseDeckSelection = this.handleBaseDeckSelection.bind(this);
+    this.handleBaseRowClick = this.handleBaseRowClick.bind(this);
+  }
+
+  handleBaseRowClick(id, checked){
+
+    var cardIndex = this.state.baseDeckCards.findIndex((el)=>{
+      return el.id === id;
+    });
+
+    const baseCards = this.state.baseDeckCards.slice();
+    baseCards[cardIndex].checked = checked;
+
+    this.setState({
+      baseDeckCards: baseCards
+    });
+
+  }
+
+  handleNeutralRowClick(id, checked){
+
+    var cardIndex = this.state.baseDeckCards.findIndex((el)=>{
+      return el.id === id;
+    });
+
+    const baseCards = this.state.baseDeckCards.slice();
+    baseCards[cardIndex].checked = checked;
+
+    this.setState({
+      baseDeckCards: baseCards
+    });
+
+  }
+
+  handleLeaderClick(){
+
   }
 
   handleBaseDeckSelection(val){
@@ -28,11 +63,16 @@ class SelectionPage extends Component {
 
       if(val === "northern"){
         deckName = "Northern Realms";
+
         gwentCards.northernLeaders.map((object, index)=>{
           leaderCards.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
         });
+
         gwentCards.northernCards.map((object, index)=>{
-          baseCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
+          let newObject = object;
+          newObject.checked = "true";
+          newObject.key = index;
+          baseCards.push(newObject);
         });
       }
       else if(val === "nilfgaard"){
@@ -41,13 +81,22 @@ class SelectionPage extends Component {
           leaderCards.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
         });
         gwentCards.nilfgaardCards.map((object, index)=>{
-          baseCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
+          let newObject = object;
+          newObject.checked = "true";
+          newObject.key = index;
+          baseCards.push(newObject);
         });
       }
       else if(val === "monsters"){
         deckName = "Monsters";
-        gwentCards.monsterCards.map((object, index)=>{
-          baseCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
+        gwentCards.monstersLeaders.map((object, index)=>{
+          leaderCards.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
+        });
+        gwentCards.monstersCards.map((object, index)=>{
+          let newObject = object;
+          newObject.checked = "true";
+          newObject.key = index;
+          baseCards.push(newObject);
         });
       }
       else if(val === "scoiatael"){
@@ -55,14 +104,20 @@ class SelectionPage extends Component {
         gwentCards.scoiataelLeaders.map((object, index)=>{
           leaderCards.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
         });
-        gwentCards.scoiataelCards.map((object, index)=>{
-          baseCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
+        gwentCards.monstersCards.map((object, index)=>{
+          let newObject = object;
+          newObject.checked = "true";
+          newObject.key = index;
+          baseCards.push(newObject);
         });
       }
 
       gwentCards.neutralCards.map((object, index)=>{
-        neutralCards.push(<BaseDeckTableRow key={index} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability}/>);
-      });
+          let newObject = object;
+          newObject.checked = "true";
+          newObject.key = index;
+          neutralCards.push(newObject);
+        });
 
       return {
         baseDeckSelected: val,
@@ -74,7 +129,7 @@ class SelectionPage extends Component {
     });
   }
 
-  render() {
+  render(){
     return (
       <div className="App">
         <div className="Header">
@@ -82,9 +137,9 @@ class SelectionPage extends Component {
         </div>
         <SelectionOptions onChange={this.handleBaseDeckSelection} value={this.state.baseDeckSelected}/>
         <div className={this.state.baseDeckName === "" ? "DeckChoicesAndStats Hidden":"DeckChoicesAndStats"}>
-          <BaseDeckChoices baseDeckName={this.state.baseDeckName} baseDeckSelected={this.state.baseDeckSelected} baseDeckCards={this.state.baseDeckCards} leaderCards={this.state.leaderCards}/>
+          <BaseDeckChoices baseDeckName={this.state.baseDeckName} baseDeckSelected={this.state.baseDeckSelected} baseDeckCards={this.state.baseDeckCards} leaderCards={this.state.leaderCards} onRowClick={this.handleBaseRowClick}/>
           <DeckStats/>
-          <NeutralDeckChoices neutralDeckCards={this.state.neutralDeckCards}/>
+          <NeutralDeckChoices neutralDeckCards={this.state.neutralDeckCards} onRowClick={this.handleNeutralRowClick}/>
         </div>
       </div>
     );
@@ -92,11 +147,11 @@ class SelectionPage extends Component {
 }
 
 class SelectionOptions extends Component {
-  render() {
+  render(){
     return(
       <div className="SelectionOptions">
         <div className="SelectionDropdown">
-          <label for="SelectionDropdownEl">Base Deck</label><br/>
+          <label>Base Deck</label><br/>
           <select id="SelectionDropdownEl" onChange={(event) => this.props.onChange(event.target.value)} value={this.props.value}>
             <option value=""></option>
             <option value="northern">Northern Realms</option>
@@ -112,7 +167,12 @@ class SelectionOptions extends Component {
 
 class BaseDeckChoices extends Component{
   render(){
-    
+    let baseRows = [];
+
+    this.props.baseDeckCards.map((object, index) =>{
+      baseRows.push(<BaseDeckTableRow key={index} id={object.id} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability} checked={object.checked} onChange={this.props.onRowClick}/>);
+    });
+
     return(
       <div className="BaseDeckTableDiv">
         <h2>{this.props.baseDeckName}</h2>
@@ -140,7 +200,7 @@ class BaseDeckChoices extends Component{
             </tr>
           </thead>
           <tbody>
-            {this.props.baseDeckCards}
+            {baseRows}
           </tbody>
         </table>
       </div>
@@ -160,6 +220,13 @@ class DeckStats extends Component {
 
 class NeutralDeckChoices extends Component {
   render(){
+
+    let neutralRows = [];
+
+    this.props.neutralDeckCards.map((object, index) =>{
+      neutralRows.push(<BaseDeckTableRow key={index} id={object.id} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability} checked={object.checked} onChange={this.props.onRowClick}/>);
+    });
+
     return (
       <div className="NeutralDeckTableDiv">
         <h2> Neutral Deck Choices </h2>
@@ -175,7 +242,7 @@ class NeutralDeckChoices extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.neutralDeckCards}
+            {neutralRows}
           </tbody>
         </table>
       </div>
@@ -199,7 +266,9 @@ class BaseDeckTableRow extends Component {
   render(){
     return(
       <tr>
-        <td> <input type="checkbox"/></td>
+        <td> <input type="checkbox" checked={this.props.checked} onChange={(event) => {
+          this.props.onChange(this.props.id, event.target.checked);
+        }}/></td>
         <td> {this.props.name} </td>
         <td> {this.props.type} </td>
         <td> {this.props.position} </td>
