@@ -4,7 +4,7 @@ import './index.css';
 import  gwentClasses from './classes.js';
 import  gwentCards from './deckCards.js';
 
-class SelectionPage extends Component {
+class DeckSelectionPage extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -17,11 +17,12 @@ class SelectionPage extends Component {
 
     this.handleBaseDeckSelection = this.handleBaseDeckSelection.bind(this);
     this.handleBaseRowClick = this.handleBaseRowClick.bind(this);
+    this.handleNeutralRowClick = this.handleNeutralRowClick.bind(this);
   }
 
   handleBaseRowClick(id, checked){
 
-    var cardIndex = this.state.baseDeckCards.findIndex((el)=>{
+    let cardIndex = this.state.baseDeckCards.findIndex((el)=>{
       return el.id === id;
     });
 
@@ -36,15 +37,15 @@ class SelectionPage extends Component {
 
   handleNeutralRowClick(id, checked){
 
-    var cardIndex = this.state.baseDeckCards.findIndex((el)=>{
+    let cardIndex = this.state.neutralDeckCards.findIndex((el)=>{
       return el.id === id;
     });
 
-    const baseCards = this.state.baseDeckCards.slice();
-    baseCards[cardIndex].checked = checked;
+    const neutralCards = this.state.neutralDeckCards.slice();
+    neutralCards[cardIndex].checked = checked;
 
     this.setState({
-      baseDeckCards: baseCards
+      neutralDeckCards: neutralCards
     });
 
   }
@@ -53,7 +54,7 @@ class SelectionPage extends Component {
 
   }
 
-  handleBaseDeckSelection(val){
+  handleBaseDeckSelection(chosenDeck){
     this.setState((prevState, props) => {
 
       let deckName = "";
@@ -61,7 +62,7 @@ class SelectionPage extends Component {
       let baseCards = [];
       let neutralCards = [];
 
-      if(val === "northern"){
+      if(chosenDeck === "northern"){
         deckName = "Northern Realms";
 
         gwentCards.northernLeaders.map((object, index)=>{
@@ -75,7 +76,7 @@ class SelectionPage extends Component {
           baseCards.push(newObject);
         });
       }
-      else if(val === "nilfgaard"){
+      else if(chosenDeck === "nilfgaard"){
         deckName = "Nilfgaardian Empire";
         gwentCards.nilfgaardLeaders.map((object, index)=>{
           leaderCards.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
@@ -87,7 +88,7 @@ class SelectionPage extends Component {
           baseCards.push(newObject);
         });
       }
-      else if(val === "monsters"){
+      else if(chosenDeck === "monsters"){
         deckName = "Monsters";
         gwentCards.monstersLeaders.map((object, index)=>{
           leaderCards.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
@@ -99,12 +100,12 @@ class SelectionPage extends Component {
           baseCards.push(newObject);
         });
       }
-      else if(val === "scoiatael"){
-        deckName = "Scoia'tel";
+      else if(chosenDeck === "scoiatael"){
+        deckName = "Scoia'tael";
         gwentCards.scoiataelLeaders.map((object, index)=>{
           leaderCards.push(<LeaderTableRow key={index} name={object.name} ability={object.ability}/>);
         });
-        gwentCards.monstersCards.map((object, index)=>{
+        gwentCards.scoiataelCards.map((object, index)=>{
           let newObject = object;
           newObject.checked = "true";
           newObject.key = index;
@@ -120,7 +121,7 @@ class SelectionPage extends Component {
         });
 
       return {
-        baseDeckSelected: val,
+        baseDeckSelected: chosenDeck,
         baseDeckName: deckName,
         baseDeckCards: baseCards,
         leaderCards: leaderCards,
@@ -279,4 +280,4 @@ class BaseDeckTableRow extends Component {
   }
 }
 
-export default SelectionPage;
+export default DeckSelectionPage;

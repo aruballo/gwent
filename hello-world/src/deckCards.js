@@ -107,7 +107,7 @@ gwentCards.northernCards = [
 		type: "CombatCard",
 		position: "Siege",
 		score: 1,
-		ability: 'Morale Boost',
+		ability: 'Morale',
 		id: 14
 	},
 	{
@@ -115,7 +115,7 @@ gwentCards.northernCards = [
 		type: "CombatCard",
 		position: "Siege",
 		score: 1,
-		ability: 'Morale Boost',
+		ability: 'Morale',
 		id: 15
 	},
 	{
@@ -123,7 +123,7 @@ gwentCards.northernCards = [
 		type: "CombatCard",
 		position: "Siege",
 		score: 1,
-		ability: 'Morale Boost',
+		ability: 'Morale',
 		id: 16
 	},
 	{
@@ -703,7 +703,7 @@ gwentCards.scoiataelCards = [
 		type: "CombatCard",
 		position: "Melee",
 		score: 10,
-		ability: "Morale Boost",
+		ability: "Morale",
 		id: 89
 	},
 	{
@@ -727,7 +727,7 @@ gwentCards.scoiataelCards = [
 		type: "CombatCard",
 		position: "Ranged",
 		score: 10,
-		ability: "Morale Boost",
+		ability: "Morale",
 		id: 92
 	},
 	{

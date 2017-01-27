@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SelectionPage from './SelectionPage';
+import DeckSelectionPage from './DeckSelectionPage';
 
 ReactDOM.render(
-  <SelectionPage />,
+  <DeckSelectionPage />,
   document.getElementById('root')
 );
