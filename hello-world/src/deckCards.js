@@ -1503,7 +1503,7 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 192
+		id: 194
 	},
 	{
 		name: "Villentretenmerth",
@@ -1511,7 +1511,7 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 7,
 		ability: "Scorch",
-		id: 192
+		id: 195
 	},
 	{
 		name: "Avallac'h",
@@ -1519,7 +1519,7 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 0,
 		ability: "Spy,Hero",
-		id: 192
+		id: 196
 	}
 ];
 
