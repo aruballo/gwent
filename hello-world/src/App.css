@@ -7,6 +7,6 @@
 	display: none;
 }
 
-.BaseDeckTableDiv, .NeutralDeckTableDiv, .DeckStats {
+.DeckTableDiv, .NeutralDeckTableDiv, .DeckStats {
 	padding: 15px;
 }

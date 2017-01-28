@@ -38,7 +38,6 @@ class DeckSelectionPage extends Component {
     this.setState({
       '${deckType}': cards
     });
-    
   }
 
   handleLeaderClick(){
@@ -103,10 +102,10 @@ class DeckSelectionPage extends Component {
         <div className={this.state.baseDeckName === "" ? "DeckChoicesAndStats Hidden":"DeckChoicesAndStats"}>
           <div>
             <BaseDeckLeaderChoices baseDeckName={this.state.baseDeckName} leaderCards={this.state.leaderCards}/>
-            <BaseDeckChoices baseDeckSelected={this.state.baseDeckSelected} baseDeckCards={this.state.baseDeckCards} onRowClick={this.handleRowClick}/>
+            <DeckChoices label="" deckCards={this.state.baseDeckCards} onRowClick={this.handleRowClick}/>
           </div>
           <DeckStats/>
-          <NeutralDeckChoices neutralDeckCards={this.state.neutralDeckCards} onRowClick={this.handleRowClick}/>
+          <DeckChoices label="Neutral Deck" deckCards={this.state.neutralDeckCards} onRowClick={this.handleRowClick}/>
         </div>
       </div>
     );
@@ -141,7 +140,7 @@ class BaseDeckLeaderChoices extends Component {
     });
 
     return(
-      <div className="BaseDeckTableDiv">
+      <div className="DeckTableDiv">
         <h2>{this.props.baseDeckName}</h2>
         <table className="pure-table pure-table-bordered">
           <thead>
@@ -160,16 +159,17 @@ class BaseDeckLeaderChoices extends Component {
   }
 }
 
-class BaseDeckChoices extends Component{
+class DeckChoices extends Component{
   render(){
-    let baseRows = [];
+    let tableRows = [];
 
-    this.props.baseDeckCards.map((object) =>{
-      baseRows.push(<BaseDeckTableRow key={object.id} id={object.id} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability} checked={object.checked} onChange={this.props.onRowClick}/>);
+    this.props.deckCards.map((object) =>{
+      tableRows.push(<DeckTableRow key={object.id} id={object.id} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability} checked={object.checked} onChange={this.props.onRowClick}/>);
     });
 
     return(
-      <div className="BaseDeckTableDiv">
+      <div className="DeckTableDiv">
+        <h2> {this.props.label} </h2>
         <table className="pure-table pure-table-bordered">
           <thead>
             <tr>
@@ -182,7 +182,7 @@ class BaseDeckChoices extends Component{
             </tr>
           </thead>
           <tbody>
-            {baseRows}
+            {tableRows}
           </tbody>
         </table>
       </div>
@@ -200,38 +200,6 @@ class DeckStats extends Component {
   }
 }
 
-class NeutralDeckChoices extends Component {
-  render(){
-
-    let neutralRows = [];
-
-    this.props.neutralDeckCards.map((object, index) =>{
-      neutralRows.push(<BaseDeckTableRow key={object.id} id={object.id} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability} checked={object.checked} onChange={this.props.onRowClick}/>);
-    });
-
-    return (
-      <div className="NeutralDeckTableDiv">
-        <h2> Neutral Deck Choices </h2>
-        <table className="pure-table pure-table-bordered">
-          <thead>
-            <tr>
-              <th> </th>
-              <th> Card Name </th>
-              <th> Card Type </th>
-              <th> Card Position </th>
-              <th> Card Score </th>
-              <th> Card Ability </th>
-            </tr>
-          </thead>
-          <tbody>
-            {neutralRows}
-          </tbody>
-        </table>
-      </div>
-    )
-  }
-}
-
 class LeaderTableRow extends Component {
   render(){
     return(
@@ -244,7 +212,7 @@ class LeaderTableRow extends Component {
   }
 }
 
-class BaseDeckTableRow extends Component {
+class DeckTableRow extends Component {
   render(){
     return(
       <tr>
