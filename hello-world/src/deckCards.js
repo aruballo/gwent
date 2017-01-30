@@ -320,6 +320,14 @@ gwentCards.northernCards = [
 	}
 ];
 
+gwentCards.northernStats = {
+	totalCards: 37,
+	totalUnitCards: 37,
+	totalSpecialCards: 0,
+	totalCardStrength: 172,
+	totalHeroCards: 4
+}
+
 gwentCards.nilfgaardLeaders = [
 	{
 		name: "The Relentless",
@@ -654,6 +662,14 @@ gwentCards.nilfgaardCards = [
 	}
 ];
 
+gwentCards.nilfgaardStats = {
+	totalCards: 38,
+	totalUnitCards: 38,
+	totalSpecialCards: 0,
+	totalCardStrength: 183,
+	totalHeroCards: 4
+}
+
 gwentCards.scoiataelLeaders = [
 	{
 		name: "Queen of Dol Blathanna",
@@ -971,6 +987,14 @@ gwentCards.scoiataelCards = [
 		id: 122
 	}
 ];
+
+gwentCards.scoiataelStats = {
+	totalCards: 37,
+	totalUnitCards: 37,
+	totalSpecialCards: 0,
+	totalCardStrength: 177,
+	totalHeroCards: 3
+}
 
 gwentCards.monstersLeaders = [
 	{
@@ -1314,6 +1338,14 @@ gwentCards.monstersCards = [
 	}
 ];
 
+gwentCards.monsterStats = {
+	totalCards: 40,
+	totalUnitCards: 40,
+	totalSpecialCards: 0,
+	totalCardStrength: 185,
+	totalHeroCards: 4
+}
+
 gwentCards.neutralCards = [
 	{
 		name: "Decoy",
@@ -1522,5 +1554,13 @@ gwentCards.neutralCards = [
 		id: 196
 	}
 ];
+
+gwentCards.neutralStats = {
+	totalCards: 31,
+	totalUnitCards: 10,
+	totalSpecialCards: 21,
+	totalCardStrength: 69,
+	totalHeroCards: 4
+}
 
 export default gwentCards;
