@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './SelectionPage.css';
 import './index.css';
 import  gwentClasses from './classes.js';
 import  gwentCards from './deckCards.js';
@@ -28,8 +28,8 @@ class DeckSelectionPage extends Component {
 
     // Neutral Cards start at ID value of
     // 166
-    var deckType; 
-    var stateObject = {};
+    let deckType; 
+    let stateObject = {};
 
     if(id >= 166){
       deckType = "neutralDeckCards"
@@ -45,8 +45,9 @@ class DeckSelectionPage extends Component {
 
     const cards = this.state[deckType].slice();
     cards[cardIndex].checked = checked;
-
     stateObject[deckType] = cards;
+
+    this.updateDeckStats(cards[cardIndex]);
 
     this.setState(stateObject);
   }
@@ -71,8 +72,34 @@ class DeckSelectionPage extends Component {
     });
   }
 
-  updateDeckStats(){
+  updateDeckStats(card){
+    let stateObject = {};
+    let incrementValue = 0;
+    let cardScore = card.score;
 
+    if(card.checked === false){
+      incrementValue = -1;
+      cardScore *= -1;
+    }
+    else{
+      incrementValue = 1; 
+    }
+
+    stateObject["totalCards"] = this.state.totalCards + incrementValue;
+
+    if(card.type === "CombatCard"){
+      stateObject["totalUnitCards"] = this.state.totalUnitCards + incrementValue;
+      stateObject["totalCardStrength"] = this.state.totalCardStrength + cardScore;
+
+      if(card.ability.toLowerCase().indexOf("hero") > -1){
+        stateObject["totalHeroCards"] = this.state.totalHeroCards + incrementValue;
+      }
+    }
+    else if(card.type === "SpecialCard" || card.type === "WeatherCard"){
+      stateObject["totalSpecialCards"] = this.state.totalSpecialCards + incrementValue;
+    }
+
+    this.setState(stateObject);
   }
 
   handleBaseDeckSelection(chosenDeck){
