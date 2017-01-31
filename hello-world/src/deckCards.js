@@ -1560,7 +1560,7 @@ gwentCards.neutralStats = {
 	totalUnitCards: 10,
 	totalSpecialCards: 21,
 	totalCardStrength: 69,
-	totalHeroCards: 4
+	totalHeroCards: 5
 }
 
 export default gwentCards;
