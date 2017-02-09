@@ -22,6 +22,7 @@ class DeckSelectionPage extends Component {
 
     this.handleBaseDeckSelection = this.handleBaseDeckSelection.bind(this);
     this.handleRowClick = this.handleRowClick.bind(this);
+    this.addCardToDeckArray = this.addCardToDeckArray.bind(this);
   }
 
   handleRowClick(id, checked){
@@ -60,10 +61,10 @@ class DeckSelectionPage extends Component {
     const cards = this.state.leaderCards.slice();
     for(let i = 0; i < cards.length; i++){
       if(i === cardIndex){
-        cards[i].checked = "true";
+        cards[i].checked = true;
       }
       else{
-        cards[i].checked = "false";
+        cards[i].checked = false;
       }
     }
 
@@ -77,7 +78,7 @@ class DeckSelectionPage extends Component {
     let incrementValue = 0;
     let cardScore = card.score;
 
-    if(card.checked === false){
+    if(card.checked === false  ){
       incrementValue = -1;
       cardScore *= -1;
     }
@@ -102,6 +103,13 @@ class DeckSelectionPage extends Component {
     this.setState(stateObject);
   }
 
+  addCardToDeckArray(card, deckArray, defaultCheckedValue){
+      let newCard = card;
+      newCard.checked = defaultCheckedValue;
+      newCard.key = newCard.id;
+      deckArray.push(newCard);
+  }
+
   handleBaseDeckSelection(chosenDeck){
     this.setState((prevState, props) => {
 
@@ -113,13 +121,6 @@ class DeckSelectionPage extends Component {
       let cardType = "";
       let statsType = "";
       let stats = {};
-
-      let addCardToDeckArray = function(card, deckArray, defaultCheckedValue){
-          let newCard = card;
-          newCard.checked = defaultCheckedValue;
-          newCard.key = newCard.id;
-          deckArray.push(newCard);
-      }
 
       if(chosenDeck === "northern"){
         deckName = "Northern Realms";
@@ -146,9 +147,9 @@ class DeckSelectionPage extends Component {
         statsType = "scoiataelStats";
       }
 
-      gwentCards[leaderType].map((object)=> addCardToDeckArray(object, leaderCards, "false"));
-      gwentCards[cardType].map((object) => addCardToDeckArray(object, baseCards, "true"));
-      gwentCards.neutralCards.map((object) => addCardToDeckArray(object, neutralCards, "true"));
+      gwentCards[leaderType].map((object)=> this.addCardToDeckArray(object, leaderCards, false));
+      gwentCards[cardType].map((object) => this.addCardToDeckArray(object, baseCards, true));
+      gwentCards.neutralCards.map((object) => this.addCardToDeckArray(object, neutralCards, true));
 
       stats.totalCards = gwentCards[statsType].totalCards + gwentCards.neutralStats.totalCards;
       stats.totalUnitCards = gwentCards[statsType].totalUnitCards + gwentCards.neutralStats.totalUnitCards;

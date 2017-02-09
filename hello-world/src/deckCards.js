@@ -1338,7 +1338,7 @@ gwentCards.monstersCards = [
 	}
 ];
 
-gwentCards.monsterStats = {
+gwentCards.monstersStats = {
 	totalCards: 40,
 	totalUnitCards: 40,
 	totalSpecialCards: 0,
