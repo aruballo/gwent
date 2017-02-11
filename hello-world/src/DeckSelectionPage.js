@@ -3,6 +3,7 @@ import './SelectionPage.css';
 import './index.css';
 import  gwentClasses from './classes.js';
 import  gwentCards from './deckCards.js';
+import Perf from 'react-addons-perf';
 
 class DeckSelectionPage extends Component {
   constructor(props){
@@ -22,7 +23,16 @@ class DeckSelectionPage extends Component {
 
     this.handleBaseDeckSelection = this.handleBaseDeckSelection.bind(this);
     this.handleRowClick = this.handleRowClick.bind(this);
+    this.handleLeaderClick = this.handleLeaderClick.bind(this);
     this.addCardToDeckArray = this.addCardToDeckArray.bind(this);
+    this.handleGenerateDeckClick = this.handleGenerateDeckClick.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    if(nextState !== this.state){
+      return true;
+    }
+    return false;
   }
 
   handleRowClick(id, checked){
@@ -54,13 +64,9 @@ class DeckSelectionPage extends Component {
   }
 
   handleLeaderClick(id){
-    let cardIndex = this.state.leaderCards.findIndex((el) =>{
-      return el.id === id;
-    });
-
     const cards = this.state.leaderCards.slice();
     for(let i = 0; i < cards.length; i++){
-      if(i === cardIndex){
+      if(cards[i].id === id){
         cards[i].checked = true;
       }
       else{
@@ -151,6 +157,9 @@ class DeckSelectionPage extends Component {
       gwentCards[cardType].map((object) => this.addCardToDeckArray(object, baseCards, true));
       gwentCards.neutralCards.map((object) => this.addCardToDeckArray(object, neutralCards, true));
 
+      //Choose a default leader
+      leaderCards[0].checked = true;
+
       stats.totalCards = gwentCards[statsType].totalCards + gwentCards.neutralStats.totalCards;
       stats.totalUnitCards = gwentCards[statsType].totalUnitCards + gwentCards.neutralStats.totalUnitCards;
       stats.totalSpecialCards = gwentCards[statsType].totalSpecialCards + gwentCards.neutralStats.totalSpecialCards;
@@ -172,16 +181,36 @@ class DeckSelectionPage extends Component {
     });
   }
 
+  handleGenerateDeckClick() {
+    //Perf.start();
+    this.props.generateDeck({
+      baseDeckCards: this.state.baseDeckCards, 
+      neutralDeckCards: this.state.neutralDeckCards, 
+      leaderCards: this.state.leaderCards,
+      totalUnitCards: this.state.totalUnitCards,
+      totalSpecialCards: this.state.totalSpecialCards
+    });
+  }
+
+  componentDidUpdate(){
+    //Perf.stop();
+    //Perf.printInclusive();
+    //Perf.printWasted();
+  }
+
   render(){
     return (
       <div className="App">
         <div className="Header">
           <h1> Gwent Card Game </h1>
         </div>
-        <DeckSelectionOptions onChange={this.handleBaseDeckSelection} value={this.state.baseDeckSelected}/>
+        <div className="DeckSelectionOptions">
+          <DeckSelectionOptions onChange={this.handleBaseDeckSelection} value={this.state.baseDeckSelected}/>
+          <button onClick={this.handleGenerateDeckClick} className={this.state.baseDeckName === "" ? "Hidden":""}> Generate Deck! </button>
+        </div>
         <div className={this.state.baseDeckName === "" ? "DeckChoicesAndStats Hidden":"DeckChoicesAndStats"}>
           <div>
-            <BaseDeckLeaderChoices baseDeckName={this.state.baseDeckName} leaderCards={this.state.leaderCards}/>
+            <BaseDeckLeaderChoices baseDeckName={this.state.baseDeckName} leaderCards={this.state.leaderCards} onRowClick={this.handleLeaderClick}/>
             <DeckChoices label="" deckCards={this.state.baseDeckCards} onRowClick={this.handleRowClick}/>
           </div>
           <DeckStats totalCards={this.state.totalCards} totalUnitCards={this.state.totalUnitCards} totalSpecialCards={this.state.totalSpecialCards} totalCardStrength={this.state.totalCardStrength} totalHeroCards={this.state.totalHeroCards}/>
@@ -216,7 +245,7 @@ class BaseDeckLeaderChoices extends Component {
     let leaderRows = [];
 
     this.props.leaderCards.map((object) => {
-      leaderRows.push(<LeaderTableRow key={object.id} id={object.id} name={object.name} ability={object.ability}/>);
+      leaderRows.push(<LeaderTableRow key={object.id} id={object.id} name={object.name} ability={object.ability} checked={object.checked} onChange={this.props.onRowClick}/>);
     });
 
     return(
@@ -301,10 +330,20 @@ class DeckStats extends Component {
 }
 
 class LeaderTableRow extends Component {
+  shouldComponentUpdate(nextProps){
+    if(this.props.checked !== nextProps.checked){
+      return true;
+    }
+
+    return false;
+  }
+
   render(){
     return(
       <tr>
-        <td> <input type="radio" name="Leader" value={this.props.id}/></td>
+        <td> <input type="radio" name="Leader" value={this.props.id} checked={this.props.checked} onChange={(event) => {
+          this.props.onChange(this.props.id)}}/>
+        </td>
         <td> {this.props.name} </td>
         <td> {this.props.ability} </td>
       </tr>
@@ -314,15 +353,19 @@ class LeaderTableRow extends Component {
 
 class DeckTableRow extends Component {
   shouldComponentUpdate(nextProps){
-    return nextProps.checked !== this.props.checked;
+    if(this.props.checked !== nextProps.checked){
+      return true;
+    }
+
+    return false;
   }
 
   render(){
     return(
       <tr>
         <td> <input type="checkbox" checked={this.props.checked} onChange={(event) => {
-          this.props.onChange(this.props.id, event.target.checked);
-        }}/></td>
+          this.props.onChange(this.props.id, event.target.checked);}}/>
+        </td>
         <td> {this.props.name} </td>
         <td> {this.props.type} </td>
         <td> {this.props.position} </td>

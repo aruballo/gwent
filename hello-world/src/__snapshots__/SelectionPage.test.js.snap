@@ -35,11 +35,16 @@ exports[`test renders without crashing 1`] = `
         </option>
         <option
           value="scoiatael">
-          Scoia'Tael
+          Scoia\'Tael
         </option>
       </select>
     </div>
   </div>
+  <button
+    className="Hidden"
+    onClick={undefined}>
+     Generate Deck! 
+  </button>
   <div
     className="DeckChoicesAndStats Hidden">
     <div>

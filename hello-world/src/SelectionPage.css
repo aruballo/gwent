@@ -17,3 +17,7 @@
 	align-items: center;
 	text-align: center;
 }
+
+.DeckSelectionOptions {
+	flex-direction: row;
+}
