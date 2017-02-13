@@ -4,6 +4,8 @@ import './index.css';
 import  gwentClasses from './classes.js';
 import  gwentCards from './deckCards.js';
 import Perf from 'react-addons-perf';
+import {Table, Column, Cell} from 'fixed-data-table';
+import '../node_modules/fixed-data-table/dist/fixed-data-table.css'
 
 class DeckSelectionPage extends Component {
   constructor(props){
@@ -242,27 +244,32 @@ class DeckSelectionOptions extends Component {
 
 class BaseDeckLeaderChoices extends Component {
   render(){
-    let leaderRows = [];
-
-    this.props.leaderCards.map((object) => {
-      leaderRows.push(<LeaderTableRow key={object.id} id={object.id} name={object.name} ability={object.ability} checked={object.checked} onChange={this.props.onRowClick}/>);
-    });
-
     return(
-      <div className="DeckTableDiv">
+      <div className="LeaderTableDiv">
         <h2>{this.props.baseDeckName}</h2>
-        <table className="pure-table pure-table-bordered">
-          <thead>
-            <tr>
-              <th> </th>
-              <th> Leader Name </th>
-              <th> Ability </th>
-            </tr>
-          </thead>
-          <tbody>
-            {leaderRows}
-          </tbody>
-        </table>
+        <Table rowsCount={this.props.leaderCards.length} rowHeight={50} maxHeight={300} width={500} headerHeight={30}>
+          <Column 
+            header={<Cell> </Cell>} 
+            cell={
+              <RadioCell data={this.props.leaderCards} onChange={this.props.onRowClick} field="checked"/>
+            }
+            width={30}
+          />
+          <Column 
+            header={<Cell> Leader Name </Cell>} 
+            cell={
+              <TextCell data={this.props.leaderCards} field="name"/>
+            }
+            width={250}
+          />
+          <Column 
+            header={<Cell> Ability </Cell>} 
+            cell={
+              <TextCell data={this.props.leaderCards} field="ability"/>
+            }
+            width={200}
+          />
+        </Table>
       </div>
     )
   }
@@ -270,30 +277,53 @@ class BaseDeckLeaderChoices extends Component {
 
 class DeckChoices extends Component{
   render(){
-    let tableRows = [];
-
-    this.props.deckCards.map((object) =>{
-      tableRows.push(<DeckTableRow key={object.id} id={object.id} name={object.name} type={object.type} score={object.score} position={object.position} ability={object.ability} checked={object.checked} onChange={this.props.onRowClick}/>);
-    });
-
     return(
       <div className="DeckTableDiv">
-        <h2> {this.props.label} </h2>
-        <table className="pure-table pure-table-bordered">
-          <thead>
-            <tr>
-              <th> </th>
-              <th> Card Name </th>
-              <th> Card Type </th>
-              <th> Card Position </th>
-              <th> Card Score </th>
-              <th> Card Ability </th>
-            </tr>
-          </thead>
-          <tbody>
-            {tableRows}
-          </tbody>
-        </table>
+        <h2>{this.props.label}</h2>
+        <Table rowsCount={this.props.deckCards.length} rowHeight={50} maxHeight={500} width={700} headerHeight={30}>
+          <Column 
+            header={<Cell> </Cell>} 
+            cell={
+              <CheckBoxCell data={this.props.deckCards} onChange={this.props.onRowClick} field="checked"/>
+            }
+            width={30}
+          />
+          <Column 
+            header={<Cell> Name </Cell>} 
+            cell={
+              <TextCell data={this.props.deckCards} field="name"/>
+            }
+            width={250}
+          />
+          <Column 
+            header={<Cell> Type </Cell>} 
+            cell={
+              <TextCell data={this.props.deckCards} field="type"/>
+            }
+            width={115}
+          />
+          <Column 
+            header={<Cell> Position </Cell>} 
+            cell={
+              <TextCell data={this.props.deckCards} field="position"/>
+            }
+            width={90}
+          />
+          <Column 
+            header={<Cell> Score </Cell>} 
+            cell={
+              <TextCell data={this.props.deckCards} field="score"/>
+            }
+            width={80}
+          />
+          <Column 
+            header={<Cell> Ability </Cell>} 
+            cell={
+              <TextCell data={this.props.deckCards} field="ability"/>
+            }
+            width={125}
+          />
+        </Table>
       </div>
     )
   }
@@ -329,9 +359,10 @@ class DeckStats extends Component {
   }
 }
 
-class LeaderTableRow extends Component {
+class TextCell extends Component {
   shouldComponentUpdate(nextProps){
-    if(this.props.checked !== nextProps.checked){
+    const {rowIndex, data, field, ...props} = this.props;
+    if(data[rowIndex].checked !== nextProps.checked){
       return true;
     }
 
@@ -340,20 +371,17 @@ class LeaderTableRow extends Component {
 
   render(){
     return(
-      <tr>
-        <td> <input type="radio" name="Leader" value={this.props.id} checked={this.props.checked} onChange={(event) => {
-          this.props.onChange(this.props.id)}}/>
-        </td>
-        <td> {this.props.name} </td>
-        <td> {this.props.ability} </td>
-      </tr>
-    )
+      <Cell>
+        {this.props.data[this.props.rowIndex][this.props.field]}
+      </Cell>
+    );
   }
 }
 
-class DeckTableRow extends Component {
+class RadioCell extends Component {
   shouldComponentUpdate(nextProps){
-    if(this.props.checked !== nextProps.checked){
+    const {rowIndex, data, field, ...props} = this.props;
+    if(data[rowIndex].checked !== nextProps.checked){
       return true;
     }
 
@@ -361,18 +389,34 @@ class DeckTableRow extends Component {
   }
 
   render(){
+    const {rowIndex, data, field, ...props} = this.props;
     return(
-      <tr>
-        <td> <input type="checkbox" checked={this.props.checked} onChange={(event) => {
-          this.props.onChange(this.props.id, event.target.checked);}}/>
-        </td>
-        <td> {this.props.name} </td>
-        <td> {this.props.type} </td>
-        <td> {this.props.position} </td>
-        <td> {this.props.score} </td>
-        <td> {this.props.ability} </td>
-      </tr>
-    )
+      <Cell>
+        <input type="radio" name="Leader" value={data[rowIndex].id} checked={data[rowIndex].checked} onChange={(event) => {
+          this.props.onChange(data[rowIndex].id)}}/>
+      </Cell>
+    );
+  }
+}
+
+class CheckBoxCell extends Component {
+  shouldComponentUpdate(nextProps){
+    const {rowIndex, data, field, ...props} = this.props;
+    if(data[rowIndex].checked !== nextProps.checked){
+      return true;
+    }
+
+    return false;
+  }
+
+  render(){
+    const {rowIndex, data, field, ...props} = this.props;
+    return(
+      <Cell>
+        <input type="checkbox" checked={data[rowIndex].checked} onChange={(event) => {
+          this.props.onChange(data[rowIndex].id, event.target.checked)}}/>
+      </Cell>
+    );
   }
 }
 

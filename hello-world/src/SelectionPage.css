@@ -1,13 +1,13 @@
 .Header, .DeckSelectionOptions, .DeckChoicesAndStats {
-  display: flex;
-  justify-content: center;
+  	display: flex;
+  	justify-content: center;
 }
 
 .Hidden {
 	display: none;
 }
 
-.DeckTableDiv, .NeutralDeckTableDiv, .DeckStats {
+.LeaderTableDiv .NeutralDeckTableDiv, .DeckStats {
 	padding: 15px;
 }
 
@@ -20,4 +20,14 @@
 
 .DeckSelectionOptions {
 	flex-direction: row;
+}
+
+.DeckStats p {
+	font-weight: bold;
+	font-size: 20px;
+	color: #9E7739;
+}
+
+.LeaderTableDiv, .DeckTableDiv {  
+	color: black;
 }
