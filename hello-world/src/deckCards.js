@@ -2,22 +2,32 @@ var gwentCards = {};
 
 gwentCards.northernLeaders = [
 	{
+		name: "Foltest, the Siege Master",
+		type: "LeaderCard",
+		ability: "Impenetrable Fog",
+		id: 0,
+		image: "FoltesttheSiegemaster.png"
+	},
+	{
 		name: "Foltest, King of Temeria",
 		type: "LeaderCard",
 		ability: "Impenetrable Fog",
-		id: 1
+		id: 1,
+		image: "FoltestKingofTemeria.png"
 	},
 	{
 		name: "Foltest, Lord Commander of the North",
 		type: "LeaderCard",
 		ability: "Clear Weather",
-		id: 2
+		id: 2,
+		image: "FoltestLordCommanderoftheNorth.png"
 	},
 	{
 		name: "Foltest, the Steel Forged",
 		type: "LeaderCard",
 		ability: "Siege Scorch",
-		id: 3
+		id: 3,
+		image: "FoltesttheSteelForged.png"
 	}
 ];
 
@@ -28,7 +38,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 10,
 		ability: "Hero",
-		id: 4
+		id: 4,
+		image: "VernonRoche.png"
 	},
 	{
 		name: "John Natalis",
@@ -36,7 +47,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 10,
 		ability: "Hero",
-		id: 5
+		id: 5,
+		image: "JohnNatalis.png"
 	},
 	{
 		name: "Esterad Thyssen",
@@ -44,7 +56,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 10,
 		ability: "Hero",
-		id: 6
+		id: 6,
+		image: "EsteradThyssen.png"
 	},
 	{
 		name: "Philippa Eilhart",
@@ -52,7 +65,8 @@ gwentCards.northernCards = [
 		position: "Ranged",
 		score: 10,
 		ability: "Hero", 
-		id: 7
+		id: 7,
+		image: "PhilippaEilhart.png"
 	},
 	{
 		name: "Thaler",
@@ -60,7 +74,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 1,
 		ability: "Spy",
-		id: 8
+		id: 8,
+		image: "Thaler.png"
 	},
 	{
 		name: "Redanian Foot Soldier",
@@ -68,7 +83,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 1,
 		ability: "",
-		id: 9
+		id: 9,
+		image: "RedanianFootSoldier.png"
 	},
 	{
 		name: "Redanian Foot Soldier",
@@ -76,7 +92,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 1,
 		ability: "",
-		id: 10
+		id: 10,
+		image: "RedanianFootSoldier2.png"
 	},
 	{
 		name: "Poor Fucking Infantry",
@@ -84,7 +101,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 1,
 		ability: "Tight Bond",
-		id: 11
+		id: 11,
+		image: "PoorFuckingInfantry.png"
 	},
 	{
 		name: "Poor Fucking Infantry",
@@ -92,7 +110,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 1,
 		ability: "Tight Bond",
-		id: 12
+		id: 12,
+		image: "PoorFuckingInfantry.png"
 	},
 	{
 		name: "Poor Fucking Infantry",
@@ -100,7 +119,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 1,
 		ability: "Tight Bond",
-		id: 13
+		id: 13,
+		image: "PoorFuckingInfantry.png"
 	},
 	{
 		name: "Kaedweni Siege Expert",
@@ -108,7 +128,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 1,
 		ability: 'Morale',
-		id: 14
+		id: 14,
+		image: "KaedweniSiegeExpert.png"
 	},
 	{
 		name: "Kaedweni Siege Expert",
@@ -116,7 +137,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 1,
 		ability: 'Morale',
-		id: 15
+		id: 15,
+		image: "KaedweniSiegeExpert2.png"
 	},
 	{
 		name: "Kaedweni Siege Expert",
@@ -124,7 +146,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 1,
 		ability: 'Morale',
-		id: 16
+		id: 16,
+		image: "KaedweniSiegeExpert3.png"
 	},
 	{
 		name: "Yarpen Zigrin",
@@ -132,7 +155,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 2,
 		ability: "",
-		id: 17		
+		id: 17,
+		image: "YarpenZigrin.png"		
 	},
 	{
 		name: "Sigismund Dijkstra",
@@ -140,7 +164,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Spy",
-		id: 18
+		id: 18,
+		image: "SigismundDijkstra.png"
 	},
 	{
 		name: "Sheldon Skaggs",
@@ -148,7 +173,8 @@ gwentCards.northernCards = [
 		position: "Ranged",
 		score: 4,
 		ability: "",
-		id: 19
+		id: 19,
+		image: "SheldonSkaggs.png"
 	},
 	{
 		name: "Blue Stripes Commando",
@@ -156,7 +182,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Tight Bond",
-		id: 20
+		id: 20,
+		image: "BlueStripesCommando.png"
 	},
 	{
 		name: "Blue Stripes Commando",
@@ -164,7 +191,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Tight Bond",
-		id: 21
+		id: 21,
+		image: "BlueStripesCommando.png"
 	},
 	{
 		name: "Blue Stripes Commando",
@@ -172,15 +200,17 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Tight Bond",
-		id: 22
+		id: 22,
+		image: "BlueStripesCommando.png"
 	},
 	{
-		name: "Sabrina Gevissig",
+		name: "Sabrina Glevissig",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 4,
 		ability: "",
-		id: 23
+		id: 23,
+		image: "SabrinaGlevissig.png"
 	},
 	{
 		name: "Ves",
@@ -188,7 +218,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 24
+		id: 24,
+		image: "Ves.png"
 	},
 	{
 		name: "Siegfried of Denesle",
@@ -196,7 +227,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 25
+		id: 25,
+		image: "SiegfriedofDenesle.png"
 	},
 	{
 		name: "Prince Stennis",
@@ -204,7 +236,8 @@ gwentCards.northernCards = [
 		position: "Melee",
 		score: 5,
 		ability: "Spy",
-		id: 26
+		id: 26,
+		image: "PrinceStennis.png"
 	},
 	{
 		name: "Crinfrid Reavers Dragon Hunter",
@@ -212,7 +245,8 @@ gwentCards.northernCards = [
 		position: "Ranged",
 		score: 5,
 		ability: "Tight Bond",
-		id: 27
+		id: 27,
+		image: "CrinfridReaversDragonHunter.png"
 	},
 	{
 		name: "Crinfrid Reavers Dragon Hunter",
@@ -220,7 +254,8 @@ gwentCards.northernCards = [
 		position: "Ranged",
 		score: 5,
 		ability: "Tight Bond",
-		id: 28
+		id: 28,
+		image: "CrinfridReaversDragonHunter.png"
 	},
 	{
 		name: "Crinfrid Reavers Dragon Hunter",
@@ -228,7 +263,8 @@ gwentCards.northernCards = [
 		position: "Ranged",
 		score: 5,
 		ability: "Tight Bond",
-		id: 29
+		id: 29,
+		image: "CrinfridReaversDragonHunter.png"
 	},
 	{
 		name: "Keira Metz",
@@ -236,7 +272,8 @@ gwentCards.northernCards = [
 		position: "Ranged",
 		score: 5,
 		ability: "",
-		id: 30		
+		id: 30,
+		image: "KeiraMetz.png"		
 	},
 	{
 		name: "Dun Banner Medic",
@@ -244,7 +281,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 5,
 		ability: "Medic",
-		id: 31
+		id: 31,
+		image: "DunBannerMedic.png"
 	},
 	{
 		name: "Sile de Tansarville",
@@ -252,7 +290,8 @@ gwentCards.northernCards = [
 		position: "Ranged",
 		score: 5,
 		ability: "",
-		id: 32
+		id: 32,
+		image: "SiledeTansarville.png"
 	},
 	{
 		name: "Siege Tower",
@@ -260,7 +299,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 6,
 		ability: "",
-		id: 33
+		id: 33,
+		image: "SiegeTower.png"
 	},
 	{
 		name: "Dethmold",
@@ -268,7 +308,8 @@ gwentCards.northernCards = [
 		position: "Ranged",
 		score: 6,
 		ability: "",
-		id: 34
+		id: 34,
+		image: "Dethmold.png"
 	},
 	{
 		name: "Trebuchet",
@@ -276,7 +317,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 6,
 		ability: "",
-		id: 35
+		id: 35,
+		image: "Trebuchet.png"
 	},
 	{
 		name: "Trebuchet",
@@ -284,7 +326,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 6,
 		ability: "",
-		id: 36
+		id: 36,
+		image: "Trebuchet2.png"
 	},
 	{
 		name: "Ballista",
@@ -292,7 +335,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 6,
 		ability: "",
-		id: 37
+		id: 37,
+		image: "Ballista.png"
 	},
 	{
 		name: "Ballista",
@@ -300,7 +344,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 6,
 		ability: "",
-		id: 38
+		id: 38,
+		image: "Ballista2.png"
 	},
 	{
 		name: "Catapult",
@@ -308,7 +353,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 8,
 		ability: "Tight Bond",
-		id: 39
+		id: 39,
+		image: "Catapult.png"
 	},
 	{
 		name: "Catapult",
@@ -316,7 +362,8 @@ gwentCards.northernCards = [
 		position: "Siege",
 		score: 8,
 		ability: "Tight Bond",
-		id: 40
+		id: 40,
+		image: "Catapult.png"
 	}
 ];
 
@@ -330,28 +377,32 @@ gwentCards.northernStats = {
 
 gwentCards.nilfgaardLeaders = [
 	{
-		name: "The Relentless",
+		name: "Emhyr Var Emreis, The Relentless",
 		type: "LeaderCard",
 		ability: "Draw from Enemy Discard",
-		id: 41
+		id: 41,
+		image: "EmhyrvarEmreistheRelentless.png"
 	},
 	{
-		name: "The White Flame Dancing on the Graves of His Foes",
+		name: "Emhyr Var Emreis, The White Flame Dancing on the Graves of His Foes",
 		type: "LeaderCard",
 		ability: "Cancel Leader",
-		id: 42
+		id: 42,
+		image: "EmhyrvarEmreistheWhiteFlame.png"
 	},
 	{
-		name: "His Imperial Majesty",
+		name: "Emhyr Var Emreis, His Imperial Majesty",
 		type: "LeaderCard",
 		ability: "Rain",
-		id: 43
+		id: 43,
+		image: "EmhyrvarEmreisHisImperialMajesty.png"
 	},
 	{
-		name: "The Emperor of Nilfgaard",
+		name: "Emhyr Var Emreis, The Emperor of Nilfgaard",
 		type: "LeaderCard",
 		ability: "Look at 3 cards",
-		id: 44
+		id: 44,
+		image: "EmhyrvarEmreisEmperorofNilfgaard.png"
 	}
 ];
 
@@ -362,7 +413,8 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 10,
 		ability: "Hero",
-		id: 45
+		id: 45,
+		image: "LethoofGulet.png"
 	},
 	{
 		name: "Menno Coehoorn",
@@ -370,7 +422,8 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 10,
 		ability: "Hero",
-		id: 46
+		id: 46,
+		image: "MennoCoehoorn.png"
 	},
 	{
 		name: "Morvran Voorhis",
@@ -378,7 +431,8 @@ gwentCards.nilfgaardCards = [
 		position: "Siege",
 		score: 10,
 		ability: "Hero",
-		id: 47
+		id: 47,
+		image: "MorvranVoorhis.png"
 	},
 	{
 		name: "Tibor Eggebracht",
@@ -386,7 +440,8 @@ gwentCards.nilfgaardCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "",
-		id: 48
+		id: 48,
+		image: "TiborEggebracht.png"
 	},
 	{
 		name: "Albrich",
@@ -394,7 +449,8 @@ gwentCards.nilfgaardCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "",
-		id: 49
+		id: 49,
+		image: "Albrich.png"
 	},
 	{
 		name: "Albrich",
@@ -402,15 +458,17 @@ gwentCards.nilfgaardCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "",
-		id: 50
+		id: 50,
+		image: "Albrich.png"
 	},
 	{
-		name: "Assire var Anahid",
+		name: "Assire Var Anahid",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 6,
 		ability: "",
-		id: 51
+		id: 51,
+		image: "AssirVarAnahid.png"
 	},
 	{
 		name: "Cynthia",
@@ -418,7 +476,8 @@ gwentCards.nilfgaardCards = [
 		position: "Ranged",
 		score: 4,
 		ability: "",
-		id: 52
+		id: 52,
+		image: "Cynthia.png"
 	},
 	{
 		name: "Fringilla Vigo",
@@ -426,7 +485,8 @@ gwentCards.nilfgaardCards = [
 		position: "Ranged",
 		score: 6,
 		ability: "",
-		id: 53
+		id: 53,
+		image: "FringillaVigo.png"
 	},
 	{
 		name: "Morteisen",
@@ -434,7 +494,8 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 3,
 		ability: "",
-		id: 54
+		id: 54,
+		image: "Morteisen.png"
 	},
 	{
 		name: "Rainfarn",
@@ -442,23 +503,26 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 4,
 		ability: "",
-		id: 55
+		id: 55,
+		image: "Rainfarn.png"
 	},
 	{
-		name: "Renauld aep Matsen",
+		name: "Renuald aep Matsen",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 5,
 		ability: "",
-		id: 56
+		id: 56,
+		image: "RenualdAepMatsen.png"
 	},
 	{
-		name: "Rotten Mangoel",
+		name: "Rotten Mangonel",
 		type: "CombatCard",
 		position: "Siege",
 		score: 3,
 		ability: "",
-		id: 57
+		id: 57,
+		image: "RottenMangonel.png"
 	},
 	{
 		name: "Shilard Fitz-Oesterlen",
@@ -466,7 +530,8 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 7,
 		ability: "Spy",
-		id: 58
+		id: 58,
+		image: "ShilardFitzOesterlen.png"
 	},
 	{
 		name: "Stefan Skellen",
@@ -474,7 +539,8 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 9,
 		ability: "Spy",
-		id: 59
+		id: 59,
+		image: "StefanSkellen.png"
 	},
 	{
 		name: "Sweers",
@@ -482,7 +548,8 @@ gwentCards.nilfgaardCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "",
-		id: 60
+		id: 60,
+		image: "Sweers.png"
 	},
 	{
 		name: "Vanhemar",
@@ -490,7 +557,8 @@ gwentCards.nilfgaardCards = [
 		position: "Ranged",
 		score: 4,
 		ability: "",
-		id: 61
+		id: 61,
+		image: "Vanhemar.png"
 	},
 	{
 		name: "Vattier de Rideaux",
@@ -498,7 +566,8 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Spy",
-		id: 62
+		id: 62,
+		image: "VattierdeRideaux.png"
 	},
 	{
 		name: "Vreemde",
@@ -506,7 +575,8 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 2,
 		ability: "",
-		id: 63
+		id: 63,
+		image: "Vreemde.png"
 	},
 	{
 		name: "Cahir Mawr Dyffryn aep Ceallach",
@@ -514,7 +584,8 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 6,
 		ability: "",
-		id: 64
+		id: 64,
+		image: "CahirMawrDyffrynAepCeallach.png"
 	},
 	{
 		name: "Puttkammer",
@@ -522,23 +593,26 @@ gwentCards.nilfgaardCards = [
 		position: "Ranged",
 		score: 3,
 		ability: "",
-		id: 65
+		id: 65,
+		image: "Puttkammer.png"
 	},
 	{
-		name: "Archer Support",
+		name: "Etolian Auxiliary Archers",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 1,
 		ability: "Medic",
-		id: 66
+		id: 66,
+		image: "EtolianAuxiliaryArchers.png"
 	},
 	{
-		name: "Archer Support",
+		name: "Etolian Auxiliary Archers",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 1,
 		ability: "Medic",
-		id: 67
+		id: 67,
+		image: "EtolianAuxiliaryArchers2.png"
 	},
 	{
 		name: "Black Infantry Archer",
@@ -546,7 +620,8 @@ gwentCards.nilfgaardCards = [
 		position: "Ranged",
 		score: 10,
 		ability: "",
-		id: 68
+		id: 68,
+		image: "BlackInfantryArcher.png"
 	},
 	{
 		name: "Black Infantry Archer",
@@ -554,15 +629,17 @@ gwentCards.nilfgaardCards = [
 		position: "Ranged",
 		score: 10,
 		ability: "",
-		id: 69
+		id: 69,
+		image: "BlackInfantryArcher2.png"
 	},
 	{
-		name: "Siege Support",
+		name: "Siege Technician",
 		type: "CombatCard",
 		position: "Siege",
 		score: 0,
 		ability: "Medic",
-		id: 70
+		id: 70,
+		image: "SiegeTechnician.png"
 	},
 	{
 		name: "Heavy Zerrikanian Fire Scorpion",
@@ -570,7 +647,8 @@ gwentCards.nilfgaardCards = [
 		position: "Siege",
 		score: 10,
 		ability: "",
-		id: 71
+		id: 71,
+		image: "HeavyZerrikanianFireScorpion.png"
 	},
 	{
 		name: "Zerrikanian Fire Scorpion",
@@ -578,39 +656,62 @@ gwentCards.nilfgaardCards = [
 		position: "Siege",
 		score: 5,
 		ability: "",
-		id: 72
+		id: 72,
+		image: "ZerrikanianFireScorpion.png"
 	},
 	{
-		name: "Impera Brigade",
+		name: "Impera Brigade Guard",
 		type: "CombatCard",
 		position: "Melee",
 		score: 3,
 		ability: "Tight Bond",
-		id: 73
+		id: 73,
+		image: "ImperaBrigadeGuard.png"
 	},
 	{
-		name: "Impera Brigade",
+		name: "Impera Brigade Guard",
 		type: "CombatCard",
 		position: "Melee",
 		score: 3,
 		ability: "Tight Bond",
-		id: 74
+		id: 74,
+		image: "ImperaBrigadeGuard.png"
 	},
 	{
-		name: "Impera Brigade",
+		name: "Impera Brigade Gaurd",
 		type: "CombatCard",
 		position: "Melee",
 		score: 3,
 		ability: "Tight Bond",
-		id: 75
+		id: 75,
+		image: "ImperaBrigadeGuard.png"
 	},
 	{
-		name: "Impera Brigade",
+		name: "Impera Brigade Gaurd",
 		type: "CombatCard",
 		position: "Melee",
 		score: 3,
 		ability: "Tight Bond",
-		id: 76
+		id: 76,
+		image: "ImperaBrigadeGuard.png"
+	},
+	{
+		name: "Nausicaa Cavalry Rider",
+		type: "CombatCard",
+		position: "Melee",
+		score: 2,
+		ability: "Tight Bond",
+		id: 77,
+		image: "NausicaaCavalryRider.png"
+	},
+	{
+		name: "Nausicaa Cavalry Rider",
+		type: "CombatCard",
+		position: "Melee",
+		score: 2,
+		ability: "Tight Bond",
+		id: 78,
+		image: "NausicaaCavalryRider.png"
 	},
 	{
 		name: "Nausicaa Cavalry Brigade",
@@ -618,31 +719,17 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 2,
 		ability: "Tight Bond",
-		id: 77
+		id: 79,
+		image: "NausicaaCavalryRider.png"
 	},
 	{
-		name: "Nausicaa Cavalry Brigade",
-		type: "CombatCard",
-		position: "Melee",
-		score: 2,
-		ability: "Tight Bond",
-		id: 78
-	},
-	{
-		name: "Nausicaa Cavalry Brigade",
-		type: "CombatCard",
-		position: "Melee",
-		score: 2,
-		ability: "Tight Bond",
-		id: 79
-	},
-	{
-		name: "Combat Engineer",
+		name: "Siege Engineer",
 		type: "CombatCard",
 		position: "Siege",
 		score: 6,
 		ability: "",
-		id: 80
+		id: 80,
+		image: "SiegeEngineer.png"
 	},
 	{
 		name: "Young Emissary",
@@ -650,7 +737,8 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 5,
 		ability: "Tight Bond",
-		id: 81
+		id: 81,
+		image: "YoungEmissary.png"
 	},
 	{
 		name: "Young Emissary",
@@ -658,7 +746,8 @@ gwentCards.nilfgaardCards = [
 		position: "Melee",
 		score: 5,
 		ability: "Tight Bond",
-		id: 82
+		id: 82,
+		image: "YoungEmissary2.png"
 	}
 ];
 
@@ -672,28 +761,32 @@ gwentCards.nilfgaardStats = {
 
 gwentCards.scoiataelLeaders = [
 	{
-		name: "Queen of Dol Blathanna",
+		name: "Francesca Findabair, Queen of Dol Blathanna",
 		type: "LeaderCard",
 		ability: "Scorch Melee",
-		id: 83
+		id: 83,
+		image: "FrancescaFindabairQueenofDolBlathanna.png"
 	},
 	{
-		name: "The Beautiful",
+		name: "Francesca Findabair, The Beautiful",
 		type: "LeaderCard",
 		ability: "Horn Ranged",
-		id: 84
+		id: 84,
+		image: "FrancescaFindabairtheBeautiful.png"
 	},
 	{
-		name: "Daisy of the Valley",
+		name: "Francesca Findabair, Daisy of the Valley",
 		type: "LeaderCard",
 		ability: "Draw 1 Card",
-		id: 85
+		id: 85,
+		image: "FrancescaFindabairDaisyoftheValley.png"
 	},
 	{
-		name: "Pureblood Elf",
+		name: "Francesca Findabair, Pureblood Elf",
 		type: "LeaderCard",
 		ability: "Frost",
-		id: 86
+		id: 86,
+		image: "FrancescaFindabairPurebloodElf.png"
 	}
 ];
 
@@ -704,7 +797,8 @@ gwentCards.scoiataelCards = [
 		position: "Ranged",
 		score: 10,
 		ability: "Hero",
-		id: 87
+		id: 87,
+		image: "Eithne.png"
 	},
 	{
 		name: "Saskia/Saesenthessis",
@@ -712,15 +806,17 @@ gwentCards.scoiataelCards = [
 		position: "Ranged",
 		score: 10,
 		ability: "Hero",
-		id: 88
+		id: 88,
+		image: "Saesenthessis.png"
 	},
 	{
-		name: "Isengrim Faoiltiarna",
+		name: "Isengrim Faolitarna",
 		type: "CombatCard",
 		position: "Melee",
 		score: 10,
 		ability: "Morale",
-		id: 89
+		id: 89,
+		image: "IsengrimFaolitarna.png"
 	},
 	{
 		name: "Iorveth",
@@ -728,15 +824,17 @@ gwentCards.scoiataelCards = [
 		position: "Ranged",
 		score: 10,
 		ability: "Hero",
-		id: 90
+		id: 90,
+		image: "Iorveth.png"
 	},
 	{
-		name: "Dennis Cramer",
+		name: "Dennis Cranmer",
 		type: "CombatCard",
 		position: "Melee",
 		score: 6,
 		ability: "",
-		id: 91
+		id: 91,
+		image: "DennisCranmer.png"
 	},
 	{
 		name: "Milva",
@@ -744,23 +842,26 @@ gwentCards.scoiataelCards = [
 		position: "Ranged",
 		score: 10,
 		ability: "Morale",
-		id: 92
+		id: 92,
+		image: "Milva.png"
 	},
 	{
-		name: "Ida Emean",
+		name: "Ida Emean Aep Sivney",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 6,
 		ability: "",
-		id: 93
+		id: 93,
+		image: "IdaEmeanAepSivney.png"
 	},
 	{
-		name: "Filavandrel",
+		name: "Filavandrel aen Fidhail",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 6,
 		ability: "Agile",
-		id: 94
+		id: 94,
+		image: "FilavandrelAenFidhail.png"
 	},
 	{
 		name: "Yaevinn",
@@ -768,7 +869,8 @@ gwentCards.scoiataelCards = [
 		position: "Melee",
 		score: 6,
 		ability: "Agile",
-		id: 95
+		id: 95,
+		image: "Yaevinn.png"
 	},
 	{
 		name: "Toruviel",
@@ -776,7 +878,8 @@ gwentCards.scoiataelCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "",
-		id: 96
+		id: 96,
+		image: "Toruviel.png"
 	},
 	{
 		name: "Riordain",
@@ -784,7 +887,8 @@ gwentCards.scoiataelCards = [
 		position: "Ranged",
 		score: 1,
 		ability: "",
-		id: 97
+		id: 97,
+		image: "Riordain.png"
 	},
 	{
 		name: "Ciaran aep Easnillien",
@@ -792,7 +896,8 @@ gwentCards.scoiataelCards = [
 		position: "Ranged",
 		score: 3,
 		ability: "Agile",
-		id: 98
+		id: 98,
+		image: "CiaranAepEasnillien.png"
 	},
 	{
 		name: "Barclay Els",
@@ -800,23 +905,35 @@ gwentCards.scoiataelCards = [
 		position: "Melee",
 		score: 6,
 		ability: "Agile",
-		id: 99
+		id: 99,
+		image: "BarclayEls.png"
 	},
 	{
-		name: "Hav'caaren Medic",
+		name: "Havekar Healer",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 0,
 		ability: "Medic",
-		id: 100
+		id: 100,
+		image: "HavekarHealer.png"
 	},
 	{
-		name: "Hav'caaren Medic",
+		name: "Havekar Healer",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 0,
 		ability: "Medic",
-		id: 101
+		id: 101,
+		image: "HavekarHealer2.png"
+	},
+	{
+		name: "Havekar Healer",
+		type: "CombatCard",
+		position: "Ranged",
+		score: 0,
+		ability: "Medic",
+		id: 197,
+		image: "HavekarHealer3.png"
 	},
 	{
 		name: "Vrihedd Brigade",
@@ -824,7 +941,8 @@ gwentCards.scoiataelCards = [
 		position: "Melee",
 		score: 5,
 		ability: "Agile",
-		id: 102
+		id: 102,
+		image: "VriheddBrigadeVeteran.png"
 	},
 	{
 		name: "Vrihedd Brigade",
@@ -832,7 +950,8 @@ gwentCards.scoiataelCards = [
 		position: "Melee",
 		score: 5,
 		ability: "Agile",
-		id: 103
+		id: 103,
+		image: "VriheddBrigadeVeteran2.png"
 	},
 	{
 		name: "Dol Blathanna Scout",
@@ -840,7 +959,8 @@ gwentCards.scoiataelCards = [
 		position: "Melee",
 		score: 6,
 		ability: "Agile",
-		id: 104
+		id: 104,
+		image: "DolBlathannaScout.png"
 	},
 	{
 		name: "Dol Blathanna Scout",
@@ -848,7 +968,8 @@ gwentCards.scoiataelCards = [
 		position: "Melee",
 		score: 6,
 		ability: "Agile",
-		id: 105
+		id: 105,
+		image: "DolBlathannaScout2.png"
 	},
 	{
 		name: "Dol Blathanna Scout",
@@ -856,103 +977,116 @@ gwentCards.scoiataelCards = [
 		position: "Melee",
 		score: 6,
 		ability: "Agile",
-		id: 106
+		id: 106,
+		image: "DolBlathannaScout3.png"
 	},
 	{
-		name: "Dwarf Skirmisher",
+		name: "Dwarven Skirmisher",
 		type: "CombatCard",
 		position: "Melee",
 		score: 3,
 		ability: "Muster",
-		id: 107
+		id: 107,
+		image: "DwarvenSkirmisher.png"
 	},
 	{
-		name: "Dwarf Skirmisher",
+		name: "Dwarven Skirmisher",
 		type: "CombatCard",
 		position: "Melee",
 		score: 3,
 		ability: "Muster",
-		id: 108
+		id: 108,
+		image: "DwarvenSkirmisher2.png"
 	},
 	{
-		name: "Dwarf Skirmisher",
+		name: "Dwarven Skirmisher",
 		type: "CombatCard",
 		position: "Melee",
 		score: 3,
 		ability: "Muster",
-		id: 109
+		id: 109,
+		image: "DwarvenSkirmisher3.png"
 	},
 	{
-		name: "Mahakaman Defenders",
+		name: "Mahakaman Defender",
 		type: "CombatCard",
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 110
+		id: 110,
+		image: "MahakamanDefender.png"
 	},
 	{
-		name: "Mahakaman Defenders",
+		name: "Mahakaman Defender",
 		type: "CombatCard",
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 111
+		id: 111,
+		image: "MahakamanDefender2.png"
 	},
 	{
-		name: "Mahakaman Defenders",
+		name: "Mahakaman Defender",
 		type: "CombatCard",
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 112
+		id: 112,
+		image: "MahakamanDefender3.png"
 	},
 	{
-		name: "Mahakaman Defenders",
+		name: "Mahakaman Defender",
 		type: "CombatCard",
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 113
+		id: 113,
+		image: "MahakamanDefender4.png"
 	},
 	{
-		name: "Mahakaman Defenders",
+		name: "Mahakaman Defender",
 		type: "CombatCard",
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 114
+		id: 114,
+		image: "MahakamanDefender5.png"
 	},
 	{
-		name: "Elf Skirmisher",
+		name: "Elven Skirmisher",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 2,
 		ability: "Muster",
-		id: 115
+		id: 115,
+		image: "ElvenSkirmisher.png"
 	},
 	{
-		name: "Elf Skirmisher",
+		name: "Elven Skirmisher",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 2,
 		ability: "Muster",
-		id: 116
+		id: 116,
+		image: "ElvenSkirmisher2.png"
 	},
 	{
-		name: "Elf Skirmisher",
+		name: "Elven Skirmisher",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 2,
 		ability: "Muster",
-		id: 117
+		id: 117,
+		image: "ElvenSkirmisher3.png"
 	},
 	{
-		name: "Vrihedd Cadet",
+		name: "Vrihedd Brigade Recruit",
 		type: "CombatCard",
 		position: "Ranged",
 		score: 4,
 		ability: "",
-		id: 118
+		id: 118,
+		image: "VriheddBrigadeRecruit.png"
 	},
 	{
 		name: "Dol Blathanna Archer",
@@ -960,31 +1094,35 @@ gwentCards.scoiataelCards = [
 		position: "Ranged",
 		score: 4,
 		ability: "",
-		id: 119
+		id: 119,
+		image: "DolBlathannaArcher.png"
 	},
 	{
-		name: "Hav'caaren Medic",
+		name: "Havekar Smuggler",
 		type: "CombatCard",
 		position: "Melee",
 		score: 5,
 		ability: "Muster",
-		id: 120
+		id: 120,
+		image: "HavekarSmuggler.png"
 	},
 	{
-		name: "Hav'caaren Medic",
+		name: "Havekar Smuggler",
 		type: "CombatCard",
 		position: "Melee",
 		score: 5,
 		ability: "Muster",
-		id: 121
+		id: 121,
+		image: "HavekarSmuggler2.png"
 	},
 	{
-		name: "Hav'caaren Medic",
+		name: "Havekar Smuggler",
 		type: "CombatCard",
 		position: "Melee",
 		score: 5,
 		ability: "Muster",
-		id: 122
+		id: 122,
+		image: "HavekarSmuggler3.png"
 	}
 ];
 
@@ -998,28 +1136,32 @@ gwentCards.scoiataelStats = {
 
 gwentCards.monstersLeaders = [
 	{
-		name: "Destroyer of Worlds",
+		name: "Eredin, Destroyer of Worlds",
 		type: "LeaderCard",
 		ability: "Draw 1 Card from Discard",
-		id: 123
+		id: 123,
+		image: "EredinDestroyerofWorlds.png"
 	},
 	{
-		name: "Bringer of Death",
+		name: "Eredin, Bringer of Death",
 		type: "LeaderCard",
 		ability: "Discard 2 Draw 1",
-		id: 124
+		id: 124,
+		image: "EredinBringerofDeath.png"
 	},
 	{
-		name: "King of the Wild Hunt",
+		name: "Eredin, King of the Wild Hunt",
 		type: "LeaderCard",
 		ability: "Horn Melee",
-		id: 125
+		id: 125,
+		image: "EredinKingoftheWildHunt.png"
 	},
 	{
-		name: "Commander of the Red Riders",
+		name: "Eredin, Commander of the Red Riders",
 		type: "LeaderCard",
 		ability: "Pick Any Weather",
-		id: 126
+		id: 126,
+		image: "EredinCommanderoftheRedRiders.png"
 	}
 ];
 
@@ -1030,7 +1172,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 10,
 		ability: "Hero",
-		id: 127
+		id: 127,
+		image: "Draug.png"
 	},
 	{
 		name: "Kayran",
@@ -1038,7 +1181,8 @@ gwentCards.monstersCards = [
 		position: "Ranged",
 		score: 8,
 		ability: "Hero,Morale",
-		id: 128
+		id: 128,
+		image: "Kayran.png"
 	},
 	{
 		name: "Imlerith",
@@ -1046,7 +1190,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 10,
 		ability: "Hero",
-		id: 129
+		id: 129,
+		image: "Imlerith.png"
 	},
 	{
 		name: "Leshen",
@@ -1054,7 +1199,8 @@ gwentCards.monstersCards = [
 		position: "Ranged",
 		score: 10,
 		ability: "Hero",
-		id: 130
+		id: 130,
+		image: "Leshen.png"
 	},
 	{
 		name: "Forktail",
@@ -1062,7 +1208,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 131
+		id: 131,
+		image: "Forktail.png"
 	},
 	{
 		name: "Earth Elemental",
@@ -1070,7 +1217,8 @@ gwentCards.monstersCards = [
 		position: "Siege",
 		score: 6,
 		ability: "",
-		id: 132
+		id: 132,
+		image: "EarthElemental.png"
 	},
 	{
 		name: "Fiend",
@@ -1078,7 +1226,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 6,
 		ability: "",
-		id: 133
+		id: 133,
+		image: "Fiend.png"
 	},
 	{
 		name: "Plague Maiden",
@@ -1086,7 +1235,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 134
+		id: 134,
+		image: "PlagueMaiden.png"
 	},
 	{
 		name: "Griffin",
@@ -1094,7 +1244,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 135
+		id: 135,
+		image: "Griffin.png"
 	},
 	{
 		name: "Werewolf",
@@ -1102,7 +1253,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 136
+		id: 136,
+		image: "Werewolf.png"
 	},
 	{
 		name: "Botchling",
@@ -1110,7 +1262,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 4,
 		ability: "",
-		id: 137
+		id: 137,
+		image: "Botchling.png"
 	},
 	{
 		name: "Frightener",
@@ -1118,7 +1271,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 138
+		id: 138,
+		image: "Frightener.png"
 	},
 	{
 		name: "Ice Giant",
@@ -1126,7 +1280,8 @@ gwentCards.monstersCards = [
 		position: "Siege",
 		score: 5,
 		ability: "",
-		id: 139
+		id: 139,
+		image: "IceGiant.png"
 	},
 	{
 		name: "Endrega",
@@ -1134,7 +1289,8 @@ gwentCards.monstersCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "",
-		id: 140
+		id: 140,
+		image: "Endrega.png"
 	},
 	{
 		name: "Harpy",
@@ -1142,7 +1298,8 @@ gwentCards.monstersCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "Agile",
-		id: 141
+		id: 141,
+		image: "Harpy.png"
 	},
 	{
 		name: "Cockatrice",
@@ -1150,7 +1307,8 @@ gwentCards.monstersCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "",
-		id: 142
+		id: 142,
+		image: "Cockatrice.png"
 	},
 	{
 		name: "Gargoyle",
@@ -1158,7 +1316,8 @@ gwentCards.monstersCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "",
-		id: 143
+		id: 143,
+		image: "Gargoyle.png"
 	},
 	{
 		name: "Celaeno Harpy",
@@ -1166,7 +1325,8 @@ gwentCards.monstersCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "",
-		id: 144
+		id: 144,
+		image: "CelaenoHarpy.png"
 	},
 	{
 		name: "Grave Hag",
@@ -1174,7 +1334,8 @@ gwentCards.monstersCards = [
 		position: "Ranged",
 		score: 5,
 		ability: "",
-		id: 145
+		id: 145,
+		image: "GraveHag.png"
 	},
 	{
 		name: "Fire Elemental",
@@ -1182,7 +1343,8 @@ gwentCards.monstersCards = [
 		position: "Siege",
 		score: 6,
 		ability: "",
-		id: 146
+		id: 146,
+		image: "FireElemental.png"
 	},
 	{
 		name: "Foglet",
@@ -1190,7 +1352,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 2,
 		ability: "",
-		id: 147
+		id: 147,
+		image: "Foglet.png"
 	},
 	{
 		name: "Wyvern",
@@ -1198,7 +1361,8 @@ gwentCards.monstersCards = [
 		position: "Ranged",
 		score: 2,
 		ability: "",
-		id: 148
+		id: 148,
+		image: "Wyvern.png"
 	},
 	{
 		name: "Arachas Behemoth",
@@ -1206,7 +1370,8 @@ gwentCards.monstersCards = [
 		position: "Siege",
 		score: 6,
 		ability: "Muster",
-		id: 149
+		id: 149,
+		image: "ArachasBehemoth.png"
 	},
 	{
 		name: "Arachas",
@@ -1214,7 +1379,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Muster",
-		id: 150
+		id: 150,
+		image: "Arachas.png"
 	},
 	{
 		name: "Arachas",
@@ -1222,7 +1388,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Muster",
-		id: 151
+		id: 151,
+		image: "Arachas2.png"
 	},
 	{
 		name: "Arachas",
@@ -1230,7 +1397,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Muster",
-		id: 152
+		id: 152,
+		image: "Arachas3.png"
 	},
 	{
 		name: "Nekker",
@@ -1238,7 +1406,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 2,
 		ability: "Muster",
-		id: 153
+		id: 153,
+		image: "Nekker.png"
 	},
 	{
 		name: "Nekker",
@@ -1246,7 +1415,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 2,
 		ability: "Muster",
-		id: 154
+		id: 154,
+		image: "Nekker2.png"
 	},
 	{
 		name: "Nekker",
@@ -1254,7 +1424,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 2,
 		ability: "Muster",
-		id: 155
+		id: 155,
+		image: "Nekker3.png"
 	},
 	{
 		name: "Vampire: Ekimmara",
@@ -1262,7 +1433,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Muster",
-		id: 156
+		id: 156,
+		image: "VampireEkimmara.png"
 	},
 	{
 		name: "Vampire: Fleder",
@@ -1270,7 +1442,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Muster",
-		id: 157
+		id: 157,
+		image: "VampireFleder.png"
 	},
 	{
 		name: "Vampire: Garkain",
@@ -1278,7 +1451,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Muster",
-		id: 158
+		id: 158,
+		image: "VampireGarkain.png"
 	},
 	{
 		name: "Vampire: Bruxa",
@@ -1286,7 +1460,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 4,
 		ability: "Muster",
-		id: 159
+		id: 159,
+		image: "VampireBruxa.png"
 	},
 	{
 		name: "Ghoul",
@@ -1294,7 +1469,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 1,
 		ability: "Muster",
-		id: 160
+		id: 160,
+		image: "Ghoul.png"
 	},
 	{
 		name: "Ghoul",
@@ -1302,7 +1478,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 1,
 		ability: "Muster",
-		id: 161
+		id: 161,
+		image: "Ghoul2.png"
 	},
 	{
 		name: "Ghoul",
@@ -1310,7 +1487,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 1,
 		ability: "Muster",
-		id: 162
+		id: 162,
+		image: "Ghoul3.png"
 	},
 	{
 		name: "Crone: Brewess",
@@ -1318,7 +1496,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 6,
 		ability: "",
-		id: 163
+		id: 163,
+		image: "CroneBrewess.png"
 	},
 	{
 		name: "Crone: Weavess",
@@ -1326,7 +1505,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 6,
 		ability: "",
-		id: 164
+		id: 164,
+		image: "CroneWeavess.png"
 	},
 	{
 		name: "Crone: Whispess",
@@ -1334,7 +1514,8 @@ gwentCards.monstersCards = [
 		position: "Melee",
 		score: 6,
 		ability: "",
-		id: 165
+		id: 165,
+		image: "CroneWhispess.png"
 	}
 ];
 
@@ -1351,127 +1532,148 @@ gwentCards.neutralCards = [
 		name: "Decoy",
 		type: "SpecialCard",
 		ability: "Decoy",
-		id: 166
+		id: 166,
+		image: "Decoy.png"
 	},
 	{
 		name: "Decoy",
 		type: "SpecialCard",
 		ability: "Decoy",
-		id: 167
+		id: 167,
+		image: "Decoy.png"
 	},
 	{
 		name: "Decoy",
 		type: "SpecialCard",
 		ability: "Decoy",
-		id: 168
+		id: 168,
+		image: "Decoy.png"
 	},
 	{
 		name: "Commander's Horn",
 		type: "SpecialCard",
 		ability: "Horn",
-		id: 169
+		id: 169,
+		image: "CommanderHorn.png"
 	},
 	{
 		name: "Commander's Horn",
 		type: "SpecialCard",
 		ability: "Horn",
-		id: 170
+		id: 170,
+		image: "CommanderHorn.png"
 	},
 	{
 		name: "Commander's Horn",
 		type: "SpecialCard",
 		ability: "Horn",
-		id: 171
+		id: 171,
+		image: "CommanderHorn.png"
 	},
 	{
 		name: "Scorch",
 		type: "SpecialCard",
 		ability: "Scorch",
-		id: 172
+		id: 172,
+		image: "Scorch.png"
 	},
 	{
 		name: "Scorch",
 		type: "SpecialCard",
 		ability: "Scorch",
-		id: 173
+		id: 173,
+		image: "Scorch.png"
 	},
 	{
 		name: "Scorch",
 		type: "SpecialCard",
 		ability: "Scorch",
-		id: 174
+		id: 174,
+		image: "Scorch.png"
 	},
 	{
 		name: "Biting Frost",
 		type: "WeatherCard",
 		affectedPosition: "Melee",
-		id: 175
+		id: 175,
+		image: "BitingFrost.png"
 	},
 	{
 		name: "Biting Frost",
 		type: "WeatherCard",
 		affectedPosition: "Melee",
-		id: 176
+		id: 176,
+		image: "BitingFrost.png"
 	},
 	{
 		name: "Biting Frost",
 		type: "WeatherCard",
 		affectedPosition: "Melee",
-		id: 177
+		id: 177,
+		image: "BitingFrost.png"
 	},
 	{
 		name: "Impenetrable Fog",
 		type: "WeatherCard",
 		affectedPosition: "Ranged",
-		id: 178
+		id: 178,
+		image: "ImpenetrableFog.png"
 	},
 	{
 		name: "Impenetrable Fog",
 		type: "WeatherCard",
 		affectedPosition: "Ranged",
-		id: 179
+		id: 179,
+		image: "ImpenetrableFog.png"
 	},
 	{
 		name: "Impenetrable Fog",
 		type: "WeatherCard",
 		affectedPosition: "Ranged",
-		id: 180
+		id: 180,
+		image: "ImpenetrableFog.png"
 	},
 	{
 		name: "Torrential Rain",
 		type: "WeatherCard",
 		affectedPosition: "Siege",
-		id: 181
+		id: 181,
+		image: "TorrentialRain.png"
 	},
 	{
 		name: "Torrential Rain",
 		type: "WeatherCard",
 		affectedPosition: "Siege",
-		id: 182
+		id: 182,
+		image: "TorrentialRain.png"
 	},
 	{
 		name: "Torrential Rain",
 		type: "WeatherCard",
 		affectedPosition: "Siege",
-		id: 183
+		id: 183,
+		image: "TorrentialRain.png"
 	},
 	{
 		name: "Clear Weather",
 		type: "WeatherCard",
 		affectedPosition: "None",
-		id: 184
+		id: 184,
+		image: "ClearWeather.png"
 	},
 	{
 		name: "Clear Weather",
 		type: "WeatherCard",
 		affectedPosition: "None",
-		id: 185
+		id: 185,
+		image: "ClearWeather.png"
 	},
 	{
 		name: "Clear Weather",
 		type: "WeatherCard",
 		affectedPosition: "None",
-		id: 186
+		id: 186,
+		image: "ClearWeather.png"
 	},
 	{
 		name: "Vesemir",
@@ -1479,7 +1681,8 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 6,
 		ability: "",
-		id: 187
+		id: 187,
+		image: "Vesemir.png"
 	},
 	{
 		name: "Yennefer of Vengerberg",
@@ -1487,15 +1690,17 @@ gwentCards.neutralCards = [
 		position: "Ranged",
 		score: 7,
 		ability: "Hero,Medic",
-		id: 188
+		id: 188,
+		image: "YenneferofVengerberg.png"
 	},
 	{
-		name: "Cirilla Fiona Elen Rianno",
+		name: "Cirilla Fiona Elen Riannon",
 		type: "CombatCard",
 		position: "Melee",
 		score: 15,
 		ability: "Hero",
-		id: 189
+		id: 189,
+		image: "CirillaFionaElenRiannon.png"
 	},
 	{
 		name: "Triss Merigold",
@@ -1503,7 +1708,8 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 7,
 		ability: "Hero",
-		id: 190
+		id: 190,
+		image: "TrissMerigold.png"
 	},
 	{
 		name: "Dandelion",
@@ -1511,7 +1717,8 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 2,
 		ability: "Morale",
-		id: 191
+		id: 191,
+		image: "Dandelion.png"
 	},
 	{
 		name: "Geralt of Rivia",
@@ -1519,7 +1726,8 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 15,
 		ability: "Hero",
-		id: 192
+		id: 192,
+		image: "GeraltofRivia.png"
 	},
 	{
 		name: "Zoltan Chivay",
@@ -1527,7 +1735,8 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 193
+		id: 193,
+		image: "ZoltanChivay.png"
 	},
 	{
 		name: "Emiel Regis Rohellec Terzieff",
@@ -1535,7 +1744,8 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 5,
 		ability: "",
-		id: 194
+		id: 194,
+		image: "EmielRegisRohellecTerzieff.png"
 	},
 	{
 		name: "Villentretenmerth",
@@ -1543,7 +1753,8 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 7,
 		ability: "Scorch",
-		id: 195
+		id: 195,
+		image: "Villentretenmerth.png"
 	},
 	{
 		name: "Avallac'h",
@@ -1551,7 +1762,8 @@ gwentCards.neutralCards = [
 		position: "Melee",
 		score: 0,
 		ability: "Spy,Hero",
-		id: 196
+		id: 196,
+		image: "Avallach.png"
 	}
 ];
 

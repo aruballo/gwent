@@ -44,7 +44,7 @@ class DeckSelectionPage extends Component {
     let deckType; 
     let stateObject = {};
 
-    if(id >= 166){
+    if(id >= 166 && id < 197){
       deckType = "neutralDeckCards"
     }
     else{
@@ -247,13 +247,20 @@ class BaseDeckLeaderChoices extends Component {
     return(
       <div className="LeaderTableDiv">
         <h2>{this.props.baseDeckName}</h2>
-        <Table rowsCount={this.props.leaderCards.length} rowHeight={50} maxHeight={300} width={500} headerHeight={30}>
+        <Table rowsCount={this.props.leaderCards.length} rowHeight={80} maxHeight={300} width={535} headerHeight={30}>
           <Column 
             header={<Cell> </Cell>} 
             cell={
               <RadioCell data={this.props.leaderCards} onChange={this.props.onRowClick} field="checked"/>
             }
             width={30}
+          />
+          <Column 
+            header={<Cell> Card </Cell>} 
+            cell={
+              <ImageCell data={this.props.leaderCards} path="/cards/" field="image"/>
+            }
+            width={55}
           />
           <Column 
             header={<Cell> Leader Name </Cell>} 
@@ -280,7 +287,7 @@ class DeckChoices extends Component{
     return(
       <div className="DeckTableDiv">
         <h2>{this.props.label}</h2>
-        <Table rowsCount={this.props.deckCards.length} rowHeight={50} maxHeight={500} width={700} headerHeight={30}>
+        <Table rowsCount={this.props.deckCards.length} rowHeight={80} maxHeight={500} width={700} headerHeight={30}>
           <Column 
             header={<Cell> </Cell>} 
             cell={
@@ -289,11 +296,18 @@ class DeckChoices extends Component{
             width={30}
           />
           <Column 
+            header={<Cell> Card </Cell>} 
+            cell={
+              <ImageCell data={this.props.deckCards} path="/cards/" field="image"/>
+            }
+            width={55}
+          />
+          <Column 
             header={<Cell> Name </Cell>} 
             cell={
               <TextCell data={this.props.deckCards} field="name"/>
             }
-            width={250}
+            width={200}
           />
           <Column 
             header={<Cell> Type </Cell>} 
@@ -362,7 +376,7 @@ class DeckStats extends Component {
 class TextCell extends Component {
   shouldComponentUpdate(nextProps){
     const {rowIndex, data, field, ...props} = this.props;
-    if(data[rowIndex].checked !== nextProps.checked){
+    if(data[rowIndex].name !== nextProps.name){
       return true;
     }
 
@@ -415,6 +429,25 @@ class CheckBoxCell extends Component {
       <Cell>
         <input type="checkbox" checked={data[rowIndex].checked} onChange={(event) => {
           this.props.onChange(data[rowIndex].id, event.target.checked)}}/>
+      </Cell>
+    );
+  }
+}
+
+class ImageCell extends Component {
+  shouldComponentUpdate(nextProps){
+    const {rowIndex, data, field, ...props} = this.props;
+    if(data[rowIndex].image !== nextProps.image){
+      return true;
+    }
+
+    return false;
+  }
+
+  render(){
+    return(
+      <Cell>
+        <img className="ImageCellImgSize" src={this.props.path + this.props.data[this.props.rowIndex][this.props.field]}/>
       </Cell>
     );
   }

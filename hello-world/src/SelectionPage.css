@@ -31,3 +31,7 @@
 .LeaderTableDiv, .DeckTableDiv {  
 	color: black;
 }
+
+.ImageCellImgSize{
+	height: 70px;
+}
