@@ -32,8 +32,8 @@
 	color: black;
 }
 
-.ImageCellImgSize{
-	height: 300px;
+.ImageCellImg{
+	height: 250px;
 	border-radius: 20px;
 }
 
@@ -62,4 +62,12 @@
 
 .public_Scrollbar_face::after {
 	background-color: #9E7739;
+}
+
+.fixedDataTableCellLayout_wrap1 {
+	margin:auto;
+}
+
+.ImageCellImgHighlight {
+	box-shadow: 0px 8px 20px 0px rgba(250,208,0,1);
 }

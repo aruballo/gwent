@@ -211,7 +211,7 @@ class DeckSelectionPage extends Component {
         </div>
         <div className={this.state.baseDeckName === "" ? "DeckChoicesAndStats Hidden":"DeckChoicesAndStats"}>
           <div>
-            <BaseDeckLeaderChoices baseDeckName={this.state.baseDeckName} leaderCards={this.state.leaderCards} onRowClick={this.handleLeaderClick} rowHeight={300} maxHeight={325} width={700}/>
+            <BaseDeckLeaderChoices baseDeckName={this.state.baseDeckName} leaderCards={this.state.leaderCards} onRowClick={this.handleLeaderClick} rowHeight={285} maxHeight={325} width={700}/>
             <DeckChoices label="" deckCards={this.state.baseDeckCards} onRowClick={this.handleRowClick} rowHeight={300} maxHeight={500} width={700}/>
           </div>
           <DeckStats totalCards={this.state.totalCards} totalUnitCards={this.state.totalUnitCards} totalSpecialCards={this.state.totalSpecialCards} totalCardStrength={this.state.totalCardStrength} totalHeroCards={this.state.totalHeroCards}/>
@@ -394,7 +394,7 @@ class CustomCell extends Component {
     else if(type === "Image"){
       return(
         <Cell>
-          <img className="ImageCellImgSize" src={path + data[rowIndex * groupLength + offset][field]}/>
+          <img className={data[rowIndex * groupLength + offset].checked === true ? "ImageCellImg ImageCellImgHighlight" : "ImageCellImg" } src={path + data[rowIndex * groupLength + offset][field]}/>
         </Cell>
       );
     }
