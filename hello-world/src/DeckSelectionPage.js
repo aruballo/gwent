@@ -183,7 +183,6 @@ class DeckSelectionPage extends Component {
   }
 
   handleGenerateDeckClick() {
-    //Perf.start();
     this.props.generateDeck({
       baseDeckCards: this.state.baseDeckCards, 
       neutralDeckCards: this.state.neutralDeckCards, 
@@ -193,29 +192,50 @@ class DeckSelectionPage extends Component {
     });
   }
 
-  componentDidUpdate(){
-    //Perf.stop();
-    //Perf.printInclusive();
-    //Perf.printWasted();
-  }
-
   render(){
     return (
       <div className="App">
-        <div className="Header">
-          <h1> Gwent Card Game </h1>
-        </div>
+        
         <div className="DeckSelectionOptions">
-          <DeckSelectionOptions onChange={this.handleBaseDeckSelection} value={this.state.baseDeckSelected}/>
-          <button onClick={this.handleGenerateDeckClick} className={this.state.baseDeckName === "" ? "Hidden":""}> Generate Deck! </button>
+          <DeckSelectionOptions 
+            onChange={this.handleBaseDeckSelection} value={this.state.baseDeckSelected}
+          />
+          <button onClick={this.handleGenerateDeckClick} className={this.state.baseDeckName === "" ? "NotDisplayed":""}> Finalize Deck! </button>
         </div>
-        <div className={this.state.baseDeckName === "" ? "DeckChoicesAndStats Hidden":"DeckChoicesAndStats"}>
+        <div className={this.state.baseDeckName === "" ? "DeckChoicesAndStats NotDisplayed":"DeckChoicesAndStats"}>
           <div>
-            <BaseDeckLeaderChoices baseDeckName={this.state.baseDeckName} leaderCards={this.state.leaderCards} onRowClick={this.handleLeaderClick} rowHeight={285} maxHeight={325} width={700}/>
-            <DeckChoices label="" deckCards={this.state.baseDeckCards} onRowClick={this.handleRowClick} rowHeight={300} maxHeight={500} width={700}/>
+            <BaseDeckLeaderChoices 
+              baseDeckName={this.state.baseDeckName} 
+              leaderCards={this.state.leaderCards} 
+              onRowClick={this.handleLeaderClick} 
+              rowHeight={225} 
+              maxHeight={325} 
+              width={700}
+            />
+            <DeckChoices 
+              label="" 
+              deckCards={this.state.baseDeckCards} 
+              onRowClick={this.handleRowClick} 
+              rowHeight={300} 
+              maxHeight={500} 
+              width={700}
+            />
           </div>
-          <DeckStats totalCards={this.state.totalCards} totalUnitCards={this.state.totalUnitCards} totalSpecialCards={this.state.totalSpecialCards} totalCardStrength={this.state.totalCardStrength} totalHeroCards={this.state.totalHeroCards}/>
-          <DeckChoices label="Neutral Deck" deckCards={this.state.neutralDeckCards} onRowClick={this.handleRowClick} rowHeight={300} maxHeight={800} width={700} />
+          <DeckStats 
+            totalCards={this.state.totalCards} 
+            totalUnitCards={this.state.totalUnitCards} 
+            totalSpecialCards={this.state.totalSpecialCards} 
+            totalCardStrength={this.state.totalCardStrength} 
+            totalHeroCards={this.state.totalHeroCards}
+          />
+          <DeckChoices 
+            label="Neutral Deck" 
+            deckCards={this.state.neutralDeckCards} 
+            onRowClick={this.handleRowClick} 
+            rowHeight={300} 
+            maxHeight={800} 
+            width={700} 
+          />
         </div>
       </div>
     );
@@ -226,15 +246,12 @@ class DeckSelectionOptions extends Component {
   render(){
     return(
       <div className="DeckSelectionOptions">
-        <div className="SelectionDropdown">
-          <label>Base Deck</label><br/>
-          <select id="SelectionDropdownEl" onChange={(event) => this.props.onChange(event.target.value)} value={this.props.value}>
-            <option value=""></option>
-            <option value="northern">Northern Realms</option>
-            <option value="nilfgaard">Nilfgaardian Empire</option>
-            <option value="monsters">Monsters</option>
-            <option value="scoiatael">Scoia'Tael</option>
-          </select>
+        <h3>Select a Deck</h3>
+        <div className="DeckChoiceImages">
+          <img src="TemerianDeck.png" className={this.props.value === "northern" ? "DeckChoiceImageHighlight" : "DeckChoiceImage"} onClick={() => this.props.onChange("northern")}/>
+          <img src="NilfgaardianDeck.png" className={this.props.value === "nilfgaard" ? "DeckChoiceImageHighlight" : "DeckChoiceImage"} onClick={() => this.props.onChange("nilfgaard")}/>
+          <img src="MonstersDeck.png" className={this.props.value === "monsters" ? "DeckChoiceImageHighlight" : "DeckChoiceImage"} onClick={() => this.props.onChange("monsters")}/>
+          <img src="ScoiataelDeck.png" className={this.props.value === "scoiatael" ? "DeckChoiceImageHighlight" : "DeckChoiceImage"} onClick={() => this.props.onChange("scoiatael")}/>
         </div>
       </div>
     );
@@ -246,40 +263,61 @@ class BaseDeckLeaderChoices extends Component {
     return(
       <div className="LeaderTableDiv">
         <h2>{this.props.baseDeckName}</h2>
-        <Table rowsCount={Math.ceil(this.props.leaderCards.length/3)} rowHeight={this.props.rowHeight} maxHeight={this.props.maxHeight} width={this.props.width} headerHeight={0}>
+        <Table 
+          rowsCount={Math.ceil(this.props.leaderCards.length/4)} 
+          rowHeight={this.props.rowHeight} 
+          maxHeight={this.props.maxHeight} 
+          width={this.props.width} 
+          headerHeight={0}
+        >
           <Column 
             cell={
-              <CustomCell data={this.props.leaderCards} onChange={this.props.onRowClick} field="checked" groupLength={3} offset={0} type="Radio"/>
-            }
-            width={30}
-          />
-          <Column 
-            cell={
-              <CustomCell data={this.props.leaderCards} path="/cards/" field="image" groupLength={3} offset={0} type="Image"/>
-            }
-            width={175}
-          />
-          <Column 
-            cell={
-              <CustomCell data={this.props.leaderCards} onChange={this.props.onRowClick} field="checked" groupLength={3} offset={1} type="Radio"/>
-            }
-            width={30}
-          />
-          <Column 
-            cell={
-              <CustomCell data={this.props.leaderCards} path="/cards/" field="image" groupLength={3} offset={1} type="Image"/>
+              <CustomCell 
+                data={this.props.leaderCards} 
+                path="/cards/" 
+                groupLength={4} 
+                offset={0} type="LeaderCell" 
+                onChange={this.props.onRowClick}
+              />
             }
             width={175}
           />
           <Column 
             cell={
-              <CustomCell data={this.props.leaderCards} onChange={this.props.onRowClick} field="checked" groupLength={3} offset={2} type="Radio"/>
+              <CustomCell 
+                data={this.props.leaderCards} 
+                path="/cards/" 
+                groupLength={4} 
+                offset={1} 
+                type="LeaderCell" 
+                onChange={this.props.onRowClick}
+              />
             }
-            width={30}
+            width={175}
           />
           <Column 
             cell={
-              <CustomCell data={this.props.leaderCards} path="/cards/" field="image" groupLength={3} offset={2} type="Image"/>
+              <CustomCell 
+                data={this.props.leaderCards} 
+                path="/cards/" 
+                groupLength={4} 
+                offset={2} 
+                type="LeaderCell" 
+                onChange={this.props.onRowClick}
+              />
+            }
+            width={175}
+          />
+          <Column 
+            cell={
+              <CustomCell 
+                data={this.props.leaderCards} 
+                path="/cards/" 
+                groupLength={4} 
+                offset={3} 
+                type="LeaderCell" 
+                onChange={this.props.onRowClick}
+              />
             }
             width={175}
           />
@@ -294,44 +332,65 @@ class DeckChoices extends Component{
     return(
       <div className="DeckTableDiv">
         <h2>{this.props.label}</h2>
-        <Table rowsCount={Math.ceil(this.props.deckCards.length/3)} rowHeight={this.props.rowHeight} maxHeight={this.props.maxHeight} width={this.props.width} headerHeight={0}>
+        <Table 
+          rowsCount={Math.ceil(this.props.deckCards.length/4)} 
+          rowHeight={this.props.rowHeight} 
+          maxHeight={this.props.maxHeight} 
+          width={this.props.width} 
+          headerHeight={0}
+        >
           <Column 
             cell={
-              <CustomCell data={this.props.deckCards} onChange={this.props.onRowClick} field="checked" groupLength={3} offset={0} type="Checkbox"/>
-            }
-            width={30}
-          />
-          <Column 
-            cell={
-              <CustomCell data={this.props.deckCards} path="/cards/" field="image" groupLength={3} offset={0} type="Image"/>
+              <CustomCell 
+                data={this.props.deckCards} 
+                path="/cards/" 
+                groupLength={4} 
+                offset={0} 
+                type="DeckCell" 
+                onChange={this.props.onRowClick}
+              />
             }
             width={175}
           />
           <Column 
             cell={
-              <CustomCell data={this.props.deckCards} onChange={this.props.onRowClick} groupLength={3} offset={1} type="Checkbox"/>
-            }
-            width={30}
-          />
-          <Column 
-            cell={
-              <CustomCell data={this.props.deckCards} path="/cards/" field="image" groupLength={3} offset={1} type="Image"/>
+              <CustomCell 
+                data={this.props.deckCards} 
+                path="/cards/" 
+                groupLength={4} 
+                offset={1} 
+                type="DeckCell" 
+                onChange={this.props.onRowClick}
+              />
             }
             width={175}
-          />
-           <Column 
-            cell={
-              <CustomCell data={this.props.deckCards} onChange={this.props.onRowClick} field="checked" groupLength={3} offset={2} type="Checkbox"/>
-            }
-            width={30}
           />
           <Column  
             cell={
-              <CustomCell data={this.props.deckCards} path="/cards/" field="image" groupLength={3} offset={2} type="Image"/>
+              <CustomCell 
+                data={this.props.deckCards} 
+                path="/cards/" 
+                groupLength={4} 
+                offset={2} 
+                type="DeckCell" 
+                onChange={this.props.onRowClick}
+              />
             }
             width={175}
           />
-          
+          <Column  
+            cell={
+              <CustomCell 
+                data={this.props.deckCards} 
+                path="/cards/" 
+                groupLength={4} 
+                offset={3} 
+                type="DeckCell" 
+                onChange={this.props.onRowClick}
+              />
+            }
+            width={175}
+          />
         </Table>
       </div>
     )
@@ -383,28 +442,47 @@ class CustomCell extends Component {
         </Cell>
       );
     }
-    else if(type === "Radio"){
+    else if(type === "LeaderCell"){
       return(
         <Cell>
-          <input type="radio" name="Leader" value={data[rowIndex * groupLength + offset].id} checked={data[rowIndex * groupLength + offset].checked} onChange={(event) => {
-            this.props.onChange(data[rowIndex * groupLength + offset].id)}}/>
-        </Cell>
-      ); 
-    }
-    else if(type === "Image"){
-      return(
-        <Cell>
-          <img className={data[rowIndex * groupLength + offset].checked === true ? "ImageCellImg ImageCellImgHighlight" : "ImageCellImg" } src={path + data[rowIndex * groupLength + offset][field]}/>
+          <img 
+            className={data[rowIndex * groupLength + offset].checked === true ? "LeaderImageCellImg ImageCellImgHighlight" : "LeaderImageCellImg" } 
+            src={path + data[rowIndex * groupLength + offset].image}
+            onClick={() => document.getElementById("Radio" + data[rowIndex * groupLength + offset].id).click()}
+          />
+          <input
+            id={"Radio" + data[rowIndex * groupLength + offset].id}
+            className="Hidden" 
+            type="radio" 
+            name="Leader" 
+            value={data[rowIndex * groupLength + offset].id} 
+            checked={data[rowIndex * groupLength + offset].checked} 
+            onChange={(event) => {
+              this.props.onChange(data[rowIndex * groupLength + offset].id)
+            }}
+          />
         </Cell>
       );
     }
-    else if(type === "Checkbox"){
+    else if(type === "DeckCell"){
       return(
         <Cell>
-          <input type="checkbox" checked={data[rowIndex * groupLength + offset].checked} onChange={(event) => {
-            this.props.onChange(data[rowIndex * groupLength + offset].id, event.target.checked)}}/>
+          <img 
+            className={data[rowIndex * groupLength + offset].checked === true ? "DeckImageCellImg ImageCellImgHighlight" : "DeckImageCellImg" } 
+            src={path + data[rowIndex * groupLength + offset].image}
+            onClick={() => document.getElementById("Checkbox" + data[rowIndex * groupLength + offset].id).click()}
+          />
+          <input
+            id={"Checkbox" + data[rowIndex * groupLength + offset].id} 
+            className="Hidden"
+            type="checkbox" 
+            checked={data[rowIndex * groupLength + offset].checked} 
+            onChange={(event) => {
+              this.props.onChange(data[rowIndex * groupLength + offset].id, event.target.checked)
+            }}
+          />
         </Cell>
-      ); 
+      );
     }
   }
 }

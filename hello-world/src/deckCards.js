@@ -438,7 +438,7 @@ gwentCards.nilfgaardCards = [
 		name: "Tibor Eggebracht",
 		type: "CombatCard",
 		position: "Ranged",
-		score: 2,
+		score: 10,
 		ability: "",
 		id: 48,
 		image: "TiborEggebracht.png"
