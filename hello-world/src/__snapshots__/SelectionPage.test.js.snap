@@ -2,379 +2,66 @@ exports[`test renders without crashing 1`] = `
 <div
   className="App">
   <div
-    className="Header">
-    <h1>
-       Gwent Card Game 
-    </h1>
-  </div>
-  <div
     className="DeckSelectionOptions">
     <div
       className="DeckSelectionOptions">
+      <h2>
+        Select a Deck
+      </h2>
       <div
-        className="SelectionDropdown">
-        <label>
-          Base Deck
-        </label>
-        <br />
-        <select
-          id="SelectionDropdownEl"
-          onChange={[Function]}
-          value="">
-          <option
-            value="" />
-          <option
-            value="northern">
-            Northern Realms
-          </option>
-          <option
-            value="nilfgaard">
-            Nilfgaardian Empire
-          </option>
-          <option
-            value="monsters">
-            Monsters
-          </option>
-          <option
-            value="scoiatael">
-            Scoia\'Tael
-          </option>
-        </select>
+        className="DeckChoiceImages">
+        <img
+          className="DeckChoiceImage"
+          onClick={[Function]}
+          src="TemerianDeck.png" />
+        <img
+          className="DeckChoiceImage"
+          onClick={[Function]}
+          src="NilfgaardianDeck.png" />
+        <img
+          className="DeckChoiceImage"
+          onClick={[Function]}
+          src="MonstersDeck.png" />
+        <img
+          className="DeckChoiceImage"
+          onClick={[Function]}
+          src="ScoiataelDeck.png" />
       </div>
     </div>
     <button
-      className="Hidden"
+      className="NotDisplayed"
       onClick={[Function]}>
-       Generate Deck! 
+       Finalize Deck! 
     </button>
   </div>
   <div
-    className="DeckChoicesAndStats Hidden">
+    className="DeckChoicesAndStats NotDisplayed">
     <div>
       <div
-        className="LeaderTableDiv">
-        <h2>
-          
-        </h2>
-        <div
-          className="fixedDataTableLayout_main public_fixedDataTable_main"
-          onWheel={[Function]}
-          style={
-            Object {
-              "height": 32,
-              "width": 700,
-            }
-          }>
-          <div
-            className="fixedDataTableLayout_rowsContainer"
-            style={
-              Object {
-                "height": 30,
-                "width": 700,
-              }
-            }>
-            <div
-              className="fixedDataTableColumnResizerLineLayout_main fixedDataTableColumnResizerLineLayout_hiddenElem public_fixedDataTableColumnResizerLine_main"
-              style={
-                Object {
-                  "height": 32,
-                  "left": 0,
-                  "width": 0,
-                }
-              }>
-              <div
-                className="fixedDataTableColumnResizerLineLayout_mouseArea"
-                style={
-                  Object {
-                    "height": 32,
-                  }
-                } />
-            </div>
-            <div
-              className="fixedDataTableRowLayout_rowWrapper"
-              style={
-                Object {
-                  "height": 30,
-                  "left": "0px",
-                  "top": "0px",
-                  "width": 700,
-                  "zIndex": 1,
-                }
-              }>
-              <div
-                className="fixedDataTableRowLayout_main public_fixedDataTableRow_main fixedDataTableLayout_header public_fixedDataTable_header"
-                onClick={null}
-                onDoubleClick={null}
-                onMouseDown={null}
-                onMouseEnter={null}
-                onMouseLeave={null}
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 700,
-                  }
-                }>
-                <div
-                  className="fixedDataTableRowLayout_body">
-                  <div
-                    className="fixedDataTableCellGroupLayout_cellGroupWrapper"
-                    style={
-                      Object {
-                        "height": 30,
-                        "left": 0,
-                      }
-                    }>
-                    <div
-                      className="fixedDataTableCellGroupLayout_cellGroup"
-                      style={
-                        Object {
-                          "height": 30,
-                          "left": "0px",
-                          "position": "absolute",
-                          "top": "0px",
-                          "width": 0,
-                          "zIndex": 2,
-                        }
-                      } />
-                  </div>
-                  <div
-                    className="fixedDataTableCellGroupLayout_cellGroupWrapper"
-                    style={
-                      Object {
-                        "height": 30,
-                        "left": 0,
-                      }
-                    }>
-                    <div
-                      className="fixedDataTableCellGroupLayout_cellGroup"
-                      style={
-                        Object {
-                          "height": 30,
-                          "left": "0px",
-                          "position": "absolute",
-                          "top": "0px",
-                          "width": 610,
-                          "zIndex": 0,
-                        }
-                      }>
-                      <div
-                        className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
-                        style={
-                          Object {
-                            "height": 30,
-                            "left": 0,
-                            "width": 30,
-                          }
-                        }>
-                        <div
-                          className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
-                          style={
-                            Object {
-                              "height": 30,
-                              "width": 30,
-                            }
-                          }>
-                          <div
-                            className="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
-                            <div
-                              className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
-                              <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
-                        style={
-                          Object {
-                            "height": 30,
-                            "left": 30,
-                            "width": 150,
-                          }
-                        }>
-                        <div
-                          className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
-                          style={
-                            Object {
-                              "height": 30,
-                              "width": 150,
-                            }
-                          }>
-                          <div
-                            className="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
-                            <div
-                              className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
-                              <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 Card 
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
-                        style={
-                          Object {
-                            "height": 30,
-                            "left": 180,
-                            "width": 125,
-                          }
-                        }>
-                        <div
-                          className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
-                          style={
-                            Object {
-                              "height": 30,
-                              "width": 125,
-                            }
-                          }>
-                          <div
-                            className="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
-                            <div
-                              className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
-                              <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 Leader Name 
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
-                        style={
-                          Object {
-                            "height": 30,
-                            "left": 305,
-                            "width": 30,
-                          }
-                        }>
-                        <div
-                          className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
-                          style={
-                            Object {
-                              "height": 30,
-                              "width": 30,
-                            }
-                          }>
-                          <div
-                            className="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
-                            <div
-                              className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
-                              <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
-                        style={
-                          Object {
-                            "height": 30,
-                            "left": 335,
-                            "width": 150,
-                          }
-                        }>
-                        <div
-                          className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
-                          style={
-                            Object {
-                              "height": 30,
-                              "width": 150,
-                            }
-                          }>
-                          <div
-                            className="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
-                            <div
-                              className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
-                              <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 Card 
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
-                        style={
-                          Object {
-                            "height": 30,
-                            "left": 485,
-                            "width": 125,
-                          }
-                        }>
-                        <div
-                          className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
-                          style={
-                            Object {
-                              "height": 30,
-                              "width": 125,
-                            }
-                          }>
-                          <div
-                            className="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
-                            <div
-                              className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
-                              <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 Leader Name 
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              style={
-                Object {
-                  "left": "0px",
-                  "pointerEvents": "auto",
-                  "position": "absolute",
-                  "top": "30px",
-                }
-              } />
-          </div>
-        </div>
-      </div>
-      <div
         className="DeckTableDiv">
-        <h2>
-          
-        </h2>
+        <h2 />
         <div
           className="fixedDataTableLayout_main public_fixedDataTable_main"
           onWheel={[Function]}
           style={
             Object {
-              "height": 32,
-              "width": 700,
+              "height": 2,
+              "width": 660,
             }
           }>
           <div
             className="fixedDataTableLayout_rowsContainer"
             style={
               Object {
-                "height": 30,
-                "width": 700,
+                "height": 0,
+                "width": 660,
               }
             }>
             <div
               className="fixedDataTableColumnResizerLineLayout_main fixedDataTableColumnResizerLineLayout_hiddenElem public_fixedDataTableColumnResizerLine_main"
               style={
                 Object {
-                  "height": 32,
+                  "height": 2,
                   "left": 0,
                   "width": 0,
                 }
@@ -383,7 +70,7 @@ exports[`test renders without crashing 1`] = `
                 className="fixedDataTableColumnResizerLineLayout_mouseArea"
                 style={
                   Object {
-                    "height": 32,
+                    "height": 2,
                   }
                 } />
             </div>
@@ -391,10 +78,10 @@ exports[`test renders without crashing 1`] = `
               className="fixedDataTableRowLayout_rowWrapper"
               style={
                 Object {
-                  "height": 30,
+                  "height": 0,
                   "left": "0px",
                   "top": "0px",
-                  "width": 700,
+                  "width": 660,
                   "zIndex": 1,
                 }
               }>
@@ -407,8 +94,8 @@ exports[`test renders without crashing 1`] = `
                 onMouseLeave={null}
                 style={
                   Object {
-                    "height": 30,
-                    "width": 700,
+                    "height": 0,
+                    "width": 660,
                   }
                 }>
                 <div
@@ -417,7 +104,7 @@ exports[`test renders without crashing 1`] = `
                     className="fixedDataTableCellGroupLayout_cellGroupWrapper"
                     style={
                       Object {
-                        "height": 30,
+                        "height": 0,
                         "left": 0,
                       }
                     }>
@@ -425,7 +112,7 @@ exports[`test renders without crashing 1`] = `
                       className="fixedDataTableCellGroupLayout_cellGroup"
                       style={
                         Object {
-                          "height": 30,
+                          "height": 0,
                           "left": "0px",
                           "position": "absolute",
                           "top": "0px",
@@ -438,7 +125,7 @@ exports[`test renders without crashing 1`] = `
                     className="fixedDataTableCellGroupLayout_cellGroupWrapper"
                     style={
                       Object {
-                        "height": 30,
+                        "height": 0,
                         "left": 0,
                       }
                     }>
@@ -446,11 +133,11 @@ exports[`test renders without crashing 1`] = `
                       className="fixedDataTableCellGroupLayout_cellGroup"
                       style={
                         Object {
-                          "height": 30,
+                          "height": 0,
                           "left": "0px",
                           "position": "absolute",
                           "top": "0px",
-                          "width": 540,
+                          "width": 640,
                           "zIndex": 0,
                         }
                       }>
@@ -458,17 +145,17 @@ exports[`test renders without crashing 1`] = `
                         className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
                         style={
                           Object {
-                            "height": 30,
+                            "height": 0,
                             "left": 0,
-                            "width": 30,
+                            "width": 160,
                           }
                         }>
                         <div
                           className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
                           style={
                             Object {
-                              "height": 30,
-                              "width": 30,
+                              "height": 0,
+                              "width": 160,
                             }
                           }>
                           <div
@@ -476,9 +163,7 @@ exports[`test renders without crashing 1`] = `
                             <div
                               className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                               <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 
-                              </div>
+                                className="public_fixedDataTableCell_cellContent" />
                             </div>
                           </div>
                         </div>
@@ -487,17 +172,17 @@ exports[`test renders without crashing 1`] = `
                         className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
                         style={
                           Object {
-                            "height": 30,
-                            "left": 30,
-                            "width": 150,
+                            "height": 0,
+                            "left": 160,
+                            "width": 160,
                           }
                         }>
                         <div
                           className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
                           style={
                             Object {
-                              "height": 30,
-                              "width": 150,
+                              "height": 0,
+                              "width": 160,
                             }
                           }>
                           <div
@@ -505,9 +190,7 @@ exports[`test renders without crashing 1`] = `
                             <div
                               className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                               <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 Card 
-                              </div>
+                                className="public_fixedDataTableCell_cellContent" />
                             </div>
                           </div>
                         </div>
@@ -516,17 +199,17 @@ exports[`test renders without crashing 1`] = `
                         className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
                         style={
                           Object {
-                            "height": 30,
-                            "left": 180,
-                            "width": 30,
+                            "height": 0,
+                            "left": 320,
+                            "width": 160,
                           }
                         }>
                         <div
                           className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
                           style={
                             Object {
-                              "height": 30,
-                              "width": 30,
+                              "height": 0,
+                              "width": 160,
                             }
                           }>
                           <div
@@ -534,9 +217,7 @@ exports[`test renders without crashing 1`] = `
                             <div
                               className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                               <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 
-                              </div>
+                                className="public_fixedDataTableCell_cellContent" />
                             </div>
                           </div>
                         </div>
@@ -545,17 +226,17 @@ exports[`test renders without crashing 1`] = `
                         className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
                         style={
                           Object {
-                            "height": 30,
-                            "left": 210,
-                            "width": 150,
+                            "height": 0,
+                            "left": 480,
+                            "width": 160,
                           }
                         }>
                         <div
                           className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
                           style={
                             Object {
-                              "height": 30,
-                              "width": 150,
+                              "height": 0,
+                              "width": 160,
                             }
                           }>
                           <div
@@ -563,67 +244,7 @@ exports[`test renders without crashing 1`] = `
                             <div
                               className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                               <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 Card 
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
-                        style={
-                          Object {
-                            "height": 30,
-                            "left": 360,
-                            "width": 30,
-                          }
-                        }>
-                        <div
-                          className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
-                          style={
-                            Object {
-                              "height": 30,
-                              "width": 30,
-                            }
-                          }>
-                          <div
-                            className="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
-                            <div
-                              className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
-                              <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
-                        style={
-                          Object {
-                            "height": 30,
-                            "left": 390,
-                            "width": 150,
-                          }
-                        }>
-                        <div
-                          className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
-                          style={
-                            Object {
-                              "height": 30,
-                              "width": 150,
-                            }
-                          }>
-                          <div
-                            className="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
-                            <div
-                              className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
-                              <div
-                                className="public_fixedDataTableCell_cellContent">
-                                 Card 
-                              </div>
+                                className="public_fixedDataTableCell_cellContent" />
                             </div>
                           </div>
                         </div>
@@ -639,7 +260,7 @@ exports[`test renders without crashing 1`] = `
                   "left": "0px",
                   "pointerEvents": "auto",
                   "position": "absolute",
-                  "top": "30px",
+                  "top": "0px",
                 }
               } />
           </div>
@@ -649,47 +270,44 @@ exports[`test renders without crashing 1`] = `
     <div
       className="DeckStats">
       <div>
-        <h2>
-           Deck Stats 
-        </h2>
         <h3>
            Total Cards in Deck 
         </h3>
-        <p>
+        <span>
           0
-        </p>
+        </span>
       </div>
       <div>
         <h3>
            Number of Unit Cards 
         </h3>
-        <p>
+        <span>
           0
-        </p>
+        </span>
       </div>
       <div>
         <h3>
            Special Cards 
         </h3>
-        <p>
+        <span>
           0
-        </p>
+        </span>
       </div>
       <div>
         <h3>
            Total Unit Strength 
         </h3>
-        <p>
+        <span>
           0
-        </p>
+        </span>
       </div>
       <div>
         <h3>
            Hero Cards 
         </h3>
-        <p>
+        <span>
           0
-        </p>
+        </span>
       </div>
     </div>
     <div
@@ -702,23 +320,23 @@ exports[`test renders without crashing 1`] = `
         onWheel={[Function]}
         style={
           Object {
-            "height": 32,
-            "width": 700,
+            "height": 2,
+            "width": 660,
           }
         }>
         <div
           className="fixedDataTableLayout_rowsContainer"
           style={
             Object {
-              "height": 30,
-              "width": 700,
+              "height": 0,
+              "width": 660,
             }
           }>
           <div
             className="fixedDataTableColumnResizerLineLayout_main fixedDataTableColumnResizerLineLayout_hiddenElem public_fixedDataTableColumnResizerLine_main"
             style={
               Object {
-                "height": 32,
+                "height": 2,
                 "left": 0,
                 "width": 0,
               }
@@ -727,7 +345,7 @@ exports[`test renders without crashing 1`] = `
               className="fixedDataTableColumnResizerLineLayout_mouseArea"
               style={
                 Object {
-                  "height": 32,
+                  "height": 2,
                 }
               } />
           </div>
@@ -735,10 +353,10 @@ exports[`test renders without crashing 1`] = `
             className="fixedDataTableRowLayout_rowWrapper"
             style={
               Object {
-                "height": 30,
+                "height": 0,
                 "left": "0px",
                 "top": "0px",
-                "width": 700,
+                "width": 660,
                 "zIndex": 1,
               }
             }>
@@ -751,8 +369,8 @@ exports[`test renders without crashing 1`] = `
               onMouseLeave={null}
               style={
                 Object {
-                  "height": 30,
-                  "width": 700,
+                  "height": 0,
+                  "width": 660,
                 }
               }>
               <div
@@ -761,7 +379,7 @@ exports[`test renders without crashing 1`] = `
                   className="fixedDataTableCellGroupLayout_cellGroupWrapper"
                   style={
                     Object {
-                      "height": 30,
+                      "height": 0,
                       "left": 0,
                     }
                   }>
@@ -769,7 +387,7 @@ exports[`test renders without crashing 1`] = `
                     className="fixedDataTableCellGroupLayout_cellGroup"
                     style={
                       Object {
-                        "height": 30,
+                        "height": 0,
                         "left": "0px",
                         "position": "absolute",
                         "top": "0px",
@@ -782,7 +400,7 @@ exports[`test renders without crashing 1`] = `
                   className="fixedDataTableCellGroupLayout_cellGroupWrapper"
                   style={
                     Object {
-                      "height": 30,
+                      "height": 0,
                       "left": 0,
                     }
                   }>
@@ -790,11 +408,11 @@ exports[`test renders without crashing 1`] = `
                     className="fixedDataTableCellGroupLayout_cellGroup"
                     style={
                       Object {
-                        "height": 30,
+                        "height": 0,
                         "left": "0px",
                         "position": "absolute",
                         "top": "0px",
-                        "width": 540,
+                        "width": 640,
                         "zIndex": 0,
                       }
                     }>
@@ -802,17 +420,17 @@ exports[`test renders without crashing 1`] = `
                       className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
                       style={
                         Object {
-                          "height": 30,
+                          "height": 0,
                           "left": 0,
-                          "width": 30,
+                          "width": 160,
                         }
                       }>
                       <div
                         className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
                         style={
                           Object {
-                            "height": 30,
-                            "width": 30,
+                            "height": 0,
+                            "width": 160,
                           }
                         }>
                         <div
@@ -820,9 +438,7 @@ exports[`test renders without crashing 1`] = `
                           <div
                             className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                             <div
-                              className="public_fixedDataTableCell_cellContent">
-                               
-                            </div>
+                              className="public_fixedDataTableCell_cellContent" />
                           </div>
                         </div>
                       </div>
@@ -831,17 +447,17 @@ exports[`test renders without crashing 1`] = `
                       className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
                       style={
                         Object {
-                          "height": 30,
-                          "left": 30,
-                          "width": 150,
+                          "height": 0,
+                          "left": 160,
+                          "width": 160,
                         }
                       }>
                       <div
                         className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
                         style={
                           Object {
-                            "height": 30,
-                            "width": 150,
+                            "height": 0,
+                            "width": 160,
                           }
                         }>
                         <div
@@ -849,9 +465,7 @@ exports[`test renders without crashing 1`] = `
                           <div
                             className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                             <div
-                              className="public_fixedDataTableCell_cellContent">
-                               Card 
-                            </div>
+                              className="public_fixedDataTableCell_cellContent" />
                           </div>
                         </div>
                       </div>
@@ -860,17 +474,17 @@ exports[`test renders without crashing 1`] = `
                       className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
                       style={
                         Object {
-                          "height": 30,
-                          "left": 180,
-                          "width": 30,
+                          "height": 0,
+                          "left": 320,
+                          "width": 160,
                         }
                       }>
                       <div
                         className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
                         style={
                           Object {
-                            "height": 30,
-                            "width": 30,
+                            "height": 0,
+                            "width": 160,
                           }
                         }>
                         <div
@@ -878,9 +492,7 @@ exports[`test renders without crashing 1`] = `
                           <div
                             className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                             <div
-                              className="public_fixedDataTableCell_cellContent">
-                               
-                            </div>
+                              className="public_fixedDataTableCell_cellContent" />
                           </div>
                         </div>
                       </div>
@@ -889,17 +501,17 @@ exports[`test renders without crashing 1`] = `
                       className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
                       style={
                         Object {
-                          "height": 30,
-                          "left": 210,
-                          "width": 150,
+                          "height": 0,
+                          "left": 480,
+                          "width": 160,
                         }
                       }>
                       <div
                         className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
                         style={
                           Object {
-                            "height": 30,
-                            "width": 150,
+                            "height": 0,
+                            "width": 160,
                           }
                         }>
                         <div
@@ -907,67 +519,7 @@ exports[`test renders without crashing 1`] = `
                           <div
                             className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
                             <div
-                              className="public_fixedDataTableCell_cellContent">
-                               Card 
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
-                      style={
-                        Object {
-                          "height": 30,
-                          "left": 360,
-                          "width": 30,
-                        }
-                      }>
-                      <div
-                        className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
-                        style={
-                          Object {
-                            "height": 30,
-                            "width": 30,
-                          }
-                        }>
-                        <div
-                          className="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
-                          <div
-                            className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
-                            <div
-                              className="public_fixedDataTableCell_cellContent">
-                               
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="fixedDataTableCellLayout_main public_fixedDataTableCell_main"
-                      style={
-                        Object {
-                          "height": 30,
-                          "left": 390,
-                          "width": 150,
-                        }
-                      }>
-                      <div
-                        className="fixedDataTableCellLayout_wrap1 public_fixedDataTableCell_wrap1"
-                        style={
-                          Object {
-                            "height": 30,
-                            "width": 150,
-                          }
-                        }>
-                        <div
-                          className="fixedDataTableCellLayout_wrap2 public_fixedDataTableCell_wrap2">
-                          <div
-                            className="fixedDataTableCellLayout_wrap3 public_fixedDataTableCell_wrap3">
-                            <div
-                              className="public_fixedDataTableCell_cellContent">
-                               Card 
-                            </div>
+                              className="public_fixedDataTableCell_cellContent" />
                           </div>
                         </div>
                       </div>
@@ -983,7 +535,7 @@ exports[`test renders without crashing 1`] = `
                 "left": "0px",
                 "pointerEvents": "auto",
                 "position": "absolute",
-                "top": "30px",
+                "top": "0px",
               }
             } />
         </div>

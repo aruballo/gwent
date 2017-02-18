@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DeckSelectionPage from './DeckSelectionPage';
+import DeckSelectionPageContainer from './DeckSelectionPage';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import {mount} from 'enzyme';
@@ -8,27 +8,27 @@ import {mount} from 'enzyme';
 import  gwentCards from './deckCards.js';
 
 it('renders without crashing', () => {
-	const tree = renderer.create(<DeckSelectionPage/>).toJSON();
+	const tree = renderer.create(<DeckSelectionPageContainer/>).toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
 it('default state values when first rendered', () => {
-	const deckSelectionPage = shallow(<DeckSelectionPage/>);
+	const enzymeWrapper = mount(<DeckSelectionPageContainer/>);
 
-    expect(deckSelectionPage.state('baseDeckSelected')).toEqual('');
-    expect(deckSelectionPage.state('baseDeckName')).toEqual("");
-    expect(deckSelectionPage.state('baseDeckCards')).toEqual([]);
-    expect(deckSelectionPage.state('neutralDeckCards')).toEqual([]);
-    expect(deckSelectionPage.state('leaderCards')).toEqual([]);
-    expect(deckSelectionPage.state('totalCards')).toEqual(0);
-    expect(deckSelectionPage.state('totalUnitCards')).toEqual(0);
-    expect(deckSelectionPage.state('totalSpecialCards')).toEqual(0);
-    expect(deckSelectionPage.state('totalCardStrength')).toEqual(0);
-    expect(deckSelectionPage.state('totalHeroCards')).toEqual(0);
+    expect(enzymeWrapper.state('baseDeck')).toEqual('');
+    expect(enzymeWrapper.state('baseDeckFullName')).toEqual("");
+    expect(enzymeWrapper.state('baseDeckCards')).toEqual([]);
+    expect(enzymeWrapper.state('neutralDeckCards')).toEqual([]);
+    expect(enzymeWrapper.state('leaderCards')).toEqual([]);
+    expect(enzymeWrapper.state('totalCards')).toEqual(0);
+    expect(enzymeWrapper.state('totalUnitCards')).toEqual(0);
+    expect(enzymeWrapper.state('totalSpecialCards')).toEqual(0);
+    expect(enzymeWrapper.state('totalCardStrength')).toEqual(0);
+    expect(enzymeWrapper.state('totalHeroCards')).toEqual(0);
 });
 
 it('addToDeckArray functions properly', () => {
-	const enzymeWrapper = mount(<DeckSelectionPage/>);
+	const enzymeWrapper = mount(<DeckSelectionPageContainer/>);
 	const component = enzymeWrapper.instance();
 	const card = {
 		name: "Vernon Roche",
@@ -75,7 +75,7 @@ it('addToDeckArray functions properly', () => {
 });
 
 it('northern deck is created correctly', () => {
-	const enzymeWrapper = mount(<DeckSelectionPage/>);
+	const enzymeWrapper = mount(<DeckSelectionPageContainer/>);
 	const component = enzymeWrapper.instance();
 
 	let neutralCards = []; 
@@ -88,8 +88,8 @@ it('northern deck is created correctly', () => {
 	gwentCards.northernLeaders.map((object) => component.addCardToDeckArray(object, leaderCards, "true"));
 
 	component.handleBaseDeckSelection("northern");
-	expect(enzymeWrapper.state('baseDeckSelected')).toEqual('northern');
-    expect(enzymeWrapper.state('baseDeckName')).toEqual("Northern Realms");
+	expect(enzymeWrapper.state('baseDeck')).toEqual('northern');
+    expect(enzymeWrapper.state('baseDeckFullName')).toEqual("Northern Realms");
     expect(enzymeWrapper.state('baseDeckCards')).toEqual(northernCards);
     expect(enzymeWrapper.state('neutralDeckCards')).toEqual(neutralCards);
     expect(enzymeWrapper.state('leaderCards')).toEqual(leaderCards);
@@ -101,7 +101,7 @@ it('northern deck is created correctly', () => {
 });
 
 it('nilfgaard deck is created correctly', () => {
-	const enzymeWrapper = mount(<DeckSelectionPage/>);
+	const enzymeWrapper = mount(<DeckSelectionPageContainer/>);
 	const component = enzymeWrapper.instance();
 
 	let neutralCards = []; 
@@ -114,8 +114,8 @@ it('nilfgaard deck is created correctly', () => {
 	gwentCards.nilfgaardLeaders.map((object) => component.addCardToDeckArray(object, leaderCards, "true"));
 
 	component.handleBaseDeckSelection("nilfgaard");
-	expect(enzymeWrapper.state('baseDeckSelected')).toEqual('nilfgaard');
-    expect(enzymeWrapper.state('baseDeckName')).toEqual("Nilfgaardian Empire");
+	expect(enzymeWrapper.state('baseDeck')).toEqual('nilfgaard');
+    expect(enzymeWrapper.state('baseDeckFullName')).toEqual("Nilfgaardian Empire");
     expect(enzymeWrapper.state('baseDeckCards')).toEqual(nilfgaardCards);
     expect(enzymeWrapper.state('neutralDeckCards')).toEqual(neutralCards);
     expect(enzymeWrapper.state('leaderCards')).toEqual(leaderCards);
@@ -127,7 +127,7 @@ it('nilfgaard deck is created correctly', () => {
 });
 
 it('scoiatael deck is created correctly', () => {
-	const enzymeWrapper = mount(<DeckSelectionPage/>);
+	const enzymeWrapper = mount(<DeckSelectionPageContainer/>);
 	const component = enzymeWrapper.instance();
 
 	let neutralCards = []; 
@@ -140,8 +140,8 @@ it('scoiatael deck is created correctly', () => {
 	gwentCards.scoiataelLeaders.map((object) => component.addCardToDeckArray(object, leaderCards, "true"));
 
 	component.handleBaseDeckSelection("scoiatael");
-	expect(enzymeWrapper.state('baseDeckSelected')).toEqual('scoiatael');
-    expect(enzymeWrapper.state('baseDeckName')).toEqual("Scoia'tael");
+	expect(enzymeWrapper.state('baseDeck')).toEqual('scoiatael');
+    expect(enzymeWrapper.state('baseDeckFullName')).toEqual("Scoia'tael");
     expect(enzymeWrapper.state('baseDeckCards')).toEqual(scoiataelCards);
     expect(enzymeWrapper.state('neutralDeckCards')).toEqual(neutralCards);
     expect(enzymeWrapper.state('leaderCards')).toEqual(leaderCards);
@@ -153,7 +153,7 @@ it('scoiatael deck is created correctly', () => {
 });
 
 it('monsters deck is created correctly', () => {
-	const enzymeWrapper = mount(<DeckSelectionPage/>);
+	const enzymeWrapper = mount(<DeckSelectionPageContainer/>);
 	const component = enzymeWrapper.instance();
 
 	let neutralCards = []; 
@@ -166,8 +166,8 @@ it('monsters deck is created correctly', () => {
 	gwentCards.monstersLeaders.map((object) => component.addCardToDeckArray(object, leaderCards, "true"));
 
 	component.handleBaseDeckSelection("monsters");
-	expect(enzymeWrapper.state('baseDeckSelected')).toEqual("monsters");
-    expect(enzymeWrapper.state('baseDeckName')).toEqual("Monsters");
+	expect(enzymeWrapper.state('baseDeck')).toEqual("monsters");
+    expect(enzymeWrapper.state('baseDeckFullName')).toEqual("Monsters");
     expect(enzymeWrapper.state('baseDeckCards')).toEqual(monstersCards);
     expect(enzymeWrapper.state('neutralDeckCards')).toEqual(neutralCards);
     expect(enzymeWrapper.state('leaderCards')).toEqual(leaderCards);
@@ -179,26 +179,26 @@ it('monsters deck is created correctly', () => {
 });
 
 it('row click correctly updates checked status for card in deck array', () => {
-	const enzymeWrapper = mount(<DeckSelectionPage/>);
+	const enzymeWrapper = mount(<DeckSelectionPageContainer/>);
 	const component = enzymeWrapper.instance();
 
 	component.handleBaseDeckSelection("nilfgaard");
 
-	component.handleRowClick(51, "false");
+	component.handleDeckCardClick(51, "false");
 	expect(enzymeWrapper.state('baseDeckCards')[6].checked).toEqual("false");
 
-	component.handleRowClick(51, "true");
+	component.handleDeckCardClick(51, "true");
 	expect(enzymeWrapper.state('baseDeckCards')[6].checked).toEqual("true");
 
-	component.handleRowClick(167, "false");
+	component.handleDeckCardClick(167, "false");
 	expect(enzymeWrapper.state('neutralDeckCards')[1].checked).toEqual("false");
 
-	component.handleRowClick(167, "true");
+	component.handleDeckCardClick(167, "true");
 	expect(enzymeWrapper.state('neutralDeckCards')[1].checked).toEqual("true");
 });
 
 it('leader click correctly updates status for leader cards array', () => {
-	const enzymeWrapper = mount(<DeckSelectionPage/>);
+	const enzymeWrapper = mount(<DeckSelectionPageContainer/>);
 	const component = enzymeWrapper.instance();
 
 	component.handleBaseDeckSelection("monsters");
@@ -229,7 +229,7 @@ it('leader click correctly updates status for leader cards array', () => {
 });
 
 it('stats update correctly when a row is clicked', () => {
-	const enzymeWrapper = mount(<DeckSelectionPage/>);
+	const enzymeWrapper = mount(<DeckSelectionPageContainer/>);
 	const component = enzymeWrapper.instance();
 
 	component.handleBaseDeckSelection("scoiatael");
@@ -243,7 +243,7 @@ it('stats update correctly when a row is clicked', () => {
 		let totalCardStrength = enzymeWrapper.state("totalCardStrength");
 		let totalHeroCards = enzymeWrapper.state("totalHeroCards");
 
-		component.handleRowClick(currentCard.id, false);
+		component.handleDeckCardClick(currentCard.id, false);
 
 		expect(enzymeWrapper.state("totalCards")).toEqual(totalCards - 1);
 		expect(enzymeWrapper.state("totalUnitCards")).toEqual(totalUnitCards - 1);
