@@ -1,0 +1,23 @@
+.Header, .DeckChoicesAndStats {
+  	display: flex;
+  	justify-content: center;
+}
+
+.DeckSelectionOptionsParent {
+	justify-content: center;
+	text-align: center;
+}
+
+.DeckLeaderAndStats {
+	margin: 10px;
+	align-items: center;
+	text-align: center;
+}
+
+.HeaderLogo {
+	height: 128px;
+}
+
+.NotDisplayed {
+	display: none;
+}

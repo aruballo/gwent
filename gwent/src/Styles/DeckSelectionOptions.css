@@ -1,0 +1,18 @@
+.DeckSelectionOptions {
+	display: flex;
+  	justify-content: center;
+  	flex-direction: column;
+	align-items: center;
+}
+
+.DeckChoiceImage {
+	height: 50px;
+	margin: 10px;
+}
+
+.DeckChoiceImageHighlight {
+	box-shadow: 0px 0px 15px 0px rgba(230,169,46,1);
+	height: 60px;
+	margin: 10px;
+}
+

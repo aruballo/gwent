@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DeckSelectionPageContainer from './DeckSelectionPage';
+import DeckSelectionPageContainer from './DeckSelectionPageContainer.js';
 
 class MainContainer extends Component {
 	constructor(props){
@@ -17,21 +17,18 @@ class MainContainer extends Component {
 		let generatedDeck = [];
 
 		for(let i = 0; i < leaderCards.length; i++){
-			let currentCard = leaderCards[i];
 			if(leaderCards[i].checked === true){
 				generatedDeck.push(leaderCards[i]);
 			}
 		}
 
 		for(let i = 0; i < baseDeckCards.length; i++){
-			let currentCard = baseDeckCards[i];
 			if(baseDeckCards[i].checked === true){
 				generatedDeck.push(baseDeckCards[i]);
 			}
 		}
 
 		for(let i = 0; i < neutralDeckCards.length; i++){
-			let currentCard = neutralDeckCards[i];
 			if(neutralDeckCards[i].checked === true){
 				generatedDeck.push(neutralDeckCards[i]);
 			}
