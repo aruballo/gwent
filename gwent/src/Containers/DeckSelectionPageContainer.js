@@ -17,7 +17,8 @@ class DeckSelectionPageContainer extends Component {
       totalUnitCards: 0,
       totalSpecialCards: 0,
       totalCardStrength: 0,
-      totalHeroCards: 0
+      totalHeroCards: 0,
+      showLeaderSelection: false
     };
 
     this.handleBaseDeckSelection = this.handleBaseDeckSelection.bind(this);
@@ -25,6 +26,7 @@ class DeckSelectionPageContainer extends Component {
     this.handleLeaderClick = this.handleLeaderClick.bind(this);
     this.addCardToDeckArray = this.addCardToDeckArray.bind(this);
     this.handleGenerateDeckClick = this.handleGenerateDeckClick.bind(this);
+    this.toggleLeaderSelection = this.toggleLeaderSelection.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState){
@@ -61,11 +63,20 @@ class DeckSelectionPageContainer extends Component {
     this.setState(stateObject);
   }
 
+  toggleLeaderSelection(){
+    this.setState({
+      showLeaderSelection: !this.state.showLeaderSelection
+    });
+  }
+
   handleLeaderClick(id){
     const cards = this.state.leaderCards.slice();
+    let leaderChoice = {};
+
     for(let i = 0; i < cards.length; i++){
       if(cards[i].id === id){
         cards[i].checked = true;
+        leaderChoice = cards[i];
       }
       else{
         cards[i].checked = false;
@@ -73,8 +84,10 @@ class DeckSelectionPageContainer extends Component {
     }
 
     this.setState({
-      leaderCards: cards
-    });
+      leaderCards: cards,
+      leaderChoice: leaderChoice,
+      showLeaderSelection: false
+    })
   }
 
   updateDeckStats(card){
@@ -197,6 +210,10 @@ class DeckSelectionPageContainer extends Component {
         onDeckSelectionChange={this.handleBaseDeckSelection}
         baseDeck={this.state.baseDeck}
         leaderChoice={this.state.leaderChoice}
+        leaderCards={this.state.leaderCards}
+        showLeaderSelection={this.state.showLeaderSelection}
+        toggleLeaderSelection={this.toggleLeaderSelection}
+        onLeaderClick={this.handleLeaderClick}
         neutralDeckCards={this.state.neutralDeckCards}
         onGenerateDeckClick={this.handleGenerateDeckClick}
         baseDeckCards={this.state.baseDeckCards}

@@ -12,10 +12,11 @@ class LeaderChoice extends Component {
 
     return(
       <div>
-        <h3> Leader </h3>
+        <h4>Leader</h4>
         <img 
           src={this.props.path + this.props.leader.image} 
           className="LeaderImg"
+          onClick={this.props.onClick}
         />
       </div>
     )

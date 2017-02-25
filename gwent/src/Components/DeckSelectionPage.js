@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import DeckSelectionOptions from './DeckSelectionOptions.js'
 import DeckChoices from './DeckChoices.js'
 import LeaderChoice from './LeaderChoice.js'
+import LeaderChoiceSelection from './LeaderChoiceSelection.js'
 import DeckStats from './DeckStats.js'
 import '../Styles/DeckSelectionPage.css';
 import '../Styles/index.css';
@@ -11,14 +12,22 @@ class DeckSelectionPage extends Component {
   render(){
     return(
       <div className="App">
-        
         <div className="DeckSelectionOptionsParent">
           <DeckSelectionOptions 
             onChange={this.props.onDeckSelectionChange} 
             value={this.props.baseDeck}
           />
           <button 
-            onClick={this.props.onGenerateDeckClick} className={this.props.baseDeck === "" ? "NotDisplayed":""}> Finalize Deck! </button>
+            onClick={this.props.onGenerateDeckClick} 
+            className={this.props.baseDeck === "" ? "NotDisplayed":""}
+          > Finalize Deck! </button>
+        </div>
+        <div className={this.props.showLeaderSelection === true ? "" : "NotDisplayed"}>
+          <LeaderChoiceSelection
+            leaders={this.props.leaderCards}
+            onClick={this.props.onLeaderClick}
+            path="/cards/"
+          />
         </div>
         <div className={this.props.baseDeck === "" ? "DeckChoicesAndStats NotDisplayed":"DeckChoicesAndStats"}>
           <div>
@@ -36,7 +45,9 @@ class DeckSelectionPage extends Component {
           <div className="DeckLeaderAndStats">
             <LeaderChoice 
               leader={this.props.leaderChoice}
+              onClick={this.props.toggleLeaderSelection}
               path="/cards/"
+              variant="LeaderImg"
             />
             <DeckStats 
               totalCards={this.props.totalCards} 

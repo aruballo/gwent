@@ -1,0 +1,28 @@
+.BackgroundMask {
+	z-Index: 99;
+	background: rgba(0,0,0,.8);
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	position: absolute;
+}
+
+.LeaderChoices {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	width: 100%;
+	position: absolute;
+	z-index: 100 ;
+}
+
+.LeaderChoiceImg {
+	border-radius: 20px;
+}
+
+.LeaderChoiceDiv {
+	margin: 20px;
+}

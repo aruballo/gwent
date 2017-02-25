@@ -384,7 +384,7 @@ gwentCards.nilfgaardLeaders = [
 		image: "EmhyrvarEmreistheRelentless.png"
 	},
 	{
-		name: "Emhyr Var Emreis, The White Flame Dancing on the Graves of His Foes",
+		name: "Emhyr Var Emreis, The White Flame",
 		type: "LeaderCard",
 		ability: "Cancel Leader",
 		id: 42,
