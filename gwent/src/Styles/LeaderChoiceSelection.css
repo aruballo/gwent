@@ -21,6 +21,23 @@
 
 .LeaderChoiceImg {
 	border-radius: 20px;
+	height: 325px;
+	transition: all .50s;
+	cursor: pointer;
+}
+
+.LeaderChoiceImg:hover {
+	border-radius: 20px;
+	height: 505px;
+	box-shadow: 0px 8px 20px 0px rgba(255,129,33,1);
+}
+
+.LeaderName {
+	display: table;
+	white-space: normal;
+	text-align: center;
+	justify-content: center;
+	width: 200px;
 }
 
 .LeaderChoiceDiv {

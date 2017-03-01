@@ -1,6 +1,7 @@
 .DeckImageCellImg{
 	height: 250px;
 	border-radius: 20px;
+	cursor: pointer;
 }
 
 .ImageCellImgHighlight {

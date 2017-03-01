@@ -14,7 +14,7 @@ class LeaderChoiceSelection extends Component {
   	leaders.map((object)=>{ 
   		leaderItems.push(
   			<div key={object.id} className="LeaderChoiceDiv">
-  				<h4>{object.name}</h4>
+  				<span className="LeaderName"><h4>{object.name}</h4></span>
   				<img 
          		  src={this.props.path + object.image} 
           		  className="LeaderChoiceImg"

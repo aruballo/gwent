@@ -19,7 +19,7 @@ class DeckSelectionPage extends Component {
           />
           <button 
             onClick={this.props.onGenerateDeckClick} 
-            className={this.props.baseDeck === "" ? "NotDisplayed":""}
+            className={this.props.baseDeck === "" ? "NotDisplayed":"FinalizeDeckButton"}
           > Finalize Deck! </button>
         </div>
         <div className={this.props.showLeaderSelection === true ? "" : "NotDisplayed"}>
@@ -47,7 +47,6 @@ class DeckSelectionPage extends Component {
               leader={this.props.leaderChoice}
               onClick={this.props.toggleLeaderSelection}
               path="/cards/"
-              variant="LeaderImg"
             />
             <DeckStats 
               totalCards={this.props.totalCards} 

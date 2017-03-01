@@ -39,11 +39,11 @@ class DeckSelectionPageContainer extends Component {
   handleDeckCardClick(id, checked){
 
     // Neutral Cards start at ID value of
-    // 166 and end at 196
+    // 171
     let deckType; 
     let stateObject = {};
 
-    if(id >= 166 && id < 197){
+    if(id >= 171){
       deckType = "neutralDeckCards"
     }
     else{
