@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LeaderChoice from './LeaderChoice.js'
+import LeaderChoice from './LeaderChoice.jsx'
 import '../Styles/LeaderChoiceSelection.css'
 
 class LeaderChoiceSelection extends Component {
@@ -17,8 +17,9 @@ class LeaderChoiceSelection extends Component {
   				<span className="LeaderName"><h4>{object.name}</h4></span>
   				<img 
          		  src={this.props.path + object.image} 
-          		  className="LeaderChoiceImg"
-          		  onClick={() => this.props.onClick(object.id)}
+              alt={object.name}
+          		className="LeaderChoiceImg"
+          		onClick={() => this.props.onClick(object.id)}
         		/>
         		<h5>{object.ability}</h5>
   			</div>

@@ -10,21 +10,25 @@ class DeckSelectionOptions extends Component {
         <div>
           <img 
             src="TemerianDeck.png" 
+            alt="Temerian Deck Icon"
             className={this.props.value === "northern" ? "DeckChoiceImageHighlight" : "DeckChoiceImage"} 
             onClick={() => this.props.onChange("northern")}
           />
           <img 
-            src="NilfgaardianDeck.png" 
+            src="NilfgaardianDeck.png"
+            alt="Nilfgaardian Deck Icon" 
             className={this.props.value === "nilfgaard" ? "DeckChoiceImageHighlight" : "DeckChoiceImage"} 
             onClick={() => this.props.onChange("nilfgaard")}
           />
           <img 
-            src="MonstersDeck.png" 
+            src="MonstersDeck.png"
+            alt="Monsters Deck Icon" 
             className={this.props.value === "monsters" ? "DeckChoiceImageHighlight" : "DeckChoiceImage"} 
             onClick={() => this.props.onChange("monsters")}
           />
           <img 
-            src="ScoiataelDeck.png" 
+            src="ScoiataelDeck.png"
+            alt="Scoiatael Deck Icon" 
             className={this.props.value === "scoiatael" ? "DeckChoiceImageHighlight" : "DeckChoiceImage"} 
             onClick={() => this.props.onChange("scoiatael")}
           />

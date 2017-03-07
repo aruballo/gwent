@@ -1,9 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import DeckSelectionOptions from './DeckSelectionOptions.js'
-import DeckChoices from './DeckChoices.js'
-import LeaderChoice from './LeaderChoice.js'
-import LeaderChoiceSelection from './LeaderChoiceSelection.js'
-import DeckStats from './DeckStats.js'
+import DeckSelectionOptions from './DeckSelectionOptions.jsx'
+import DeckChoices from './DeckChoices.jsx'
+import LeaderChoice from './LeaderChoice.jsx'
+import LeaderChoiceSelection from './LeaderChoiceSelection.jsx'
+import DeckStats from './DeckStats.jsx'
+import { connect } from 'react-redux'; 
+import store from '../Store/Store.js';
+import { deckCardClick, toggleLeaderSelection, handleLeaderClick, handleBaseDeckSelection} from '../Actions/DeckSelectionPageActions.js';
 import '../Styles/DeckSelectionPage.css';
 import '../Styles/index.css';
 
@@ -72,4 +75,38 @@ class DeckSelectionPage extends Component {
   }
 }
 
-export default DeckSelectionPage;
+const mapStateToProps = function(store){
+  return {
+      baseDeck: store.baseDeckState.baseDeck,
+      baseDeckFullName: store.baseDeckState.baseDeckFullName,
+      baseDeckCards: store.baseDeckState.baseDeckCards,
+      neutralDeckCards: store.baseDeckState.neutralDeckCards,
+      leaderChoice: store.leaderDeckState.leaderChoice,
+      leaderCards: store.leaderDeckState.leaderCards,
+      showLeaderSelection: store.leaderDeckState.showLeaderSelection,
+      totalCards: store.deckStatsState.totalCards,
+      totalUnitCards: store.deckStatsState.totalUnitCards,
+      totalSpecialCards: store.deckStatsState.totalSpecialCards,
+      totalCardStrength: store.deckStatsState.totalCardStrength,
+      totalHeroCards: store.deckStatsState.totalHeroCards          
+  }
+}
+
+const mapDispatchToProps = function(dispatch){
+  return{
+      onDeckSelectionChange: (deckName) => {
+        dispatch(handleBaseDeckSelection(deckName, dispatch));
+      },
+      onLeaderClick: (id) => {
+        dispatch(handleLeaderClick(id, store.getState().leaderDeckState, dispatch))
+      },
+      toggleLeaderSelection: () => {
+        dispatch(toggleLeaderSelection(store.getState().leaderDeckState));
+      },
+      onDeckCardClick: (id, checked) => {
+        dispatch(deckCardClick(id, checked, store.getState(), dispatch));
+      }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeckSelectionPage);

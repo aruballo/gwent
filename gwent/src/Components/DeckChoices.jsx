@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {Table, Column} from 'fixed-data-table';
-import CustomCell from '../Components/CustomCell.js'
+import CustomCell from '../Components/CustomCell.jsx'
 import '../../node_modules/fixed-data-table/dist/fixed-data-table.css'
 import '../Styles/DeckChoices.css';
 import '../Styles/index.css';

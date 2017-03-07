@@ -15,6 +15,7 @@ class CustomCell extends Component {
         <img 
           className={data[rowIndex * numberOfColumns + offset].checked === true ? "DeckImageCellImg ImageCellImgHighlight" : "DeckImageCellImg" } 
           src={path + data[rowIndex * numberOfColumns + offset].image}
+          alt={data[rowIndex * numberOfColumns + offset].name}
           onClick={() => document.getElementById("Checkbox" + data[rowIndex * numberOfColumns + offset].id).click()}
         />
         <input

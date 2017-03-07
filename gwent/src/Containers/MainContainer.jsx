@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DeckSelectionPageContainer from './DeckSelectionPageContainer.js';
+import DeckSelectionPageContainer from './DeckSelectionPageContainer.jsx';
 
 class MainContainer extends Component {
 	constructor(props){

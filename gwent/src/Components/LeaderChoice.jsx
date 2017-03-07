@@ -14,7 +14,8 @@ class LeaderChoice extends Component {
       <div>
         <h4>Leader</h4>
         <img 
-          src={this.props.path + this.props.leader.image} 
+          src={this.props.path + this.props.leader.image}
+          alt="Current Leader" 
           className="LeaderImg"
           onClick={this.props.onClick}
         />
