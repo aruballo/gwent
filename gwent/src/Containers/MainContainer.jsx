@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DeckSelectionPageContainer from './DeckSelectionPageContainer.jsx';
+import DeckSelectionPage from '../Components/DeckSelectionPage.jsx';
 
 class MainContainer extends Component {
 	constructor(props){
@@ -41,7 +41,7 @@ class MainContainer extends Component {
 
 	render(){
 		return(
-			<DeckSelectionPageContainer generateDeck={this.generateDeck}/>
+			<DeckSelectionPage generateDeck={this.generateDeck}/>
 		);
 	}
 }

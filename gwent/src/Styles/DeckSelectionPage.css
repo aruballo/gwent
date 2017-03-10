@@ -1,4 +1,4 @@
-.Header, .DeckChoicesAndStats {
+.Header, .DeckChoicesAndStats, .FiltersDiv {
   	display: flex;
   	justify-content: center;
 }
@@ -41,4 +41,14 @@
 .FinalizeDeckButton:hover {
 	border-color: rgb(255,129,33);
 	color: #fff;
+}
+
+.FilterIcon {
+	height: 40px;
+	cursor: pointer;
+	margin: 0 30px;
+}
+
+.TableTopMargin {
+	margin-top: 50px;
 }

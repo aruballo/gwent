@@ -5,7 +5,9 @@ const initialBaseDeckState = {
 	baseDeck: "",
 	baseDeckFullName: "",
 	baseDeckCards: [], 
-	neutralDeckCards: []
+	neutralDeckCards: [],
+	baseDeckFilter: "All",
+	neutralDeckFilter: "All"
 };
 
 const initialLeaderDeckState = {
@@ -41,6 +43,16 @@ const baseDeckReducer = (state = initialBaseDeckState, action) => {
 			return Object.assign({}, state, {
 				neutralDeckCards: action.deck
 			});	
+
+		case "BASE_DECK_FILTER_SELECTION":
+			return Object.assign({}, state, {
+				baseDeckFilter: action.baseDeckFilter
+			});
+
+		case "NEUTRAL_DECK_FILTER_SELECTION":
+			return Object.assign({}, state, {
+				neutralDeckFilter: action.neutralDeckFilter
+			});		
 
 		case "GENERATE_DECK":
 			return state;	
@@ -80,7 +92,7 @@ const deckStatsReducer = (state = initialDeckStatsState, action) => {
 				totalUnitCards: action.totalUnitCards,
 				totalSpecialCards: action.totalSpecialCards,
 				totalCardStrength: action.totalCardStrength,
-				totalHeroCards: action.totalCards
+				totalHeroCards: action.totalHeroCards
 			});
 
 		default:

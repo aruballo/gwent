@@ -9,13 +9,25 @@ class DeckChoices extends Component{
   render(){
     const arrayOfColumns = [];
     const numberOfColumns = this.props.numberOfColumns;
+    let filteredCards = this.props.deckCards.slice();
+
+    filteredCards = filteredCards.filter((card) => {
+        console.log(this.props.filter);
+        if(this.props.filter != "All"){
+          return card.position === this.props.filter;
+        }
+        else{
+          return card;
+        }
+        
+    });
 
     for(let i = 0; i < numberOfColumns; i++){
       arrayOfColumns.push(
         <Column 
           cell={
             <CustomCell 
-              data={this.props.deckCards} 
+              data={filteredCards} 
               path="/cards/" 
               numberOfColumns={numberOfColumns} 
               offset={i} 

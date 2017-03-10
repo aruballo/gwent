@@ -166,6 +166,20 @@ export const handleBaseDeckLeaders = (leaderType) => {
 	return action;
 }
 
+export const baseDeckFilterSelection = (filter) => {
+  let action = {};
+  action.type = "BASE_DECK_FILTER_SELECTION";
+  action.baseDeckFilter = filter;
+  return action;
+}
+
+export const neutralDeckFilterSelection = (filter) => {
+  let action = {};
+  action.type = "NEUTRAL_DECK_FILTER_SELECTION";
+  action.neutralDeckFilter = filter;
+  return action;
+}
+
 const addCardToDeckArray = (card, deckArray, defaultCheckedValue) => {
   let newCard = card;
   newCard.checked = defaultCheckedValue;
