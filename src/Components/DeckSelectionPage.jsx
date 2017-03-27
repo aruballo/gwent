@@ -19,7 +19,7 @@ class DeckSelectionPage extends Component {
           <LeaderChoiceSelection
             leaders={this.props.leaderCards}
             onClick={this.props.onLeaderClick}
-            path="/cards/"
+            path="cards/"
           />
         </div>
         <div className="DeckChoicesAndStats">
@@ -72,10 +72,10 @@ class DeckSelectionPage extends Component {
           </div>
           <div className={this.props.baseDeck === "" ? "NotDisplayed":"TableTopMargin"}>
             <div className="FiltersDiv">
-              <img className="FilterIcon" src="/icons/Melee.png" onClick={()=>this.props.onNeutralFilterClick('Melee')}/>
-              <img className="FilterIcon" src="/icons/Ranged.png" onClick={()=>this.props.onNeutralFilterClick('Ranged')}/>
-              <img className="FilterIcon" src="/icons/Siege.png" onClick={()=>this.props.onNeutralFilterClick('Siege')}/>
-              <img className="FilterIcon" src="/icons/Deck.png" onClick={()=>this.props.onNeutralFilterClick('All')}/>
+              <img className="FilterIcon" src="icons/Melee.png" onClick={()=>this.props.onNeutralFilterClick('Melee')}/>
+              <img className="FilterIcon" src="icons/Ranged.png" onClick={()=>this.props.onNeutralFilterClick('Ranged')}/>
+              <img className="FilterIcon" src="icons/Siege.png" onClick={()=>this.props.onNeutralFilterClick('Siege')}/>
+              <img className="FilterIcon" src="icons/Deck.png" onClick={()=>this.props.onNeutralFilterClick('All')}/>
             </div>
             <DeckChoices 
               label="Neutral Deck" 
