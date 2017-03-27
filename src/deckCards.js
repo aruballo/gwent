@@ -1161,28 +1161,28 @@ gwentCards.monstersLeaders = [
 		type: "LeaderCard",
 		ability: "Draw 1 Card from Discard",
 		id: 127,
-		image: "EredinDestroyerofWorlds.png"
+		image: "EredinDestroyerOfWorlds.png"
 	},
 	{
 		name: "Eredin, Bringer of Death",
 		type: "LeaderCard",
 		ability: "Discard 2 Draw 1",
 		id: 128,
-		image: "EredinBringerofDeath.png"
+		image: "EredinBringerOfDeath.png"
 	},
 	{
 		name: "Eredin, King of the Wild Hunt",
 		type: "LeaderCard",
 		ability: "Horn Melee",
 		id: 129,
-		image: "EredinKingoftheWildHunt.png"
+		image: "EredinKingOfTheWildHunt.png"
 	},
 	{
 		name: "Eredin, Commander of the Red Riders",
 		type: "LeaderCard",
 		ability: "Pick Any Weather",
 		id: 130,
-		image: "EredinCommanderoftheRedRiders.png"
+		image: "EredinCommanderOfTheRedRiders.png"
 	},
 	{
 		name: "Eredin, The Treacherous",
@@ -1719,7 +1719,7 @@ gwentCards.neutralCards = [
 		score: 7,
 		ability: "Hero,Medic",
 		id: 193,
-		image: "YenneferofVengerberg.png"
+		image: "YenneferOfVengerberg.png"
 	},
 	{
 		name: "Cirilla Fiona Elen Riannon",
@@ -1755,7 +1755,7 @@ gwentCards.neutralCards = [
 		score: 15,
 		ability: "Hero",
 		id: 197,
-		image: "GeraltofRivia.png"
+		image: "GeraltOfRivia.png"
 	},
 	{
 		name: "Zoltan Chivay",
