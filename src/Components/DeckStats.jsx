@@ -4,7 +4,6 @@ import '../Styles/index.css';
 
 class DeckStats extends Component {
   render(){
-    console.log(this.props.specialLimit)
     return(
       <div className="DeckStats">
         <div>

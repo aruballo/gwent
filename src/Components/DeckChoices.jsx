@@ -27,7 +27,7 @@ class DeckChoices extends Component{
           cell={
             <CustomCell 
               data={filteredCards} 
-              path="/cards/" 
+              path="cards/" 
               numberOfColumns={numberOfColumns} 
               offset={i} 
               type="DeckCell" 
