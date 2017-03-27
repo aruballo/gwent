@@ -25,10 +25,10 @@ class DeckSelectionPage extends Component {
         <div className="DeckChoicesAndStats">
           <div className={this.props.baseDeck === "" ? "NotDisplayed":"TableTopMargin"}>
             <div className="FiltersDiv">
-              <img className="FilterIcon" src="/icons/Melee.png" onClick={()=>this.props.onBaseFilterClick('Melee')}/>
-              <img className="FilterIcon" src="/icons/Ranged.png" onClick={()=>this.props.onBaseFilterClick('Ranged')}/>
-              <img className="FilterIcon" src="/icons/Siege.png" onClick={()=>this.props.onBaseFilterClick('Siege')}/>
-              <img className="FilterIcon" src="/icons/Deck.png" onClick={()=>this.props.onBaseFilterClick('All')}/>
+              <img className="FilterIcon" src="icons/Melee.png" onClick={()=>this.props.onBaseFilterClick('Melee')}/>
+              <img className="FilterIcon" src="icons/Ranged.png" onClick={()=>this.props.onBaseFilterClick('Ranged')}/>
+              <img className="FilterIcon" src="icons/Siege.png" onClick={()=>this.props.onBaseFilterClick('Siege')}/>
+              <img className="FilterIcon" src="icons/Deck.png" onClick={()=>this.props.onBaseFilterClick('All')}/>
             </div>
             <DeckChoices 
               label={this.props.baseDeckFullName} 
@@ -57,7 +57,7 @@ class DeckSelectionPage extends Component {
               <LeaderChoice 
                 leader={this.props.leaderChoice}
                 onClick={this.props.toggleLeaderSelection}
-                path="/cards/"
+                path="cards/"
               />
               <DeckStats 
                 totalCards={this.props.totalCards} 
