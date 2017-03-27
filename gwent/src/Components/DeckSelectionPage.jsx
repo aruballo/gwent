@@ -65,6 +65,8 @@ class DeckSelectionPage extends Component {
                 totalSpecialCards={this.props.totalSpecialCards} 
                 totalCardStrength={this.props.totalCardStrength} 
                 totalHeroCards={this.props.totalHeroCards}
+                unitMinimum={this.props.unitMinimum}
+                specialLimit={this.props.specialLimit}
               />
             </div>
           </div>
@@ -108,7 +110,9 @@ const mapStateToProps = function(store){
       totalUnitCards: store.deckStatsState.totalUnitCards,
       totalSpecialCards: store.deckStatsState.totalSpecialCards,
       totalCardStrength: store.deckStatsState.totalCardStrength,
-      totalHeroCards: store.deckStatsState.totalHeroCards          
+      totalHeroCards: store.deckStatsState.totalHeroCards,
+      unitMinimum: store.deckStatsState.unitMinimum,
+      specialLimit: store.deckStatsState.specialLimit        
   }
 }
 

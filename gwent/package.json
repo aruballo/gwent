@@ -30,5 +30,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "homepage": "https://myusername.github.io/my-app"
 }

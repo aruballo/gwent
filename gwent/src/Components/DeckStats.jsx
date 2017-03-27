@@ -4,6 +4,7 @@ import '../Styles/index.css';
 
 class DeckStats extends Component {
   render(){
+    console.log(this.props.specialLimit)
     return(
       <div className="DeckStats">
         <div>
@@ -12,11 +13,11 @@ class DeckStats extends Component {
         </div>
         <div>
           <h3> Number of Unit Cards </h3>
-          <span>{this.props.totalUnitCards}</span>
+          <span className={this.props.unitMinimum === false ? "UnitMinimumFalse" : ""}>{this.props.totalUnitCards}</span>
         </div>
         <div>
           <h3> Special Cards </h3>
-          <span>{this.props.totalSpecialCards}</span>
+          <span className={this.props.specialLimit === true ? "SpecialLimit" : ""}>{this.props.totalSpecialCards}</span>
         </div>
         <div>
           <h3> Total Unit Strength </h3>

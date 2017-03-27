@@ -88,9 +88,22 @@ export const updateDeckStatsOnCardClick = (card, state) => {
     if(card.ability.toLowerCase().indexOf("hero") > -1){
       action.totalHeroCards = state.totalHeroCards + incrementValue;
     }
+
+    if(action.totalUnitCards >= 22){
+      action.unitMinimum = true;
+    }
+    else{
+      action.unitMinimum = false;
+    }
   }
   else if(card.type === "SpecialCard" || card.type === "WeatherCard"){
     action.totalSpecialCards = state.totalSpecialCards + incrementValue;
+    if(action.totalSpecialCards > 9){
+      action.specialLimit = true;
+    }
+    else{
+      action.specialLimit = false;
+    }
   }
 
   return action;
@@ -106,7 +119,8 @@ export const setDeckStats = (statsType) => {
   action.totalSpecialCards = gwentCards[statsType].totalSpecialCards + gwentCards.neutralStats.totalSpecialCards;
   action.totalCardStrength = gwentCards[statsType].totalCardStrength + gwentCards.neutralStats.totalCardStrength;
   action.totalHeroCards = gwentCards[statsType].totalHeroCards + gwentCards.neutralStats.totalHeroCards;	
-
+  action.unitMinimum = true;
+  action.specialLimit = true;
   return action;
 }
 

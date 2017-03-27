@@ -12,7 +12,6 @@ class DeckChoices extends Component{
     let filteredCards = this.props.deckCards.slice();
 
     filteredCards = filteredCards.filter((card) => {
-        console.log(this.props.filter);
         if(this.props.filter != "All"){
           return card.position === this.props.filter;
         }

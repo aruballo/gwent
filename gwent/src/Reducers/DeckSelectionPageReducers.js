@@ -21,7 +21,9 @@ const initialDeckStatsState = {
 	totalUnitCards: 0,
 	totalSpecialCards: 0,
 	totalCardStrength: 0,
-	totalHeroCards: 0
+	totalHeroCards: 0,
+	specialLimit: true,
+	unitMinimum: true
 };
 
 const baseDeckReducer = (state = initialBaseDeckState, action) => {
@@ -92,7 +94,9 @@ const deckStatsReducer = (state = initialDeckStatsState, action) => {
 				totalUnitCards: action.totalUnitCards,
 				totalSpecialCards: action.totalSpecialCards,
 				totalCardStrength: action.totalCardStrength,
-				totalHeroCards: action.totalHeroCards
+				totalHeroCards: action.totalHeroCards,
+				unitMinimum: action.unitMinimum,
+				specialLimit: action.specialLimit
 			});
 
 		default:
