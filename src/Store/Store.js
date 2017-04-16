@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-import deckSelectionPageReducers from '../Reducers/DeckSelectionPageReducers.js';
+import rootReducer from '../Reducers/index.js';
 
-const store  = createStore(deckSelectionPageReducers);
+const store  = createStore(rootReducer);
 
 export default store;

@@ -88,23 +88,24 @@ export const updateDeckStatsOnCardClick = (card, state) => {
     if(card.ability.toLowerCase().indexOf("hero") > -1){
       action.totalHeroCards = state.totalHeroCards + incrementValue;
     }
-
-    if(action.totalUnitCards >= 22){
-      action.unitMinimum = true;
-    }
-    else{
-      action.unitMinimum = false;
-    }
   }
   else if(card.type === "SpecialCard" || card.type === "WeatherCard"){
     action.totalSpecialCards = state.totalSpecialCards + incrementValue;
-    if(action.totalSpecialCards > 9){
+  }
+
+  if(action.totalUnitCards >= 22){
+    action.unitMinimum = true;
+  }
+  else{
+    action.unitMinimum = false;
+  }
+
+  if(action.totalSpecialCards > 9){
       action.specialLimit = true;
     }
     else{
       action.specialLimit = false;
     }
-  }
 
   return action;
 }
@@ -191,6 +192,26 @@ export const neutralDeckFilterSelection = (filter) => {
   let action = {};
   action.type = "NEUTRAL_DECK_FILTER_SELECTION";
   action.neutralDeckFilter = filter;
+  return action;
+}
+
+export const finalizeDeck = (state, dispatch) => {
+  let action = {};
+  action.type = "CREATE_DECK";
+
+  if(state.deckStatsState.specialLimit){
+    alert("Too many Special cards; 9 is the maximum allowed (Weather, Horn, Decoy, etc)");
+    action.type = "INVALID_DECK";
+  }
+  else if(!state.deckStatsState.unitMinimum){
+    alert("Not enough Unit cards; need a minimum of 22 unit cards");
+    action.type = "INVALID_DECK";
+  }
+  else{
+    action.leaderCard = state.leaderDeckState.leaderChoice;
+    action.deck = state.baseDeckState.baseDeckCards.concat(state.baseDeckState.neutralDeckCards);
+  }
+ 
   return action;
 }
 

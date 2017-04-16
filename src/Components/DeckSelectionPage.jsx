@@ -6,7 +6,7 @@ import LeaderChoiceSelection from './LeaderChoiceSelection.jsx'
 import DeckStats from './DeckStats.jsx'
 import { connect } from 'react-redux'; 
 import store from '../Store/Store.js';
-import { deckCardClick, toggleLeaderSelection, handleLeaderClick, handleBaseDeckSelection, baseDeckFilterSelection, neutralDeckFilterSelection} from '../Actions/DeckSelectionPageActions.js';
+import { deckCardClick, toggleLeaderSelection, handleLeaderClick, handleBaseDeckSelection, baseDeckFilterSelection, neutralDeckFilterSelection, finalizeDeck} from '../Actions/DeckSelectionPageActions.js';
 import '../Styles/DeckSelectionPage.css';
 import '../Styles/index.css';
 
@@ -97,44 +97,48 @@ class DeckSelectionPage extends Component {
 
 const mapStateToProps = function(store){
   return {
-      baseDeck: store.baseDeckState.baseDeck,
-      baseDeckFullName: store.baseDeckState.baseDeckFullName,
-      baseDeckCards: store.baseDeckState.baseDeckCards,
-      neutralDeckCards: store.baseDeckState.neutralDeckCards,
-      baseDeckFilter: store.baseDeckState.baseDeckFilter,
-      neutralDeckFilter: store.baseDeckState.neutralDeckFilter,
-      leaderChoice: store.leaderDeckState.leaderChoice,
-      leaderCards: store.leaderDeckState.leaderCards,
-      showLeaderSelection: store.leaderDeckState.showLeaderSelection,
-      totalCards: store.deckStatsState.totalCards,
-      totalUnitCards: store.deckStatsState.totalUnitCards,
-      totalSpecialCards: store.deckStatsState.totalSpecialCards,
-      totalCardStrength: store.deckStatsState.totalCardStrength,
-      totalHeroCards: store.deckStatsState.totalHeroCards,
-      unitMinimum: store.deckStatsState.unitMinimum,
-      specialLimit: store.deckStatsState.specialLimit        
+      baseDeck: store.deckSelectionPageReducers.baseDeckState.baseDeck,
+      baseDeckFullName: store.deckSelectionPageReducers.baseDeckState.baseDeckFullName,
+      baseDeckCards: store.deckSelectionPageReducers.baseDeckState.baseDeckCards,
+      neutralDeckCards: store.deckSelectionPageReducers.baseDeckState.neutralDeckCards,
+      baseDeckFilter: store.deckSelectionPageReducers.baseDeckState.baseDeckFilter,
+      neutralDeckFilter: store.deckSelectionPageReducers.baseDeckState.neutralDeckFilter,
+      leaderChoice: store.deckSelectionPageReducers.leaderDeckState.leaderChoice,
+      leaderCards: store.deckSelectionPageReducers.leaderDeckState.leaderCards,
+      showLeaderSelection: store.deckSelectionPageReducers.leaderDeckState.showLeaderSelection,
+      totalCards: store.deckSelectionPageReducers.deckStatsState.totalCards,
+      totalUnitCards: store.deckSelectionPageReducers.deckStatsState.totalUnitCards,
+      totalSpecialCards: store.deckSelectionPageReducers.deckStatsState.totalSpecialCards,
+      totalCardStrength: store.deckSelectionPageReducers.deckStatsState.totalCardStrength,
+      totalHeroCards: store.deckSelectionPageReducers.deckStatsState.totalHeroCards,
+      unitMinimum: store.deckSelectionPageReducers.deckStatsState.unitMinimum,
+      specialLimit: store.deckSelectionPageReducers.deckStatsState.specialLimit        
   }
 }
 
 const mapDispatchToProps = function(dispatch){
+  console.log(store.getState());
   return{
       onDeckSelectionChange: (deckName) => {
         dispatch(handleBaseDeckSelection(deckName, dispatch));
       },
       onLeaderClick: (id) => {
-        dispatch(handleLeaderClick(id, store.getState().leaderDeckState, dispatch))
+        dispatch(handleLeaderClick(id, store.getState().deckSelectionPageReducers.leaderDeckState, dispatch));
       },
       toggleLeaderSelection: () => {
-        dispatch(toggleLeaderSelection(store.getState().leaderDeckState));
+        dispatch(toggleLeaderSelection(store.getState().deckSelectionPageReducers.leaderDeckState));
       },
       onDeckCardClick: (id, checked) => {
-        dispatch(deckCardClick(id, checked, store.getState(), dispatch));
+        dispatch(deckCardClick(id, checked, store.getState().deckSelectionPageReducers, dispatch));
       },
       onBaseFilterClick: (filter) => {
         dispatch(baseDeckFilterSelection(filter));
       },
       onNeutralFilterClick: (filter) => {
         dispatch(neutralDeckFilterSelection(filter));
+      },
+      onGenerateDeckClick: () => {
+        dispatch(finalizeDeck(store.getState().deckSelectionPageReducers, dispatch));
       }
   }
 }

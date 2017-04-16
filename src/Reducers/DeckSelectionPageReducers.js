@@ -26,6 +26,11 @@ const initialDeckStatsState = {
 	unitMinimum: true
 };
 
+const initialFinalizedDeckState = {
+	leaderCard: [],
+	deck: []
+};
+
 const baseDeckReducer = (state = initialBaseDeckState, action) => {
 	switch(action.type){
 		case "BASE_DECK_CARD_CLICK":
@@ -104,10 +109,23 @@ const deckStatsReducer = (state = initialDeckStatsState, action) => {
 	}
 }
 
+const finalizedDeckReducer = (state = initialFinalizedDeckState, action) => {
+	switch(action.type){
+		case "CREATE_DECK":
+			return Object.assign({}, state, {
+				leaderCard: action.leaderCard,
+				deck: action.deck
+			});
+		default:
+			return state;
+	}
+}
+
 const deckSelectionPageReducers = combineReducers({
 	baseDeckState: baseDeckReducer,
 	leaderDeckState: leaderDeckReducer, 
-	deckStatsState: deckStatsReducer
+	deckStatsState: deckStatsReducer,
+	finalizedDeckState: finalizedDeckReducer
 });
 
 export default deckSelectionPageReducers;
